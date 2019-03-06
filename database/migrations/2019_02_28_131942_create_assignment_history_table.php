@@ -13,7 +13,7 @@ class CreateAssignmentHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignment_history', function (Blueprint $table) {
+        Schema::create('assignmentHistory', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->integer('user_id');
@@ -33,6 +33,6 @@ class CreateAssignmentHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignment_history');
+        Schema::dropIfExists('assignmentHistory');
     }
 }

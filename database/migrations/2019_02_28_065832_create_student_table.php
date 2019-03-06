@@ -22,7 +22,9 @@ class CreateStudentTable extends Migration
             $table->string('address');
             $table->string('token',100);
             $table->integer('status');
-            $table->timestamp('login_at');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user');
+            //$table->timestamp('login_at');
             $table->timestamps(); //will create created_at and updated_at
         });
     }

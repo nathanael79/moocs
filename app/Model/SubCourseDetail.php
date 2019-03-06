@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Model;
+
+use Illuminate\Database\Eloquent\Model;
+
+class SubCourseDetail extends Model
+{
+    protected $table = 'sub_course_detail';
+    protected $fillable =
+        [
+            'sub_course_detail_name',
+            'sub_course_detail_type',
+            'sub_course_detail_path',
+            'sub_course_detail_description',
+            'view',
+            'sub_course_id'
+        ];
+}
