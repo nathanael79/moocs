@@ -22,32 +22,16 @@
 @endsection
 
 @section('content')
-    <form role="form" method="post">
+    <form role="form">
     {{ csrf_field() }}
-    <!--<div class="form-group">
-                                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                                      <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                                      </div>
-                                      <input class="form-control" placeholder="Name" type="text">
-                                  </div>
-                              </div>-->
         <div class="form-group">
             <div class="input-group input-group-merge input-group-alternative mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" id="email" type="email" name="email">
+                <input class="form-control" placeholder="Email" id="emailku" type="email" name="email">
             </div>
         </div>
-{{--        <div class="form-group">
-            <div class="input-group input-group-merge input-group-alternative">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                </div>
-                <input class="form-control" placeholder="Password" type="password">
-            </div>
-        </div>--}}
         <div class="row my-4">
             <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -59,34 +43,68 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" id="submit" class="btn btn-primary mt-4">Buat Akun Baru</button>
+            <button type="button" id="submit" class="btn btn-primary mt-4">Buat Akun Baru</button>
+            {{--<button type="button" id="coba_swal" class="btn btn-primary mt-4">Type your password</button>--}}
         </div>
     </form>
 @endsection
 
-
-<script type="application/javascript">
-    $("#submit").on('submit',function () {
-        var email = $('#email').value();
-        $.ajax({
-            type:"POST",
-            url:"{{url('/lecturer/email_check')}}",
-            dataType:"json",
-            data:{
-                email: email
-            },
-            success:function (data) {
-                console.log(data);
-                swal("Masukkan password baru anda disini :",{
-                    content:"input",
-                }).then(value => {
-                    swal('You typed : ${value}');
-                });
-            },
-            error:function (e) {
-                console.log(e);
-            }
+@section('js')
+<script type="text/javascript">
+    //var swal = require('sweetalert';
+    function verifyEmail()
+    {
+        $('#submit').on('click',function(){
+            var email = $('#emailku').val();
+            //console.log(email);
+            $.ajax({
+                type:"GET",
+                url:"{{url('/lecturer/email_check')}}",
+                dataType:"json",
+                data:{
+                    email:email
+                },
+                success:function (data) {
+                    if(data.status)
+                    {
+                        swal({
+                            content:{
+                                element:"input",
+                                attributes:{
+                                    placeholder:"Masukkan password baru anda :",
+                                    type:"password",
+                                },
+                            },
+                        })
+                    }
+                    else
+                    {
+                        swal({
+                            content:{
+                                element:"input",
+                                attributes:{
+                                    placeholder:"Masukkan password baru anda :",
+                                    type:"password",
+                                },
+                            },
+                        });
+                    }
+                },
+                error:function (e) {
+                    console.log(e);
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops, email tidak ditemukan',
+                        text: 'Hubungi administrator untuk mendaftarkan email anda!'
+                    })
+                }
+            });
         });
+    }
+
+    $(document).ready(function () {
+        verifyEmail(); //verify email
     });
 
 </script>
+@endsection

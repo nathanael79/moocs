@@ -91,17 +91,25 @@ class RegisterController extends Controller
         }
     }
 
-    public function getResponseEmail(Request $request)
+    public function responseEmail(Request $request)
     {
-        $activeLecturer = User::where('user_email',$request->email)
-            ->where('user_type','lecturer')->first();
+        $activeLecturer = User::where('user_email',$request->email)->where('user_type','lecturer')->first();
         if($activeLecturer)
         {
-            return true;
+            return response()->json([
+                "status"=>true,
+                "code"=>200,
+                "message"=>"email ditemukan",
+                "data"=>$activeLecturer->user_email
+            ]);
         }
         else
         {
-            return false;
+            return response()->json([
+                "status"=>false,
+                "code"=>500,
+                "message"=>"email tidak ditemukan"
+            ]);
         }
 
     }

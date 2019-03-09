@@ -66,10 +66,10 @@ Route::group(['prefix'=>'/'],function (){
 
            ]);
 
-       Route::post('/email_check',
+       Route::get('/email_check',
            [
-               "uses"=>"Auth\RegisterController@getResponseEmail",
-               "as"=>"lecturer_email_check"
+               "uses"=>"Auth\RegisterController@responseEmail",
+               "as"=>"lecturer_check_email"
            ]);
     });
 
