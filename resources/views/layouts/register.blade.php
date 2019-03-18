@@ -1,3 +1,4 @@
+@include('toast::messages')
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>@yield('title')</title>
+  <title>MOOC PENS</title>
   <!-- Extra details for Live View on GitHub Pages -->
   <!-- Canonical SEO -->
   <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-pro" />

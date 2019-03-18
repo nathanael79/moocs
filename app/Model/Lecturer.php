@@ -13,7 +13,7 @@ class Lecturer extends Model
             'password',
             'gender',
             'address',
-            'token',
+            /*'token',*/
         ];
 
     public function course()

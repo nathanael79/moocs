@@ -15,7 +15,9 @@ class User extends Model
             'user_type',
             'user_email',
             'user_password',
-            'login_at'
+            'login_at',
+            'token',
+            'status'
         ];
 
     public function Administrator()

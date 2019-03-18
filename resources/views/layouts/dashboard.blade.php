@@ -1,3 +1,4 @@
+@include('toast::messages')
 <!DOCTYPE html>
 <html>
 
@@ -61,8 +62,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header d-flex align-items-center">
-        <a class="navbar-brand" href="dashboard.blade.php">
-          <img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+        <a class="navbar-brand" href="{{url('/dashboard')}}">
+          {{--<img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">--}}
+            <p>MOOC PENS <br>Dashboard</p>
         </a>
         <div class="ml-auto">
           <!-- Sidenav toggler -->

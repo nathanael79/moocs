@@ -20,8 +20,6 @@ class CreateStudentTable extends Migration
             $table->string('password',255);
             $table->string('gender');
             $table->string('address');
-            $table->string('token',100);
-            $table->integer('status');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('user');
             //$table->timestamp('login_at');

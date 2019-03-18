@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Grimthorr\LaravelToast\Toast;
 use Validator;
 use App\Model\User;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,7 @@ class RegisterController extends Controller
 
     public function registerLecturer(Request $request)
     {
+        $toast = new Toast();
         $validator = Validator::make($request->email,
             [
                 //'name'=>'required|max:30',
@@ -39,9 +41,11 @@ class RegisterController extends Controller
         else
         {
             $user = User::where('user_email',$request->email)->first();
+            //$token = Hash::make($request->email);
             if($user)
             {
-                return redirect('');
+                Toast::info('Email yang anda gunakan untuk mendaftarkan akun baru telah terdaftar, gunakan email lainnya.','Email sudah terdaftar !');
+                return redirect()->back();
             }
             else
             {
@@ -50,6 +54,8 @@ class RegisterController extends Controller
                     'user_email'=>$request->email,
                     'user_password'=>Hash::make($request->password),
                     'user_type'=>'lecturer',
+                    'token'=>Hash::make($request->email),
+                    'status'=>0 //belum diverifikasi, menggunakan email untuk verifikasi.
                 ]);
 
                 return redirect('/dashboard');
@@ -75,6 +81,7 @@ class RegisterController extends Controller
             $user = User::where('user_email',$request->email)->first();
             if($user)
             {
+                Toast::info('Email yang anda gunakan untuk mendaftarkan akun baru telah terdaftar, gunakan email lainnya.','Email sudah terdaftar !');
                 return redirect()->back();
             }
             else

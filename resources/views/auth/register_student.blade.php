@@ -1,7 +1,27 @@
-@extends('layouts.register')
-@section('title','MOOC PENS')
+@extends('layouts.front_end.frontend_register')
 
-@section('header')
+
+{{--
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif--}}
+
+{{--@if(!empty(Session::get('not_found')) && Session::get('not_found') == 404)
+    <script>
+        function notFound()
+        {
+            Swal.fire('Akun anda belum terdaftar, silahkan daftarkan terlebih dahulu');
+        }
+
+        $(document).ready(function () {
+            notFound(); //verify email
+        });
+    </script>
+@endif--}}
+
+{{--@section('header')
     <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
         <div class="container">
             <div class="header-body text-center mb-7" style="margin-bottom: 0 !important;">
@@ -63,7 +83,7 @@
                 <div class="custom-control custom-control-alternative custom-checkbox">
                     <input class="custom-control-input" id="customCheckRegister" type="checkbox">
                     <label class="custom-control-label" for="customCheckRegister">
-                        <span class="text-muted">I agree with the <a href="register.html#!">Privacy Policy</a></span>
+                        <span class="text-muted">I agree with the <a href="frontend_register.blade.php#!">Privacy Policy</a></span>
                     </label>
                 </div>
             </div>
@@ -72,5 +92,5 @@
             <button type="submit" class="btn btn-primary mt-4">Buat Akun Baru</button>
         </div>
     </form>
-@endsection
+@endsection--}}
 

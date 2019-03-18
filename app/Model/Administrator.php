@@ -12,8 +12,8 @@ class Administrator extends Model
             'name',
             'gender',
             'address',
-            'token',
-            'status',
+/*            'token',
+            'status',*/
             'created_at',
             'updated_at'
         ];

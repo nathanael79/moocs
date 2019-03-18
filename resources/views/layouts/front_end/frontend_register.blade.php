@@ -8,16 +8,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{url(asset('../../skwela/css/bootstrap.css'))}}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/css/animate.css') !!}">
+    <link rel="stylesheet" href="{!! asset('../../skwela/css/bootstrap.css') !!}">
+    <link rel="stylesheet" href="{!! asset('../../skwela/css/animate.css')!!}">
     <link rel="stylesheet" href="{!! asset('../../skwela/css/owl.carousel.min.css') !!}">
 
-    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/ionicons/css/ionicons.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/fontawesome/css/font-awesome.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/flaticon/font/flaticon.css') !!}">
+    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/ionicons/css/ionicons.min.css')!!}">
+    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/fontawesome/css/font-awesome.min.css')!!}">
+    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/flaticon/font/flaticon.css')!!}">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="{!! asset('../../skwela/css/style.css') !!}">
+    <link rel="stylesheet" href="{!! asset('../../skwela/css/style.css')!!}">
   </head>
   <body>
     
@@ -68,12 +68,12 @@
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
-             <ul class="navbar-nav absolute-right">
+            <ul class="navbar-nav absolute-right">
               <li class="nav-item">
-                <a href="{{url('/login')}}" class="nav-link active">Login</a>
+                <a href="{{url('/login')}}" class="nav-link">Login</a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/register')}}" class="nav-link">Register</a>
+                <a href="{{url('/register')}}" class="nav-link active">Register</a>
               </li>
             </ul>
             
@@ -83,12 +83,13 @@
     </header>
     <!-- END header -->
 
-    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url({{asset('../../skwela/images/big_image_3.jpg')}});">
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url({{ asset('../../skwela/images/big_image_3.jpg') }});">
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-md-8 text-center">
+
             <div class="mb-5 element-animate">
-              <h1>Login</h1>
+              <h1>Register</h1>
             </div>
           </div>
         </div>
@@ -101,19 +102,19 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-5 box">
-            <h2 class="mb-5">Log in with your account</h2>
-            <form action="{{url('/login')}}" method="post">
+            <h2 class="mb-5">Register new account</h2>
+            <form action="{{url('\register')}}" method="post">
                 {{ csrf_field() }}
                   <div class="row">
                     <div class="col-md-12 form-group">
-                      <label for="name">Email</label>
-                      <input type="email" id="name" name="user_email" class="form-control ">
+                      <label for="name">Email Address</label>
+                      <input type="email" id="password" name="email" class="form-control ">
                     </div>
                   </div>
-                  <div class="row mb-5">
+                  <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="name">Password</label>
-                      <input type="password" id="name" name="user_password" class="form-control ">
+                      <input type="password" id="password"  name='password' class="form-control ">
                     </div>
                   </div>
                   
@@ -122,20 +123,6 @@
                       <input type="submit" value="Login" class="btn btn-primary">
                     </div>
                   </div>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <center>
-                            <a href="{{url('/lecturer/register')}}" type="button">Daftar sebagai Lecturer</a>
-                        </center>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <center>
-                            <a href="{{url('/register')}}" type="button">Daftar sebagai Student</a>
-                        </center>
-                    </div>
-                </div>
                 </form>
           </div>
         </div>
@@ -164,7 +151,7 @@
     <!-- END section -->
     
   
-    <footer class="site-footer" style="background-image: url({{asset('../../skwela/images/big_image_3.jpg')}});">
+    <footer class="site-footer" style="background-image: url({{asset('../../skwela/images/big_image_3.jpg')}}">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-4">
@@ -217,16 +204,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
-    <script src="{{url(asset('../../skwela/js/jquery-3.2.1.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/jquery-migrate-3.0.0.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/popper.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/bootstrap.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/owl.carousel.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/jquery.waypoints.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/jquery.stellar.min.js'))}}"></script>
+    <script src="{!! asset('../../skwela/js/jquery-3.2.1.min.js')!!}"></script>
+    <script src="{!! asset('../../skwela/js/jquery-migrate-3.0.0.js')!!}"></script>
+    <script src="{!! asset('../../skwela/js/popper.min.js')!!}"></script>
+    <script src="{!! asset('../../skwela/js/bootstrap.min.js')!!}"></script>
+    <script src="{!! asset('../../skwela/js/owl.carousel.min.js')!!}"></script>
+    <script src="{!! asset('../../skwela/js/jquery.waypoints.min.js')!!}"></script>
+    <script src="{!! asset('../../skwela/js/jquery.stellar.min.js')!!}"></script>
 
     
-    <script src="{{url(asset('../../skwela/js/main.js'))}}"></script>
-  @yield('js')
+    <script src="{!! asset('../../skwela/js/main.js')!!}"></script>
   </body>
 </html>

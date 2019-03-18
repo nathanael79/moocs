@@ -12,7 +12,7 @@ class Student extends Model
             'name',
             'gender',
             'address',
-            'token',
-            'status',
+/*            'token',
+            'status',*/
         ];
 }

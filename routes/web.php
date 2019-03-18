@@ -31,8 +31,6 @@ Route::group(['prefix'=>'/'],function (){
             "as"=>"post_register_student"
         ]);
 
-//    Route::group(),function ()
-//    {
         Route::get('/login',
             [
                 "uses"=>"Auth\LoginController@index",
@@ -45,12 +43,36 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"post_login"
             ]);
 
+        Route::post('/logout',
+            [
+                "uses"=>"Auth\LoginController@logout",
+                "as"=>"post_logout"
+            ]);
+
         Route::get('/dashboard',
             [
                 "uses"=>"DashboardController@index",
                 "as"=>"dashboard_page_student"
             ]);
-    //});
+
+        //testing
+        Route::get('/coba',
+            [
+                "uses"=>"CobaController@index",
+                "as"=>"coba_page_1"
+            ]);
+
+        Route::get('/coba2',
+            [
+                "uses"=>"CobaController@index2",
+                "as"=>"coba_page_2"
+            ]);
+
+        Route::get('/coba3',
+            [
+                "uses"=>"CobaController@index3",
+                "as"=>"coba_page_2"
+            ]);
 
     Route::group(['prefix'=>'/lecturer'],function (){
        Route::get('/',

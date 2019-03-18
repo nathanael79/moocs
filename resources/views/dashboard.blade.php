@@ -1,3 +1,4 @@
+@include('toast::messages')
 @extends('layouts.dashboard')
 @section('main_content')
     <div class="main-content" id="panel">
