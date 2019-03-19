@@ -43,7 +43,7 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"post_login"
             ]);
 
-        Route::post('/logout',
+        Route::get('/logout',
             [
                 "uses"=>"Auth\LoginController@logout",
                 "as"=>"post_logout"
@@ -86,6 +86,12 @@ Route::group(['prefix'=>'/'],function (){
                "uses"=>"Auth\RegisterController@indexLecturer",
                "as"=>"lecturer_register_page"
 
+           ]);
+
+       Route::post('/register',
+           [
+               "uses"=>"Auth\RegisterController@registerLecturer",
+               "as"=>"lecturer_register_post"
            ]);
 
        Route::get('/email_check',

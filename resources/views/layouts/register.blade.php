@@ -42,14 +42,13 @@
   <link rel="stylesheet" href="{!! asset('../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') !!}" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{!! asset('../../assets/css/argon.min-v=1.0.0.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('../../assets/vendor/sweetalert2/dist/sweetalert2.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('../../assets/vendor/sweetalert2/dist/sweetalert2.min.css') !!}" type="text/css">
     <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- End Google Tag Manager -->
 </head>
 
@@ -169,6 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="{!! asset('../../assets/vendor/jquery/dist/jquery.min.js') !!}"></script>
+  <script src="{!! asset('../../assets/vendor/sweetalert2/dist/sweetalert2.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/js-cookie/js.cookie.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') !!}"></script>

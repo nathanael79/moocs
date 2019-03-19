@@ -59,13 +59,10 @@
 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
+                <a class="nav-link" href="{{url('/lecturer')}}">Lecturer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
             <ul class="navbar-nav absolute-right">

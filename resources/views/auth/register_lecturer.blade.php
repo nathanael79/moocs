@@ -32,7 +32,7 @@
                 <input class="form-control" placeholder="Email" id="emailku" type="email" name="email">
             </div>
         </div>
-        <div class="row my-4">
+{{--        <div class="row my-4">
             <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
                     <input class="custom-control-input" id="customCheckRegister" type="checkbox">
@@ -41,8 +41,9 @@
                     </label>
                 </div>
             </div>
-        </div>
+        </div>--}}
         <div class="text-center">
+            <meta name="csrf-token" content="{{ csrf_token() }}">
             <button type="button" id="submit" class="btn btn-primary mt-4">Buat Akun Baru</button>
             {{--<button type="button" id="coba_swal" class="btn btn-primary mt-4">Type your password</button>--}}
         </div>
@@ -54,7 +55,7 @@
     //var swal = require('sweetalert';
     function verifyEmail()
     {
-        $('#submit').on('click',function(){
+        $('#emailku').on('change',function(){
             var email = $('#emailku').val();
             //console.log(email);
             $.ajax({
@@ -64,35 +65,47 @@
                 data:{
                     email:email
                 },
-                success:function (data) {
-                    if(data.status)
-                    {
-                        swal({
-                            content:{
-                                element:"input",
-                                attributes:{
-                                    placeholder:"Masukkan password baru anda :",
-                                    type:"password",
-                                },
-                            },
+                success: async function (data) {
+                    if (data.code === 200 && data.activated === 0) {
+                        //console.log('jalan');
+                        const {value: password} = await Swal.fire({
+                            title: 'Masukkan password baru anda',
+                            input: 'password',
+                            inputPlaceholder: 'masukkan disini',
+                            inputAttributes: {
+                                minlength: 6,
+                                autocapitalize: 'off',
+                                autocorrect: 'off'
+                            }
                         })
-                    }
-                    else
-                    {
-                        swal({
-                            content:{
-                                element:"input",
-                                attributes:{
-                                    placeholder:"Masukkan password baru anda :",
-                                    type:"password",
+                        if (password) {
+                            $.ajax({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 },
-                            },
-                        });
+                                type:"POST",
+                                url:"{{url('/lecturer/register')}}",
+                                dataType: "json",
+                                data:{
+                                    email:email,
+                                    password:password
+                                },
+                                success:function () {
+                                    console.log('data berhasil dimasukkan');
+                                },
+                                error:function (e) {
+                                    console.log(e);
+                                }
+                            })
+                        }
+                    } else {
+                        Swal.fire('email anda tidak terdaftar, silahkan hubungi administrator');
                     }
+
                 },
                 error:function (e) {
                     console.log(e);
-                    Swal.fire({
+                    swal({
                         type: 'error',
                         title: 'Oops, email tidak ditemukan',
                         text: 'Hubungi administrator untuk mendaftarkan email anda!'
