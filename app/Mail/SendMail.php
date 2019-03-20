@@ -19,9 +19,10 @@ class SendMail extends Mailable
      */
     //protected $user = user;
 
-    public function __construct(User $user)
+    public function __construct($email, $token)
     {
-        $this->user = $user;
+        $this->email = $email;
+        $this->token = $token;
     }
 
     /**
@@ -31,9 +32,11 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->to($this->user->user_email,$this->user->user_name)
-            ->subject($this->subject)
-            ->view('view.name')
-            ->with('user',$this->user);
+        return $this->from('moocpens@gmail.com')
+            ->view('backend.mail.register')
+            ->with([
+                'email'=>$this->email,
+                'token'=>$this->token
+            ]);
     }
 }

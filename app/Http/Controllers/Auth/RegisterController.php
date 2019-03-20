@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\SendMail;
 use App\Model\Lecturer;
+use Illuminate\Support\Facades\Mail;
 use Toast;
 use Validator;
 use App\Model\User;
@@ -51,6 +53,7 @@ class RegisterController extends Controller
         else
         {
             $user = User::where('user_email',$request->email)->first();
+            $token = str_random(255);
             if($user)
             {
                 Toast::info('Email yang anda gunakan untuk mendaftarkan akun baru telah terdaftar, gunakan email lainnya.','Email sudah terdaftar !');
@@ -63,8 +66,10 @@ class RegisterController extends Controller
                     'user_email'=>$request->email,
                     'user_password'=>Hash::make($request->password),
                     'user_type'=>'student',
+                    'token'=>$token
                 ]);
-
+                Mail::to($request->email)->send(new SendMail($request->email, $token));
+                Toast::info('Segera periksa kotak masuk email yang kamu gunakan untuk mendaftar','Konfirmasikan email kamu !');
                 return redirect('/dashboard');
             }
         }

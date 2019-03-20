@@ -74,6 +74,14 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"coba_page_2"
             ]);
 
+        //email
+
+        Route::get('/confirm/{email}/{token}',
+            [
+                "uses"=>"Mailcontroller@confirmation",
+                "as"=>"confirmation_action"
+            ]);
+
     Route::group(['prefix'=>'/lecturer'],function (){
        Route::get('/',
            [
