@@ -7,13 +7,21 @@
  */
 
 namespace App\Http\Controllers;
+use Session;
 
 
 class StudentController extends Controller
 {
     public function __construct()
     {
-        //
+        if(!Session::get('login_email'))
+        {
+            return redirect('/login')->with('error_login',1);
+        }
+        else
+        {
+            //
+        }
     }
 
     public function dashboard() //index

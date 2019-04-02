@@ -25,6 +25,12 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a class="nav-link" href="{{url('/lecturer/courses')}}" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                                <i class="ni ni-ungroup text-orange"></i>
+                                <span class="nav-link-text">Kursus buatan anda</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link active" href="#navbar-dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-dashboards">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Kelas yang diikuti</span>
@@ -32,13 +38,16 @@
                             <div class="collapse show" id="navbar-dashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
+                                        <a href="{{url('/completed')}}" class="nav-link">Belum selesai</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="{{url('/completed')}}" class="nav-link">Sudah selesai</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/accomplishment')}}"  role="button" aria-expanded="false" aria-controls="navbar-examples">
+                            <a class="nav-link" href="{{url('/accomplishment')}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
                                 <i class="ni ni-ungroup text-orange"></i>
                                 <span class="nav-link-text">Pencapaian</span>
                             </a>
@@ -56,7 +65,7 @@
     </nav>
 @endsection
 @section('topnav')
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-info border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-orange border-bottom">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Search form -->
@@ -86,12 +95,12 @@
                         </div>
                     </li>
                     <li class="nav-item d-sm-none">
-                        <a class="nav-link" href="dashboard.html#" data-action="search-show" data-target="#navbar-search-main">
+                        <a class="nav-link" href="dashboard.blade.php#" data-action="search-show" data-target="#navbar-search-main">
                             <i class="ni ni-zoom-split-in"></i>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="dashboard.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="dashboard.blade.php#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ni ni-bell-55"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
@@ -101,7 +110,7 @@
                             </div>
                             <!-- List group -->
                             <div class="list-group list-group-flush">
-                                <a href="dashboard.html#!" class="list-group-item list-group-item-action">
+                                <a href="dashboard.blade.php#!" class="list-group-item list-group-item-action">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
@@ -120,7 +129,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="dashboard.html#!" class="list-group-item list-group-item-action">
+                                <a href="dashboard.blade.php#!" class="list-group-item list-group-item-action">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
@@ -139,7 +148,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="dashboard.html#!" class="list-group-item list-group-item-action">
+                                <a href="dashboard.blade.php#!" class="list-group-item list-group-item-action">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
@@ -158,7 +167,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="dashboard.html#!" class="list-group-item list-group-item-action">
+                                <a href="dashboard.blade.php#!" class="list-group-item list-group-item-action">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
@@ -177,7 +186,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="dashboard.html#!" class="list-group-item list-group-item-action">
+                                <a href="dashboard.blade.php#!" class="list-group-item list-group-item-action">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
@@ -198,46 +207,46 @@
                                 </a>
                             </div>
                             <!-- View all -->
-                            <a href="dashboard.html#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                            <a href="dashboard.blade.php#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="dashboard.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="dashboard.blade.php#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ni ni-ungroup"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default dropdown-menu-right">
                             <div class="row shortcuts px-4">
-                                <a href="dashboard.html#!" class="col-4 shortcut-item">
+                                <a href="dashboard.blade.php#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-red">
                       <i class="ni ni-calendar-grid-58"></i>
                     </span>
                                     <small>Calendar</small>
                                 </a>
-                                <a href="dashboard.html#!" class="col-4 shortcut-item">
+                                <a href="dashboard.blade.php#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
                       <i class="ni ni-email-83"></i>
                     </span>
                                     <small>Email</small>
                                 </a>
-                                <a href="dashboard.html#!" class="col-4 shortcut-item">
+                                <a href="dashboard.blade.php#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-info">
                       <i class="ni ni-credit-card"></i>
                     </span>
                                     <small>Payments</small>
                                 </a>
-                                <a href="dashboard.html#!" class="col-4 shortcut-item">
+                                <a href="dashboard.blade.php#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-green">
                       <i class="ni ni-books"></i>
                     </span>
                                     <small>Reports</small>
                                 </a>
-                                <a href="dashboard.html#!" class="col-4 shortcut-item">
+                                <a href="dashboard.blade.php#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
                       <i class="ni ni-pin-3"></i>
                     </span>
                                     <small>Maps</small>
                                 </a>
-                                <a href="dashboard.html#!" class="col-4 shortcut-item">
+                                <a href="dashboard.blade.php#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
                       <i class="ni ni-basket"></i>
                     </span>
@@ -249,7 +258,7 @@
                 </ul>
                 <ul class="navbar-nav align-items-center ml-auto ml-md-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link pr-0" href="dashboard.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link pr-0" href="dashboard.blade.php#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
                     <img alt="Image placeholder" src="../../assets/img/theme/team-4.jpg">
@@ -263,19 +272,19 @@
                             <div class="dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Welcome!</h6>
                             </div>
-                            <a href="{{url('/profile')}}" class="dropdown-item">
+                            <a href="{{url('/lecturer/profile')}}" class="dropdown-item">
                                 <i class="ni ni-single-02"></i>
                                 <span>Profile saya</span>
                             </a>
-                           {{-- <a href="dashboard.html#!" class="dropdown-item">
+                            {{--<a href="dashboard.blade.php#!" class="dropdown-item">
                                 <i class="ni ni-settings-gear-65"></i>
                                 <span>Settings</span>
                             </a>
-                            <a href="dashboard.html#!" class="dropdown-item">
+                            <a href="dashboard.blade.php#!" class="dropdown-item">
                                 <i class="ni ni-calendar-grid-58"></i>
                                 <span>Activity</span>
                             </a>
-                            <a href="dashboard.html#!" class="dropdown-item">
+                            <a href="dashboard.blade.php#!" class="dropdown-item">
                                 <i class="ni ni-support-16"></i>
                                 <span>Support</span>
                             </a>--}}
@@ -291,4 +300,3 @@
         </div>
     </nav>
 @endsection
-@yield('mask_header')

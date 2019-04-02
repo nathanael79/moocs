@@ -127,6 +127,18 @@ Route::group(['prefix'=>'/'],function (){
                "uses"=>"Auth\RegisterController@responseEmail",
                "as"=>"lecturer_check_email"
            ]);
+
+        Route::get('/courses',
+            [
+                "uses"=>"LecturerController@courses",
+                "as"=>"lecturer_courses_page"
+            ]);
+
+        Route::get('/profile',
+            [
+                "uses"=>"LecturerController@profile",
+                "as"=>"lecturer_profile_page"
+            ]);
     });
 
 

@@ -1,10 +1,9 @@
-@extends('backend.student.dashboard_layout')
-@section('title','MOOC PENS')
+@extends('backend.lecturer.dashboard_layout')
 @section('main_content')
     <!--Mask Header-->
     <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
         <!-- Mask -->
-        <span class="mask bg-gradient-info opacity-8"></span>
+        <span class="mask bg-gradient-orange opacity-8"></span>
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
             <div class="row">
@@ -17,7 +16,6 @@
         </div>
     </div>
     <!--Mask Header-->
-
     <div class="container-fluid mt--6">
         <div class="row">
             <div class="col-xl-4 order-xl-2">

@@ -21,4 +21,14 @@ class LecturerController extends Controller
         return view('backend.lecturer.dashboard');
     }
 
+    public function courses()
+    {
+        return view('backend.lecturer.courses');
+    }
+
+    public function profile()
+    {
+        return view('backend.lecturer.profile');
+    }
+
 }
