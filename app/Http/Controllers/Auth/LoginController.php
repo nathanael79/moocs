@@ -32,12 +32,62 @@ class LoginController extends Controller
             if(Hash::check($request->user_password,$activeUser->user_password))
             {
                 $request->session()->put('login_email',$activeUser->user_email);
-                if($activeUser->status == 0)
+                switch ($activeUser->user_type)
                 {
-                    /*$toast->success('','');*/
-                    Toast::success('','Jangan lupa verifikasi email kamu !');
+                    case "student":
+                        if($activeUser->status == 0)
+                        {
+                            Toast::success('','Jangan lupa verifikasi email kamu !');
+                        }
+                        return redirect('/dashboard');
+                        break;
+
+                    case "lecturer":
+                        if($activeUser->status == 0)
+                        {
+                            Toast::success('','Jangan lupa verifikasi email kamu !');
+                        }
+                        return redirect('/lecturer');
+                        break;
+
+                    case "admin":
+                        return redirect('/admin');
+                        break;
                 }
-                return redirect('/dashboard');
+
+
+
+
+
+
+/*                if($activeUser->user_type == 'student')
+                {
+                    if($activeUser->status == 0)
+                    {
+
+                        Toast::success('','Jangan lupa verifikasi email kamu !');
+                    }
+                    return redirect('/dashboard');
+                }
+                else if($activeUser->status == 'lecturer')
+                {
+                    if($activeUser->status == 0)
+                    {
+
+                        Toast::success('','Jangan lupa verifikasi email kamu !');
+                    }
+                    return redirect('/lecturer');
+                }
+                else
+                {
+                    if($activeUser->status == 0)
+                    {
+
+                        Toast::success('','Jangan lupa verifikasi email kamu !');
+                    }
+                    return redirect('/admin');
+                }*/
+
             }
             else
             {

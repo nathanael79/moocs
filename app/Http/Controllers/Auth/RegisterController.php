@@ -30,11 +30,19 @@ class RegisterController extends Controller
     {
         $activeLecturer = User::where('user_email',$request->email)
             ->where('user_type','lecturer')->first();
-        $password = Hash::make($request->password);
-        $activeLecturer->user_password = $password;
-        $activeLecturer->save();
-        Toast::info('Silahkan lengkapi data profil anda pada halaman profil','Akun anda telah dibuat !');
-        return redirect('/dashboard');
+        if($activeLecturer->user_password)
+        {
+            Toast::error('Silahkan login dengan akun lecturer anda', 'Akun anda sudah aktif !');
+            return redirect('/login');
+        }
+        else
+        {
+            $password = Hash::make($request->password);
+            $activeLecturer->user_password = $password;
+            $activeLecturer->save();
+            Toast::info('Silahkan lengkapi data profil anda pada halaman profil','Akun anda telah dibuat !');
+            return redirect('/lecturer');
+        }
     }
 
     public function registerStudent(Request $request)
@@ -85,6 +93,7 @@ class RegisterController extends Controller
                 "code"=>200,
                 "message"=>"email ditemukan",
                 "data"=>$activeLecturer->user_email,
+                //"password"=>1,
                 "activated"=>$activeLecturer->status
             ]);
         }

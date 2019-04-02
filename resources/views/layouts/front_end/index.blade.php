@@ -59,7 +59,7 @@
 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url('/lecturer')}}">Lecturer</a>
+                <a class="nav-link" href="{{url('/login')}}">Lecturer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>

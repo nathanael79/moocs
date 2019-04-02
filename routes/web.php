@@ -51,8 +51,26 @@ Route::group(['prefix'=>'/'],function (){
 
         Route::get('/dashboard',
             [
-                "uses"=>"DashboardController@index",
+                "uses"=>"StudentController@dashboard",
                 "as"=>"dashboard_page_student"
+            ]);
+
+        Route::get('/completed',
+            [
+                "uses"=>"StudentController@completed",
+                "as"=>"completed_page_student"
+            ]);
+
+        Route::get('/accomplishment',
+            [
+                "uses"=>"StudentController@accomplishment",
+                "as"=>"accomplishment_page_student"
+            ]);
+
+        Route::get('/profile',
+            [
+                "uses"=>"StudentController@profile",
+                "as"=>"profile_page_student"
             ]);
 
         //testing
@@ -78,31 +96,33 @@ Route::group(['prefix'=>'/'],function (){
 
         Route::get('/confirm/{email}/{token}',
             [
-                "uses"=>"Mailcontroller@confirmation",
+                "uses"=>"MailController@confirmation",
                 "as"=>"confirmation_action"
             ]);
 
     Route::group(['prefix'=>'/lecturer'],function (){
-       Route::get('/',
-           [
-               "uses"=>'Auth\LoginController@index',
-               "as"=>"lecturer_first_page"
-           ]);
 
-       Route::get('/register',
+        Route::get('/',
+            [
+                "uses"=>"LecturerController@dashboard",
+                "as"=>"dashboard_page_lecturer"
+
+            ]);
+
+        Route::get('/register',
            [
                "uses"=>"Auth\RegisterController@indexLecturer",
                "as"=>"lecturer_register_page"
 
            ]);
 
-       Route::post('/register',
+        Route::post('/register',
            [
                "uses"=>"Auth\RegisterController@registerLecturer",
                "as"=>"lecturer_register_post"
            ]);
 
-       Route::get('/email_check',
+        Route::get('/email_check',
            [
                "uses"=>"Auth\RegisterController@responseEmail",
                "as"=>"lecturer_check_email"

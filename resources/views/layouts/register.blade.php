@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </a>
           </li>
             <li class="nav-item">
-                <a href="{{url('/lecturer')}}" class="nav-link">
+                <a href="{{url('/login')}}" class="nav-link">
                     <span class="nav-link-inner--text">Lecturer</span>
                 </a>
             </li>
