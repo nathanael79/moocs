@@ -4,7 +4,7 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="navbar-brand" href="{{url('/dashboard')}}">
+                <a class="navbar-brand" href="{{url('/lecturer/courses')}}">
                     {{--<img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">--}}
                     <p>MOOC PENS <br>Dashboard</p>
                 </a>
@@ -38,16 +38,16 @@
                             <div class="collapse show" id="navbar-dashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{url('/completed')}}" class="nav-link">Belum selesai</a>
+                                        <a href="{{url('/lecturer/uncompleted_courses')}}" class="nav-link">Belum selesai</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{url('/completed')}}" class="nav-link">Sudah selesai</a>
+                                        <a href="{{url('/lecturer/completed_courses')}}" class="nav-link">Sudah selesai</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/accomplishment')}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                            <a class="nav-link" href="{{url('/lecturer/accomplishment')}}" role="button" aria-expanded="false" aria-controls="navbar-examples">
                                 <i class="ni ni-ungroup text-orange"></i>
                                 <span class="nav-link-text">Pencapaian</span>
                             </a>

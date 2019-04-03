@@ -31,4 +31,24 @@ class LecturerController extends Controller
         return view('backend.lecturer.profile');
     }
 
+    public function uncompleted()
+    {
+        return view('backend.lecturer.uncompleted_courses');
+    }
+
+    public function completed()
+    {
+        return view('backend.lecturer.completed');
+    }
+
+    public function accomplishment()
+    {
+        return view('backend.lecturer.accomplishment');
+    }
+
+    public function createCourse()
+    {
+        return view('backend.lecturer.form_courses');
+    }
+
 }

@@ -134,10 +134,34 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_courses_page"
             ]);
 
+        Route::get('/uncompleted_courses',
+            [
+                "uses"=>"LecturerController@uncompleted",
+                "as"=>"lecturer_uncompleted_courses_page"
+            ]);
+
         Route::get('/profile',
             [
                 "uses"=>"LecturerController@profile",
                 "as"=>"lecturer_profile_page"
+            ]);
+
+        Route::get('/completed_courses',
+            [
+                "uses"=>"LecturerController@completed",
+                "as"=>"lecturer_completed_courses_page"
+            ]);
+
+        Route::get('/accomplishment',
+            [
+                "uses"=>"LecturerController@accomplishment",
+                "as"=>"lecturer_accomplishment_page"
+            ]);
+
+        Route::get('/create_course',
+            [
+                "uses"=>"LecturerController@createCourse",
+                "as"=>"lecturer_create_course_page"
             ]);
     });
 
