@@ -193,9 +193,9 @@
                                         </div>
                                     </th>
                                     <td>
-                <span class="badge badge-dot">
-                  <i class="bg-success"></i> completed
-                </span>
+                                        <span class="badge badge-dot">
+                                          <i class="bg-success"></i> completed
+                                        </span>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
@@ -232,9 +232,9 @@
                                         </div>
                                     </th>
                                     <td>
-                <span class="badge badge-dot mr-4">
-                  <i class="bg-danger"></i> delayed
-                </span>
+                                        <span class="badge badge-dot mr-4">
+                                          <i class="bg-danger"></i> delayed
+                                        </span>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
@@ -271,9 +271,9 @@
                                         </div>
                                     </th>
                                     <td>
-                <span class="badge badge-dot">
-                  <i class="bg-info"></i> on schedule
-                </span>
+                                        <span class="badge badge-dot">
+                                          <i class="bg-info"></i> on schedule
+                                        </span>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
@@ -310,9 +310,9 @@
                                         </div>
                                     </th>
                                     <td>
-                <span class="badge badge-dot mr-4">
-                  <i class="bg-success"></i> completed
-                </span>
+                                        <span class="badge badge-dot mr-4">
+                                          <i class="bg-success"></i> completed
+                                        </span>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
