@@ -12,5 +12,10 @@ class CourseCategory extends Model
             'course_category_name',
             'course_id'
         ];
+
+    public function course()
+    {
+        return $this->hasOne('Course');
+    }
     public $timestamps = false;
 }

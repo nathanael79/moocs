@@ -20,6 +20,8 @@ class CreateCourseTable extends Migration
             $table->string('pictures');
             $table->bigInteger('lecturer_id')->unsigned();
             $table->foreign('lecturer_id')->references('id')->on('lecturer');
+            $table->bigInteger('course_category_id')->unsigned();
+            $table->foreign('course_category_id')->references('id')->on('course_category');
             $table->timestamps();
         });
     }

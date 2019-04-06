@@ -127,12 +127,12 @@
                     <div class="card-body">
                         <form method="post" action="{{url('')}}">
                             {{ csrf_field() }}
-                            <h6 class="heading-small text-muted mb-4">Informasi umum Kursus</h6>
+                            <h6 class="heading-small text-muted mb-4">Course Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-course-name">Nama Kursus</label>
+                                            <label class="form-control-label" for="input-course-name">Course Name</label>
                                             <input type="text" id="input-course-name" name='course_name' class="form-control" placeholder="Masukkan nama kursus">
                                         </div>
                                     </div>
@@ -140,16 +140,16 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-image-course">Gambar Sampul Kursus</label>
-                                            <input type="file" id="input-image-course" class="form-inline" placeholder="Unggah disini">
+                                            <label class="form-control-label" for="input-image-course">Course Picture</label>
+                                            <input type="file" id="input-image-course" class="form-control-file" placeholder="Unggah disini">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="course_category">Kategori Kursus</label>
-                                            <select id="course_category" class="form-inline" name="course_category">
+                                            <label class="form-control-label" for="course_category">Course Category</label>
+                                            <select id="course_category" name="course_category" class="form-control-sm">
                                                 <option value="AL">Alabama</option>
                                                 ...
                                                 <option value="WY">Wyoming</option>
@@ -160,46 +160,56 @@
                             </div>
                             <hr class="my-4" />
                             <!-- Address -->
-                            <h6 class="heading-small text-muted mb-4">Informasi kontak</h6>
+                            <h6 class="heading-small text-muted mb-4">Sub Course</h6>
+                     {{--       <div class="pl-lg-4">
+                                <button type="button" class="btn bg-gradient-orange btn-lg btn-block" id="sub_course_add">Add new sub courses</button>
+                            </div>--}}
                             <div class="pl-lg-4">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-address">Address</label>
-                                            <input id="input-address" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                                    <div class="col-lg-1">
+                                        <center><h3>1</h3></center>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="form-control-label" for="input-content-name">Content Name</label>
+                                                <input type="text" id="input-content-name" name='content_name' class="form-control" placeholder="Enter content name">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-content-file">Content file</label>
+                                                    <input type="file" id="input-content-file" class="form-control-file" placeholder="Upload your file here">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-city">City</label>
-                                            <input type="text" id="input-city" class="form-control" placeholder="City" value="New York">
-                                        </div>
+                                    <div class="col-lg-1">
+                                        <center><h3>2</h3></center>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-country">Country</label>
-                                            <input type="text" id="input-country" class="form-control" placeholder="Country" value="United States">
+                                    <div class="col-lg-10">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="form-control-label" for="input-content-name">Content Name</label>
+                                                <input type="text" id="input-content-name" name='content_name' class="form-control" placeholder="Enter content name">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-country">Postal code</label>
-                                            <input type="number" id="input-postal-code" class="form-control" placeholder="Postal code">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-content-file">Content file</label>
+                                                    <input type="file" id="input-content-file" class="form-control-file" placeholder="Upload your file here">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <hr class="my-4" />
                             <!-- Description -->
-                            <h6 class="heading-small text-muted mb-4">About me</h6>
-                            <div class="pl-lg-4">
-                                <div class="form-group">
-                                    <label class="form-control-label">About Me</label>
-                                    <textarea rows="4" class="form-control" placeholder="A few words about you ...">A beautiful premium dashboard for Bootstrap 4.</textarea>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -234,9 +244,18 @@
     </div>
 @endsection
 @section('js')
-<script type="application/javascript">
-    $(document).ready(function() {
-        $('#course_category').select2();
-    });
-</script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('#course_category').select2({
+                height:'resolve'
+            });
+
+            var counter = 1;
+            $('#sub_course_add').on('click',function () {
+
+            })
+
+
+        })
+    </script>
 @endsection

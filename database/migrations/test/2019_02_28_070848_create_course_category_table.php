@@ -17,8 +17,8 @@ class CreateCourseCategoryTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('course_category_name');
-            $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('course');
+        /*    $table->bigInteger('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('course');*/
             //$table->timestamps();
         });
     }

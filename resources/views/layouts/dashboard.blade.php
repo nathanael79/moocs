@@ -44,6 +44,8 @@
   <!-- Argon CSS -->
   {{--<link rel="stylesheet" href="{!! asset('../../assets/css/argon.min-v=1.0.0.css') !!}" type="text/css">--}}
     <link rel="stylesheet" href="{{asset('../../assets/css/argon.min-v=1.0.0.css')}}" type="text/css">
+    <link href="{!! asset('../../assets/vendor/select2/dist/css/select2.min.css')!!}" rel="stylesheet" type="text/css"/>
+
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1920,7 +1922,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- Argon Scripts -->
   <!-- Core -->
-  @yield('js')
   <script src="{!! asset('../../assets/vendor/jquery/dist/jquery.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/js-cookie/js.cookie.js') !!}"></script>
@@ -1932,8 +1933,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="{!! asset('../../assets/vendor/chart.js/dist/Chart.extension.js') !!}"></script>
   <!-- Argon JS -->
   <script src="{!! asset('../../assets/js/argon.min-v=1.0.0.js') !!}"></script>
+<script src="{!! asset('../../assets/vendor/select2/dist/js/select2.min.js') !!}"></script>
   <!-- Demo JS - remove this in your project -->
   <script src="{!! asset('../../assets/js/demo.min.js') !!}"></script>
+    @yield('js')
   <script>
     // Facebook Pixel Code Don't Delete
     ! function(f, b, e, v, n, t, s) {

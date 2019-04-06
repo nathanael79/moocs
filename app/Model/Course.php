@@ -19,11 +19,6 @@ class Course extends Model
         return $this->hasMany('SubCourse');
     }
 
-    public function courseCategory()
-    {
-        return $this->hasMany('CourseCategory');
-    }
-
     public function enrollment()
     {
         return $this->hasMany('enrollment');
