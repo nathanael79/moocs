@@ -161,32 +161,8 @@
                             <hr class="my-4" />
                             <!-- Address -->
                             <h6 class="heading-small text-muted mb-4">Sub Course</h6>
-                     {{--       <div class="pl-lg-4">
-                                <button type="button" class="btn bg-gradient-orange btn-lg btn-block" id="sub_course_add">Add new sub courses</button>
-                            </div>--}}
-                            <div class="pl-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-1">
-                                        <center><h3>1</h3></center>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <label class="form-control-label" for="input-content-name">Content Name</label>
-                                                <input type="text" id="input-content-name" name='content_name' class="form-control" placeholder="Enter content name">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label class="form-control-label" for="input-content-file">Content file</label>
-                                                    <input type="file" id="input-content-file" class="form-control-file" placeholder="Upload your file here">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
+                            <div class="pl-lg-4" id="add_course_row">
+                               {{-- <div class="row">
                                     <div class="col-lg-1">
                                         <center><h3>2</h3></center>
                                     </div>
@@ -206,7 +182,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
+                            </div>
+                            <div class="pl-lg-4">
+                                <button type="button" class="btn bg-gradient-orange btn-lg btn-block" id="sub_course_add">Add new sub courses</button>
                             </div>
                             <hr class="my-4" />
                             <!-- Description -->
@@ -252,7 +231,28 @@
 
             var counter = 1;
             $('#sub_course_add').on('click',function () {
-
+                $('#add_course_row').append("<div class=\"row\">\n" +
+                    "                                    <div class=\"col-lg-1\">\n" +
+                    "                                        <center><h3>"+counter+"</h3></center>\n" +
+                    "                                    </div>\n" +
+                    "                                    <div class=\"col-lg-10\">\n" +
+                    "                                        <div class=\"row\">\n" +
+                    "                                            <div class=\"col-lg-12\">\n" +
+                    "                                                <label class=\"form-control-label\" for=\"input-content-name\">Content Name</label>\n" +
+                    "                                                <input type=\"text\" id=\"input-content-name\" name='content_name' class=\"form-control\" placeholder=\"Enter content name\">\n" +
+                    "                                            </div>\n" +
+                    "                                        </div>\n" +
+                    "                                        <div class=\"row\">\n" +
+                    "                                            <div class=\"col-lg-12\">\n" +
+                    "                                                <div class=\"form-group\">\n" +
+                    "                                                    <label class=\"form-control-label\" for=\"input-content-file\">Content File</label>\n" +
+                    "                                                    <input type=\"file\" id=\"input-content-file\" class=\"form-control-file\" placeholder=\"Upload your file here\">\n" +
+                    "                                                </div>\n" +
+                    "                                            </div>\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>\n" +
+                    "                                </div>")
+                counter++;
             })
 
 

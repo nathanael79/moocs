@@ -27,12 +27,12 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#navbar-dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-dashboards">
                                 <i class="ni ni-shop text-primary"></i>
-                                <span class="nav-link-text">Kelas yang diikuti</span>
+                                <span class="nav-link-text">Following Courses</span>
                             </a>
                             <div class="collapse show" id="navbar-dashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{url('/completed')}}" class="nav-link">Sudah selesai</a>
+                                        <a href="{{url('/completed')}}" class="nav-link">Completed Courses</a>
                                     </li>
                                 </ul>
                             </div>
@@ -40,7 +40,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/accomplishment')}}"  role="button" aria-expanded="false" aria-controls="navbar-examples">
                                 <i class="ni ni-ungroup text-orange"></i>
-                                <span class="nav-link-text">Pencapaian</span>
+                                <span class="nav-link-text">Accomplishment</span>
                             </a>
                         </li>
                     </ul>
@@ -265,7 +265,7 @@
                             </div>
                             <a href="{{url('/profile')}}" class="dropdown-item">
                                 <i class="ni ni-single-02"></i>
-                                <span>Profile saya</span>
+                                <span>My Profile</span>
                             </a>
                            {{-- <a href="dashboard.html#!" class="dropdown-item">
                                 <i class="ni ni-settings-gear-65"></i>

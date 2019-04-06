@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9cfd8bf3-7a08-491f-97c6-234106cbe91c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/CourseCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/CourseCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_28_070658_create_course_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_28_070658_create_course_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_28_070848_create_course_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/test/2019_02_28_070848_create_course_category_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/student/completed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/student/completed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,92 +78,89 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1800">
-              <caret line="120" column="13" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="13" />
+            <state relative-caret-position="-165">
+              <caret line="13" column="115" selection-start-line="13" selection-start-column="115" selection-end-line="13" selection-end-column="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-15">
+              <caret line="14" column="103" selection-start-line="14" selection-start-column="103" selection-end-line="14" selection-end-column="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="100" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="190" column="53" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
-              <folding>
-                <element signature="e#10092#11497#0#HTML" />
-              </folding>
+            <state relative-caret-position="178">
+              <caret line="13" column="115" selection-start-line="13" selection-start-column="115" selection-end-line="13" selection-end-column="115" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/profile.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="299" selection-start-line="299" selection-end-line="304" selection-end-column="34" />
+            <state relative-caret-position="150">
+              <caret line="271" column="48" lean-forward="true" selection-start-line="271" selection-start-column="48" selection-end-line="271" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../fidelia/resources/views/pembayaran.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3240">
-              <folding>
-                <element signature="n#style#0;n#select#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-4890">
+              <caret line="13" column="132" lean-forward="true" selection-start-line="13" selection-start-column="132" selection-end-line="13" selection-end-column="132" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_28_070658_create_course_table.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/student/completed.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="276">
+              <caret line="320" column="99" selection-start-line="320" selection-start-column="99" selection-end-line="320" selection-end-column="99" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/Course.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="-4665">
+              <caret line="13" column="89" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/CourseCategory.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            <state relative-caret-position="120">
+              <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/test/2019_02_28_070848_create_course_category_table.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/login.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="34" />
+            <state relative-caret-position="-1613">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -243,28 +243,28 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/student/completed.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/student/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LecturerController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_28_070658_create_course_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_28_070848_create_course_category_table.php" />
         <option value="$PROJECT_DIR$/app/Model/Course.php" />
         <option value="$PROJECT_DIR$/app/Model/CourseCategory.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/student/completed.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php" />
       </list>
     </option>
   </component>
@@ -348,7 +348,7 @@
       <path value="$PROJECT_DIR$/vendor/grimthorr/laravel-toast" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="353" />
     <option name="y" value="36" />
     <option name="width" value="872" />
@@ -615,18 +615,19 @@
       <workItem from="1554304291908" duration="5955000" />
       <workItem from="1554342774532" duration="4714000" />
       <workItem from="1554362276351" duration="1197000" />
-      <workItem from="1554511851834" duration="6026000" />
+      <workItem from="1554511851834" duration="6093000" />
+      <workItem from="1554552296118" duration="4110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216272000" />
+    <option name="totallyTimeSpent" value="220449000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="36" width="1366" height="732" extended-state="6" />
+    <frame x="0" y="36" width="1366" height="732" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.27424243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.27878788" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5013405" side_tool="true" weight="0.41439393" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -692,6 +693,11 @@
           <url>file://$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php</url>
           <line>2</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php</url>
+          <line>1</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -881,37 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="293" column="19" selection-start-line="293" selection-start-column="19" selection-end-line="293" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/completed.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="365" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="366" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#23386#0#Blade" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="12" column="83" selection-start-line="12" selection-start-column="83" selection-end-line="12" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/LocalDiskD/Kuliah/AKADEMIK/Tugas Akhir/Kebutuhan/argon-dashboard-pro/pages/dashboards/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -936,45 +911,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="148" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="88" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="96" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="96" />
         </state>
       </provider>
     </entry>
@@ -992,10 +932,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_28_070658_create_course_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
-          <caret line="120" column="13" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="13" />
+        <state relative-caret-position="75">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1030,16 +970,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_28_070658_create_course_table.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="802">
+          <caret line="299" selection-start-line="299" selection-end-line="304" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../fidelia/resources/views/pembayaran.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3240">
+        <state relative-caret-position="-3330">
           <folding>
             <element signature="n#style#0;n#select#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
@@ -1048,20 +988,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/profile.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="299" selection-start-line="299" selection-end-line="304" selection-end-column="34" />
+        <state relative-caret-position="336">
+          <caret line="188" column="34" selection-start-line="188" selection-start-column="34" selection-end-line="188" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/form_courses.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="190" column="53" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
-          <folding>
-            <element signature="e#10092#11497#0#HTML" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="271" column="48" lean-forward="true" selection-start-line="271" selection-start-column="48" selection-end-line="271" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4890">
+          <caret line="13" column="132" lean-forward="true" selection-start-line="13" selection-start-column="132" selection-end-line="13" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/completed.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="320" column="99" selection-start-line="320" selection-start-column="99" selection-end-line="320" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/student/accomplishment.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4665">
+          <caret line="13" column="89" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1613">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165">
+          <caret line="13" column="115" selection-start-line="13" selection-start-column="115" selection-end-line="13" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/uncompleted_courses.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="14" column="103" selection-start-line="14" selection-start-column="103" selection-end-line="14" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/completed.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="100" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/accomplishment.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="13" column="115" selection-start-line="13" selection-start-column="115" selection-end-line="13" selection-end-column="115" />
         </state>
       </provider>
     </entry>
