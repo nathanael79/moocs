@@ -19,97 +19,6 @@
                         <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">Filters</a>
                     </div>--}}
                 </div>
-                <!-- Card stats -->
-                {{--<div class="row">
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card card-stats">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-                                        <span class="h2 font-weight-bold mb-0">350,897</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                            <i class="ni ni-active-40"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card card-stats">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                        <span class="h2 font-weight-bold mb-0">2,356</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                                            <i class="ni ni-chart-pie-35"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card card-stats">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                        <span class="h2 font-weight-bold mb-0">924</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                                            <i class="ni ni-money-coins"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card card-stats">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                        <span class="h2 font-weight-bold mb-0">49,65%</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                                            <i class="ni ni-chart-bar-32"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
             </div>
         </div>
     </div>
@@ -161,31 +70,39 @@
                             <hr class="my-4" />
                             <!-- Address -->
                             <h6 class="heading-small text-muted mb-4">Sub Course</h6>
-                            <div class="pl-lg-4" id="add_course_row">
-                               {{-- <div class="row">
+                            <div class="pl-lg-4 add_course_section">
+                               {{--<div class="row">
                                     <div class="col-lg-1">
                                         <center><h3>2</h3></center>
                                     </div>
                                     <div class="col-lg-10">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <label class="form-control-label" for="input-content-name">Content Name</label>
+                                                <label class="form-control-label" for="input-content-name">Sub Course Name</label>
                                                 <input type="text" id="input-content-name" name='content_name' class="form-control" placeholder="Enter content name">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label class="form-control-label" for="input-content-file">Content file</label>
-                                                    <input type="file" id="input-content-file" class="form-control-file" placeholder="Upload your file here">
-                                                </div>
+                                        <div class="row content_section_row">
+                                            <div class="col-lg-2 justify-content-lg-center">
+                                                <h4 style="padding-top:50%;padding-bottom:50%;text-align:center">2.1</h4>
                                             </div>
+                                            <div class="col-lg-5">
+                                                <label class="form-control-label" for="input-content-name">Content Name</label>
+                                                <input type="text" id="input-content-name" name='content_name' class="form-control" placeholder="Enter content name">
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <label class="form-control-label" for="input-image-course">Content File</label>
+                                                <input type="file" id="input-image-course" class="form-control-file" placeholder="Upload in here">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <button type="button" class="btn bg-gradient-purple btn-lg btn-block course_content_add">Add new content of section</button>
                                         </div>
                                     </div>
                                 </div>--}}
                             </div>
                             <div class="pl-lg-4">
-                                <button type="button" class="btn bg-gradient-orange btn-lg btn-block" id="sub_course_add">Add new sub courses</button>
+                                <button type="button" class="btn bg-gradient-orange btn-lg btn-block course_section_add" >Add new section of Sub Courses</button>
                             </div>
                             <hr class="my-4" />
                             <!-- Description -->
@@ -226,33 +143,55 @@
     <script type="application/javascript">
         $(document).ready(function () {
             $('#course_category').select2({
-                height:'resolve'
+
             });
 
             var counter = 1;
-            $('#sub_course_add').on('click',function () {
-                $('#add_course_row').append("<div class=\"row\">\n" +
+            $('.course_section_add').on('click',function () {
+                $('.add_course_section').append("<div class=\"row\">\n" +
                     "                                    <div class=\"col-lg-1\">\n" +
-                    "                                        <center><h3>"+counter+"</h3></center>\n" +
+                    "                                        <center><h3>2</h3></center>\n" +
                     "                                    </div>\n" +
                     "                                    <div class=\"col-lg-10\">\n" +
                     "                                        <div class=\"row\">\n" +
                     "                                            <div class=\"col-lg-12\">\n" +
-                    "                                                <label class=\"form-control-label\" for=\"input-content-name\">Content Name</label>\n" +
+                    "                                                <label class=\"form-control-label\" for=\"input-content-name\">Sub Course Name</label>\n" +
                     "                                                <input type=\"text\" id=\"input-content-name\" name='content_name' class=\"form-control\" placeholder=\"Enter content name\">\n" +
                     "                                            </div>\n" +
                     "                                        </div>\n" +
-                    "                                        <div class=\"row\">\n" +
-                    "                                            <div class=\"col-lg-12\">\n" +
-                    "                                                <div class=\"form-group\">\n" +
-                    "                                                    <label class=\"form-control-label\" for=\"input-content-file\">Content File</label>\n" +
-                    "                                                    <input type=\"file\" id=\"input-content-file\" class=\"form-control-file\" placeholder=\"Upload your file here\">\n" +
-                    "                                                </div>\n" +
+                    "                                        <div class=\"row content_section_row\">\n" +
+                    "                                            <div class=\"col-lg-2 justify-content-lg-center\">\n" +
+                    "                                                <h4 style=\"padding-top:50%;padding-bottom:50%;text-align:center\">2.1</h4>\n" +
                     "                                            </div>\n" +
+                    "                                            <div class=\"col-lg-5\">\n" +
+                    "                                                <label class=\"form-control-label\" for=\"input-content-name\">Content Name</label>\n" +
+                    "                                                <input type=\"text\" id=\"input-content-name\" name='content_name' class=\"form-control\" placeholder=\"Enter content name\">\n" +
+                    "                                            </div>\n" +
+                    "                                            <div class=\"col-lg-5\">\n" +
+                    "                                                <label class=\"form-control-label\" for=\"input-image-course\">Content File</label>\n" +
+                    "                                                <input type=\"file\" id=\"input-image-course\" class=\"form-control-file\" placeholder=\"Upload in here\">\n" +
+                    "                                            </div>\n" +
+                    "                                        </div>\n" +
+                    "                                        <div class=\"row\">\n" +
+                    "                                            <button type=\"button\" class=\"btn bg-gradient-purple btn-lg btn-block course_content_add\">Add new content of section</button>\n" +
                     "                                        </div>\n" +
                     "                                    </div>\n" +
                     "                                </div>")
                 counter++;
+                $('.course_content_add').on('click',function () {
+                    $('.content_section_row').append("<div class=\"col-lg-2 justify-content-lg-center\">\n" +
+                        "                                                <h4 style=\"padding-top:50%;padding-bottom:50%;text-align:center\">2.1</h4>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class=\"col-lg-5\">\n" +
+                        "                                                <label class=\"form-control-label\" for=\"input-content-name\">Content Name</label>\n" +
+                        "                                                <input type=\"text\" id=\"input-content-name\" name='content_name' class=\"form-control\" placeholder=\"Enter content name\">\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class=\"col-lg-5\">\n" +
+                        "                                                <label class=\"form-control-label\" for=\"input-image-course\">Content File</label>\n" +
+                        "                                                <input type=\"file\" id=\"input-image-course\" class=\"form-control-file\" placeholder=\"Upload in here\">\n" +
+                        "                                            </div>")
+
+                });
             })
 
 
