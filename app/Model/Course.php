@@ -10,6 +10,7 @@ class Course extends Model
     protected $fillable =
         [
             'course_name',
+            'keterangan',
             'pictures',
             'lecturer_id',
         ];

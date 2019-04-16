@@ -27,4 +27,9 @@ class CobaController extends Controller
         return view('mail.mail_layout');
     }
 
+    public function index4()
+    {
+        return view('layouts.front_end.blog-single');
+    }
+
 }

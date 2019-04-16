@@ -41,10 +41,11 @@
   <link rel="stylesheet" href="{!! asset('../../assets/vendor/nucleo/css/nucleo.css') !!}" type="text/css">
   <link rel="stylesheet" href="{!! asset('../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') !!}" type="text/css">
   <!-- Page plugins -->
+    <link href="{!! asset('../../assets/vendor/select2/dist/css/select2.min.css')!!}" rel="stylesheet" type="text/css">
   <!-- Argon CSS -->
   {{--<link rel="stylesheet" href="{!! asset('../../assets/css/argon.min-v=1.0.0.css') !!}" type="text/css">--}}
     <link rel="stylesheet" href="{{asset('../../assets/css/argon.min-v=1.0.0.css')}}" type="text/css">
-    <link href="{!! asset('../../assets/vendor/select2/dist/css/select2.min.css')!!}" rel="stylesheet" type="text/css"/>
+
 
 
   <!-- Google Tag Manager -->
@@ -1929,11 +1930,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="{!! asset('../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/lavalamp/js/jquery.lavalamp.min.js') !!}"></script>
   <!-- Optional JS -->
+  <script src="{!! asset('../../assets/vendor/dropzone/dist/min/dropzone.min.js') !!}"></script>
+  <script src="{!! asset('../../assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') !!}"></script>
+  <script src="{!! asset('../../assets/vendor/select2/dist/js/select2.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/chart.js/dist/Chart.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/chart.js/dist/Chart.extension.js') !!}"></script>
   <!-- Argon JS -->
   <script src="{!! asset('../../assets/js/argon.min-v=1.0.0.js') !!}"></script>
-<script src="{!! asset('../../assets/vendor/select2/dist/js/select2.min.js') !!}"></script>
   <!-- Demo JS - remove this in your project -->
   <script src="{!! asset('../../assets/js/demo.min.js') !!}"></script>
     @yield('js')

@@ -89,7 +89,13 @@ Route::group(['prefix'=>'/'],function (){
         Route::get('/coba3',
             [
                 "uses"=>"CobaController@index3",
-                "as"=>"coba_page_2"
+                "as"=>"coba_page_3"
+            ]);
+
+        Route::get('/coba4',
+            [
+                "uses"=>"CobaController@index4",
+                "as"=>"coba_page_4"
             ]);
 
         //email
@@ -163,6 +169,33 @@ Route::group(['prefix'=>'/'],function (){
                 "uses"=>"LecturerController@createCourse",
                 "as"=>"lecturer_create_course_page"
             ]);
+
+        Route::get('/course_profile',
+            [
+                "uses"=>"LecturerController@courseProfile",
+                "as"=>"lecturer_course_profile_page"
+            ]);
+
+        Route::get('/create_sub_course',
+            [
+                "uses"=>"LecturerController@createSubCourse",
+                "as"=>"lecturer_create_sub_course_page"
+            ]);
+
+        Route::get('/sub_course_profile',
+            [
+                "uses"=>"LecturerController@subCourseProfile",
+                "as"=>"lecturer_sub_course_profile_page"
+            ]);
+
+        Route::get('/sub_course_question',
+            [
+                "uses"=>"LecturerController@subCourseQuestion",
+                "as"=>"lecturer_sub_course_page"
+            ]);
+
+
+
     });
 
 

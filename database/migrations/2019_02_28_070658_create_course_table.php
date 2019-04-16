@@ -17,6 +17,7 @@ class CreateCourseTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('course_name');
+            $table->text('keterangan');
             $table->string('pictures');
             $table->bigInteger('lecturer_id')->unsigned();
             $table->foreign('lecturer_id')->references('id')->on('lecturer');

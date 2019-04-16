@@ -48,7 +48,27 @@ class LecturerController extends Controller
 
     public function createCourse()
     {
-        return view('backend.lecturer.form_courses');
+        return view('backend.lecturer.form_course');
+    }
+
+    public function createSubCourse()
+    {
+        return view('backend.lecturer.form_sub_course');
+    }
+
+    public function courseProfile()
+    {
+        return view('backend.lecturer.course_profile');
+    }
+
+    public function subCourseProfile()
+    {
+        return view('backend.lecturer.sub_course_profile');
+    }
+
+    public function subCourseQuestion()
+    {
+        return view('backend.lecturer.form_question');
     }
 
 }

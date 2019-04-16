@@ -33,7 +33,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#navbar-dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-dashboards">
                                 <i class="ni ni-shop text-primary"></i>
-                                <span class="nav-link-text">Following Coursess</span>
+                                <span class="nav-link-text">Following Courses</span>
                             </a>
                             <div class="collapse show" id="navbar-dashboards">
                                 <ul class="nav nav-sm flex-column">
