@@ -106,6 +106,12 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"confirmation_action"
             ]);
 
+        Route::get('/coursecategory',
+            [
+                "uses"=>"CourseController@getCourseCategory",
+                "as"=>"get_course_category"
+            ]);
+
     Route::group(['prefix'=>'/lecturer'],function (){
 
         Route::get('/',
@@ -170,10 +176,22 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_create_course_page"
             ]);
 
+        Route::post('/storeCourse',
+            [
+                "uses"=>"LecturerController@storeCourse",
+                "as"=>"lecturer_store_course"
+            ]);
+
         Route::get('/course_profile',
             [
                 "uses"=>"LecturerController@courseProfile",
                 "as"=>"lecturer_course_profile_page"
+            ]);
+
+        Route::post('/storeSubCourse',
+            [
+                "uses"=>"LecturerController@storeSubCourse",
+                "as"=>"lecturer_store_sub_course"
             ]);
 
         Route::get('/create_sub_course',
@@ -188,7 +206,7 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_sub_course_profile_page"
             ]);
 
-        Route::get('/sub_course_question',
+        Route::get('/create_question',
             [
                 "uses"=>"LecturerController@subCourseQuestion",
                 "as"=>"lecturer_sub_course_page"

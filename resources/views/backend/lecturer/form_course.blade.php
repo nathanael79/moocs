@@ -30,47 +30,54 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{url('#')}}">
+                        <form method="post" action="{{url('/lecturer/storeCourse')}}">
                             {{ csrf_field() }}
                             <h6 class="heading-small text-muted mb-4">Course Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{ $errors->has('course_name') ? 'has-error' : '' }}">
                                             <label class="form-control-label" for="input-course-name">Course Name</label>
-                                            <input type="text" id="input-course-name" name='course_name' class="form-control" placeholder="Input Course Name">
+                                            <input type="text" id="input-course-name" name='course_name' class="form-control" placeholder="Input Course Name"  value="{{ old('course_name') }}">
+                                            @if ($errors->has('course_name'))
+                                                <span class="text-danger">{{ $errors->first('course_name') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{ $errors->has('course_description') ? 'has-error' : '' }}">
                                             <label class="form-control-label" for="input-course-description">Course Description</label>
-                                            {{--<div class="ql-toolbar ql-snow"></div>--}}
-                                            <textarea type="text" id="input-course-description" name="course_desription" class="form-control" rows="10" placeholder="Input your course description"></textarea>
+                                            <textarea type="text" id="input-course-description" name="course_desription" class="form-control" rows="10" placeholder="Input your course description" value="{{old('course_description')}}"></textarea>
+                                            @if($errors->has('course_description'))
+                                                <span class="text-danger">{{ $errors->first('course_description') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{$errors->has('course_picture') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-course-name">Course Picture</label>
                                             <div class="custom-file">
-                                                <label class="custom-file-label" for="input-image-course">Upload in here</label>
-                                                <input type="file" id="input-image-course" class="custom-file-input">
+                                                <label class="custom-file-label" for="image_course">Upload in here</label>
+                                                <input type="file" id="image_course" class="custom-file-input">
+                                                @if($errors->has('course_picture'))
+                                                    <span class="text-danger">{{ $errors->first('course_picture') }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{$errors->has('course_category') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="course_category">Course Category</label>
-                                            <select id="course_category" name="course_category" class="form-control">
-                                                <option value="AL">Alabama</option>
-                                                ...
-                                                <option value="WY">Wyoming</option>
-                                            </select>
+                                            <select id="course_category" name="course_category" class="form-control"></select>
+                                            @if($errors->has('course_category'))
+                                                <span class="text-danger">{{ $errors->first('course_category') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +133,28 @@
 @section('js')
     <script type="application/javascript">
         $(document).ready(function () {
-          $('#course_category').select2({});
+            $('#course_category').select2({
+                ajax:{
+                    type:"GET",
+                    placeholder:"Choose your category in here",
+                    url:"{{url('/coursecategory')}}",
+                    dataType:"json",
+/*                    data :function(params){
+                        return{
+                            key:params.term
+                        };
+                    },
+                    processResults:function(data){
+                        return{
+                            results:data
+                        };
+                    },*/
+                    cache:true
+                },
+            }).on('select2:select',function (evt) {
+                var data = $('#course_category option:selected').text();
+                console.log('Data yang anda pilih adalah '+data);
+            });
         })
     </script>
 @endsection

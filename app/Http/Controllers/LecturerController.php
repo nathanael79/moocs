@@ -9,6 +9,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\ErrorCourseRequest;
+use App\Http\Requests\ErrorSubCourseRequest;
+use App\Model\Course;
+use App\Model\SubCourse;
+use Illuminate\Http\Request;
+use Validator;
+
 class LecturerController extends Controller
 {
     public function __construct()
@@ -51,9 +58,34 @@ class LecturerController extends Controller
         return view('backend.lecturer.form_course');
     }
 
+    public function storeCourse(ErrorCourseRequest $request)
+    {
+        $image = $request->file('image_course');
+        $name = $image->getClientOriginalName();
+        $image->move(public_path().'/images/courses/',$name);
+        Course::create([
+            "course_name"=>$request->course_name,
+            "course_description"=>$request->course_description,
+            "course_picture"=>$name,
+            "status"=>"pending"
+        ]);
+
+        return redirect('/lecturer/course_profile')->with('success','Your courses has been created');
+    }
+
     public function createSubCourse()
     {
         return view('backend.lecturer.form_sub_course');
+    }
+
+    public function storeSubCourse(ErrorSubCourseRequest $request, $id)
+    {
+        SubCourse::create([
+            'sub_course_name'=>$request->sub_course_name,
+            'course_id'=>$id
+        ]);
+
+        return redirect('/lecturer/create_sub_course');
     }
 
     public function courseProfile()

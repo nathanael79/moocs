@@ -50,7 +50,7 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="radio" aria-label="Radio button for following text input">
+                                                        <input type="radio" aria-label="Radio button for following text input" name="options[]">
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" aria-label="Text input with radio button">
@@ -114,20 +114,21 @@
     </div>
 @endsection
 
+
 @section('js')
     <script type="application/javascript">
         $(document).ready(function () {
             $('#add_button').on('click',function () {
-                $('#answer_section').append('                                        <div class="form-group">\n' +
-                    '                                            <div class="input-group">\n' +
-                    '                                                <div class="input-group-prepend">\n' +
-                    '                                                    <div class="input-group-text">\n' +
-                    '                                                        <input type="radio" aria-label="Radio button for following text input">\n' +
-                    '                                                    </div>\n' +
-                    '                                                </div>\n' +
-                    '                                                <input type="text" class="form-control" aria-label="Text input with radio button">\n' +
-                    '                                            </div>\n' +
-                    '                                        </div>');
+                $('#answer_section').append('<div class="form-group">\n' +
+                    '    <div class="input-group">\n' +
+                    '        <div class="input-group-prepend">\n' +
+                    '            <div class="input-group-text">\n' +
+                    '                <input type="radio" aria-label="Radio button for following text input" name="options[]">\n' +
+                    '            </div>\n' +
+                    '        </div>\n' +
+                    '        <input type="text" class="form-control" aria-label="Text input with radio button">\n' +
+                    '    </div>\n' +
+                    '</div>');
             })
         })
     </script>

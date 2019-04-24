@@ -1,4 +1,9 @@
 @extends('backend.lecturer.dashboard_layout')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 @section('main_content')
     <!--Mask Header-->
     <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
@@ -72,13 +77,11 @@
                                 <h3 class="mb-0">Sub Course List</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{url('/profile')}}" class="btn btn-sm btn-primary">Add new sub course</a>
+                                <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#modal-form">Add Sub Course</button>
                             </div>
                         </div>
-                    </div>
+
                     <div class="card-body">
-
-
                         <div class="table-responsive">
                             <div>
                                 <table class="table align-items-center">
@@ -135,10 +138,41 @@
                             </div>
 
                         </div>
-
-
                     </div>
-                </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                            <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body p-0">
+
+                                        <div class="card bg-secondary border-0 mb-0">
+                                            <div class="card-body px-lg-5 py-lg-5">
+                                                <div class="text-center text-muted mb-4">
+                                                    <small>Insert the sub course name</small>
+                                                </div>
+                                                <form role="form" method="POST" action="{{url('/lecturer/storeSubCourse')}}">
+                                                    {{ csrf_field() }}
+                                                    <div class="form-group mb-3 {{ $errors->has('sub_course_name') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-book-bookmark"></i></span>
+                                                            </div>
+                                                            <input class="form-control" placeholder="Sub Course Name" type="text" name="sub_course_name" value="{{old('sub_course_name')}}">
+                                                            @if ($errors->has('sub_course_name'))
+                                                                <span class="text-danger">{{ $errors->first('sub_course_name') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
+                                                        <button type="submit" class="btn btn-primary my-4">Create</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
             </div>
         </div>
         <!-- Footer -->
