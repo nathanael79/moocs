@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{url('/lecturer/storeCourse')}}">
+                        <form method="post" action="{{url('/lecturer/storeCourse')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <h6 class="heading-small text-muted mb-4">Course Information</h6>
                             <div class="pl-lg-4">
@@ -48,8 +48,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group {{ $errors->has('course_description') ? 'has-error' : '' }}">
-                                            <label class="form-control-label" for="input-course-description">Course Description</label>
-                                            <textarea type="text" id="input-course-description" name="course_desription" class="form-control" rows="10" placeholder="Input your course description" value="{{old('course_description')}}"></textarea>
+                                            <label class="form-control-label">Course Description</label>
+                                            <textarea type="text" name="course_description" class="form-control" rows="10" placeholder="Input your course description" value="{{old('course_description')}}"></textarea>
                                             @if($errors->has('course_description'))
                                                 <span class="text-danger">{{ $errors->first('course_description') }}</span>
                                             @endif
@@ -59,10 +59,10 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group {{$errors->has('course_picture') ? 'has-error' : ''}}">
-                                            <label class="form-control-label" for="input-course-name">Course Picture</label>
+                                            <label class="form-control-label">Course Picture</label>
                                             <div class="custom-file">
-                                                <label class="custom-file-label" for="image_course">Upload in here</label>
-                                                <input type="file" id="image_course" class="custom-file-input">
+                                                <label class="custom-file-label">Upload in here</label>
+                                                <input type="file"  class="custom-file-input" name="course_picture">
                                                 @if($errors->has('course_picture'))
                                                     <span class="text-danger">{{ $errors->first('course_picture') }}</span>
                                                 @endif
@@ -74,6 +74,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group {{$errors->has('course_category') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="course_category">Course Category</label>
+                                            <input type="hidden" name="course_category_hid" id="course_category_hid">
                                             <select id="course_category" name="course_category" class="form-control"></select>
                                             @if($errors->has('course_category'))
                                                 <span class="text-danger">{{ $errors->first('course_category') }}</span>
@@ -139,7 +140,7 @@
                     placeholder:"Choose your category in here",
                     url:"{{url('/coursecategory')}}",
                     dataType:"json",
-/*                    data :function(params){
+                    data :function(params){
                         return{
                             key:params.term
                         };
@@ -148,12 +149,12 @@
                         return{
                             results:data
                         };
-                    },*/
+                    },
                     cache:true
                 },
             }).on('select2:select',function (evt) {
-                var data = $('#course_category option:selected').text();
-                console.log('Data yang anda pilih adalah '+data);
+                var data = $('#course_category option:selected').val();
+                $('#course_category_hid').val(data);
             });
         })
     </script>

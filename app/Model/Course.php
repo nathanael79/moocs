@@ -13,6 +13,7 @@ class Course extends Model
             'keterangan',
             'pictures',
             'lecturer_id',
+            'course_category_id',
             'status'
         ];
 

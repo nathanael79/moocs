@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{url('#')}}">
+                        <form method="post" action="{{url('#')}}" id="myForm">
                             {{ csrf_field() }}
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -53,7 +53,7 @@
                                                         <input type="radio" aria-label="Radio button for following text input" name="options[]">
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" aria-label="Text input with radio button">
+                                                <input type="text" class="form-control" aria-label="Text input with radio button" name="options_desc[]">
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +130,16 @@
                     '    </div>\n' +
                     '</div>');
             })
+
+            $('#myForm input').on('change',function () {
+                alert($('input[name=options]:checked', '#myForm')).val();
+            })
+
+
         })
+
+
+
     </script>
 @endsection
 

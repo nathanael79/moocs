@@ -31,7 +31,8 @@ class LoginController extends Controller
         {
             if(Hash::check($request->user_password,$activeUser->user_password))
             {
-                $request->session()->put('login_email',$activeUser->user_email);
+                $request->session()->put('user',$activeUser->user_email);
+                $request->session()->put('id',$activeUser->id);
                 switch ($activeUser->user_type)
                 {
                     case "student":

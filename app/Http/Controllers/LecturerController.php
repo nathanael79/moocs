@@ -10,9 +10,11 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\ErrorCourseRequest;
+use App\Http\Requests\ErrorProfileLecturerRequest;
 use App\Http\Requests\ErrorSubCourseRequest;
 use App\Model\Course;
 use App\Model\SubCourse;
+use App\Model\User;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -60,13 +62,16 @@ class LecturerController extends Controller
 
     public function storeCourse(ErrorCourseRequest $request)
     {
-        $image = $request->file('image_course');
+        $image = $request->file('course_picture');
         $name = $image->getClientOriginalName();
         $image->move(public_path().'/images/courses/',$name);
+        //dd($request->all());
         Course::create([
             "course_name"=>$request->course_name,
-            "course_description"=>$request->course_description,
-            "course_picture"=>$name,
+            "course_category_id"=>$request->course_category_hid,
+            "keterangan"=>$request->course_description,
+            "pictures"=>$name,
+            'lecturer_id'=>$request->session()->get('id'),
             "status"=>"pending"
         ]);
 
@@ -91,6 +96,11 @@ class LecturerController extends Controller
     public function courseProfile()
     {
         return view('backend.lecturer.course_profile');
+    }
+
+    public function storeProfile(ErrorProfileLecturerRequest $request)
+    {
+
     }
 
     public function subCourseProfile()
