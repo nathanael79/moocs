@@ -24,6 +24,8 @@ class CreateCourseTable extends Migration
             $table->bigInteger('course_category_id')->unsigned();
             $table->foreign('course_category_id')->references('id')->on('course_category');
             $table->timestamps();
+            $table->string('completion',100);
+            $table->string('status',100);
         });
     }
 

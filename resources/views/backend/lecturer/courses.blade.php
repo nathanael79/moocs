@@ -131,8 +131,8 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-12 mb-5 mb-xl-0">
-                        <div class="table-responsive">
-                            <table class="table align-items-center">
+                        <div class="table-responsive" >
+                            <table class="table table-flush" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Courses</th>
@@ -141,7 +141,7 @@
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                               {{-- <tbody>
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
@@ -181,163 +181,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar rounded-circle mr-3">
-                                                <img alt="Image placeholder" src="../../assets/img/theme/angular.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <span class="mb-0 text-sm">Angular Now UI Kit PRO</span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td>
-                                        <span class="badge badge-dot">
-                                          <i class="bg-success"></i> completed
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="mr-2">100%</span>
-                                            <div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar rounded-circle mr-3">
-                                                <img alt="Image placeholder" src="../../assets/img/theme/sketch.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <span class="mb-0 text-sm">Black Dashboard</span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td>
-                                        <span class="badge badge-dot mr-4">
-                                          <i class="bg-danger"></i> delayed
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="mr-2">72%</span>
-                                            <div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar rounded-circle mr-3">
-                                                <img alt="Image placeholder" src="../../assets/img/theme/react.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <span class="mb-0 text-sm">React Material Dashboard</span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td>
-                                        <span class="badge badge-dot">
-                                          <i class="bg-info"></i> on schedule
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="mr-2">90%</span>
-                                            <div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar rounded-circle mr-3">
-                                                <img alt="Image placeholder" src="../../assets/img/theme/vue.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <span class="mb-0 text-sm">Vue Paper UI Kit PRO</span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td>
-                                        <span class="badge badge-dot mr-4">
-                                          <i class="bg-success"></i> completed
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="mr-2">100%</span>
-                                            <div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
+                                </tbody>--}}
                             </table>
 
                         </div>
@@ -375,4 +219,24 @@
             </footer>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                "ajax":"{{url('/lecturer/getCourses')}}",
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ],
+                "columns":
+                    [
+                        {"data":"course_name"},
+                        {"data":"status"},
+                        {"data":"completion"}
+                    ],
+
+            })
+        })
+    </script>
 @endsection

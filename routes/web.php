@@ -146,6 +146,12 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_courses_page"
             ]);
 
+        Route::get('/getCourses',
+            [
+                "uses"=>"CourseController@getCourses",
+                "as"=>"get_course_data"
+            ]);
+
         Route::get('/uncompleted_courses',
             [
                 "uses"=>"LecturerController@uncompleted",

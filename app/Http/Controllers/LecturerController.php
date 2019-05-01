@@ -36,7 +36,11 @@ class LecturerController extends Controller
 
     public function courses()
     {
-        return view('backend.lecturer.courses');
+        $data =
+            [
+                'totalCourse'=>Course::all()->count(),
+            ];
+        return view('backend.lecturer.courses',['data'=>$data]);
     }
 
     public function profile()
