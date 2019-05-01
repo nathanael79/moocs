@@ -361,9 +361,8 @@
       <path value="$PROJECT_DIR$/vendor/grimthorr/laravel-toast" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="687" />
-    <option name="y" value="36" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="28" />
     <option name="width" value="675" />
     <option name="height" value="728" />
   </component>
