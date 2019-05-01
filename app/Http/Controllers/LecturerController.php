@@ -10,13 +10,17 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\ErrorCourseRequest;
+use App\Http\Requests\ErrorPasswordRequest;
 use App\Http\Requests\ErrorProfileLecturerRequest;
 use App\Http\Requests\ErrorSubCourseRequest;
 use App\Model\Course;
+use App\Model\Lecturer;
 use App\Model\SubCourse;
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Validator;
+use Session;
 
 class LecturerController extends Controller
 {
@@ -37,7 +41,41 @@ class LecturerController extends Controller
 
     public function profile()
     {
-        return view('backend.lecturer.profile');
+        //$id = Session::get('activeUser')->id;
+        $data = [
+            'profile'=>Lecturer::where('user_id',session()->get('activeUser')->id)->first(),
+            'user'=>User::find(session()->get('activeUser')->id)
+        ];
+        //dd($profile);
+        return view('backend.lecturer.profile', ['data' => $data]);
+    }
+
+    public function storeProfile(ErrorProfileLecturerRequest $request)
+    {
+        $lecturer = Lecturer::where('user_id',session()->get('activeUser')->id)
+            ->update([
+                'nrp_dosen'=>$request->lecturer_nrp,
+                'name'=>$request->lecturer_name,
+                'gender'=>$request->lecturer_gender,
+                'address'=>$request->lecturer_address,
+                'pictures'=>$request->lecturer_image
+            ]);
+
+    }
+
+    public function storePassword(ErrorPasswordRequest $request)
+    {
+        $lecturer = User::where('id',session()->get('activeUser')->id)->first();
+        if(Hash::check($request->old_password,$lecturer->user_password))
+        {
+            $lecturer->user_password = Hash::make($request->new_password);
+            return redirect('/login');
+        }
+        else
+        {
+            return redirect()->back();
+        }
+
     }
 
     public function uncompleted()
@@ -59,6 +97,7 @@ class LecturerController extends Controller
     {
         return view('backend.lecturer.form_course');
     }
+    
 
     public function storeCourse(ErrorCourseRequest $request)
     {
@@ -66,16 +105,19 @@ class LecturerController extends Controller
         $name = $image->getClientOriginalName();
         $image->move(public_path().'/images/courses/',$name);
         //dd($request->all());
-        Course::create([
+        $new_course = Course::create([
             "course_name"=>$request->course_name,
             "course_category_id"=>$request->course_category_hid,
             "keterangan"=>$request->course_description,
             "pictures"=>$name,
-            'lecturer_id'=>$request->session()->get('id'),
+            'lecturer_id'=>session()->get('activeUser')->id,
             "status"=>"pending"
         ]);
+        //dd($new_course);
 
-        return redirect('/lecturer/course_profile')->with('success','Your courses has been created');
+        return redirect('/lecturer/course_profile/'.$new_course->id)->with([
+            'success'=>'success','Your courses has been created',
+        ]);
     }
 
     public function createSubCourse()
@@ -93,14 +135,12 @@ class LecturerController extends Controller
         return redirect('/lecturer/create_sub_course');
     }
 
-    public function courseProfile()
+    public function courseProfile($id)
     {
-        return view('backend.lecturer.course_profile');
-    }
-
-    public function storeProfile(ErrorProfileLecturerRequest $request)
-    {
-
+        $course = Course::find($id);
+        return view('backend.lecturer.course_profile',[
+            'course_profile'=>$course
+        ]);
     }
 
     public function subCourseProfile()

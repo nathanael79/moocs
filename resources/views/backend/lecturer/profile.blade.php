@@ -8,7 +8,7 @@
         <div class="container-fluid d-flex align-items-center">
             <div class="row">
                 <div class="col-lg-7 col-md-10">
-                    <h1 class="display-2 text-white">Halo Jesse</h1>
+                    <h1 class="display-2 text-white">Halo {{$data['profile']->name}}</h1>
                     <p class="text-white mt-0 mb-5">Dapatkan pengalaman belajar lebih dengan MOOC PENS, dapatkan kursus kursus berkualitas disini.</p>
                     {{--  <a href="profile.blade.php#!" class="btn btn-neutral">Edit profile</a>--}}
                 </div>
@@ -61,112 +61,18 @@
                         </div>
                         <div class="text-center">
                             <h5 class="h3">
-                                Jessica Jones<span class="font-weight-light">, 27</span>
+                                {{$data['profile']->name}}
                             </h5>
                             <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                                <i class="ni location_pin mr-2"></i>{{$data['profile']->nrp_dosen}}
                             </div>
                             <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+                                <i class="ni business_briefcase-24 mr-2"></i>Lecturer
                             </div>
                             <div>
-                                <i class="ni education_hat mr-2"></i>University of Computer Science
+                                <i class="ni education_hat mr-2"></i>Politeknik Elektronika Negeri Surabaya
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Progress track -->
-                <div class="card">
-                    <!-- Card header -->
-                    <div class="card-header">
-                        <!-- Title -->
-                        <h5 class="h3 mb-0">Progress track</h5>
-                    </div>
-                    <!-- Card body -->
-                    <div class="card-body">
-                        <!-- List group -->
-                        <ul class="list-group list-group-flush list my--3">
-                            <li class="list-group-item px-0">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <a href="{{url('/profile')}}" class="avatar rounded-circle">
-                                            <img alt="Image placeholder" src="../../assets/img/theme/bootstrap.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <h5>Argon Design System</h5>
-                                        <div class="progress progress-xs mb-0">
-                                            <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <a href="{{url('/profile')}}" class="avatar rounded-circle">
-                                            <img alt="Image placeholder" src="../../assets/img/theme/angular.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <h5>Angular Now UI Kit PRO</h5>
-                                        <div class="progress progress-xs mb-0">
-                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <a href="{{url('/profile')}}" class="avatar rounded-circle">
-                                            <img alt="Image placeholder" src="../../assets/img/theme/sketch.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <h5>Black Dashboard</h5>
-                                        <div class="progress progress-xs mb-0">
-                                            <div class="progress-bar bg-red" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <a href="{{url('/profile')}}" class="avatar rounded-circle">
-                                            <img alt="Image placeholder" src="../../assets/img/theme/react.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <h5>React Material Dashboard</h5>
-                                        <div class="progress progress-xs mb-0">
-                                            <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <a href="{{url('/profile')}}" class="avatar rounded-circle">
-                                            <img alt="Image placeholder" src="../../assets/img/theme/vue.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <h5>Vue Paper UI Kit PRO</h5>
-                                        <div class="progress progress-xs mb-0">
-                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -223,20 +129,18 @@
                             <div class="col-8">
                                 <h3 class="mb-0">Edit profile </h3>
                             </div>
-                            <div class="col-4 text-right">
-                                <a href="{{url('/profile')}}" class="btn btn-sm btn-primary">Save</a>
-                            </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{url('/lecturer/storeProfile')}}" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                             <h6 class="heading-small text-muted mb-4">Lecturer information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-nidn">NIP/NIDN</label>
-                                            <input type="number" min="0" id="input-nidn" class="form-control">
+                                            <input type="number" min="0" id="input-nidn" class="form-control" value="{{$data['profile']->nrp_dosen}}">
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +148,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-email">Email</label>
-                                            <input type="email" id="input-email" class="form-control" placeholder="user@example.com">
+                                            <input type="email" id="input-email" class="form-control" placeholder="user@example.com" value="{{$data['user']->user_email}}">
                                         </div>
                                     </div>
                                 </div>
@@ -252,11 +156,43 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Full Name</label>
-                                            <input type="text" id="input-first-name" class="form-control" placeholder="First name">
+                                            <input type="text" id="input-first-name" class="form-control" placeholder="First name" value="{{$data['profile']->name}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group {{$errors->has('lecturer_address')}}">
+                                            <label class="form-control-label" for="input-address">Address</label>
+                                            <input id="input-address" name="lecturer_address" class="form-control" placeholder="Home Address" value="{{$data['profile']->address}}" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group {{$errors->has('lecturer_image') ? 'has-error' : ''}}">
+                                            <label class="form-control-label">Image</label>
+                                            <div class="custom-file">
+                                                <label class="custom-file-label">Upload in here</label>
+                                                <input type="file"  class="custom-file-input" name="lecturer_image">
+                                                @if($errors->has('lecturer_image'))
+                                                    <span class="text-danger">{{ $errors->first('lecturer_image') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group float-right">
+                                            <button type="submit" class="btn btn-primary">Save Information</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </form>
+                        <form action="{{url('/lecturer/storePassword')}}" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                             <hr class="my-4" />
                             <h6 class="heading-small text-muted mb-4">Lecturer Password</h6>
                             <div class="pl-lg-4">
@@ -264,7 +200,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-old-password">Old Password</label>
-                                            <input type="password" id="input-old-password" class="form-control" placeholder="Old Password">
+                                            <input type="password" id="input-old-password" class="form-control" placeholder="Old Password" value="{{$data['user']->user_password}}">
                                         </div>
                                     </div>
                                 </div>
@@ -276,21 +212,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <hr class="my-4" />
-                            <!-- Address -->
-                            <h6 class="heading-small text-muted mb-4">Informasi kontak</h6>
-                            <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-address">Address</label>
-                                            <input id="input-address" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                                        <div class="form-group float-right">
+                                            <button type="submit" class="btn btn-primary">Save Password</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="my-4" />
                         </form>
                     </div>
                 </div>

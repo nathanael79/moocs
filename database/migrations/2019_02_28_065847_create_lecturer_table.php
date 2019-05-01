@@ -19,6 +19,7 @@ class CreateLecturerTable extends Migration
             $table->string('name',100);
             $table->string('gender');
             $table->string('address');
+            $table->string('pictures',255)->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('user');
             $table->timestamps();

@@ -26,13 +26,13 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         /*$toast = new Toast();*/
-        $activeUser = User::where('user_email',$request->user_email)->first();
+        $activeUser = User::where(['user_email'=>$request->user_email])->first();
         if($activeUser)
         {
             if(Hash::check($request->user_password,$activeUser->user_password))
             {
-                $request->session()->put('user',$activeUser->user_email);
-                $request->session()->put('id',$activeUser->id);
+                //$request->session()->put('user',$activeUser->user_email);
+                $request->session()->put('activeUser',$activeUser);
                 switch ($activeUser->user_type)
                 {
                     case "student":

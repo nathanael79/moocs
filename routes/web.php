@@ -158,6 +158,18 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_profile_page"
             ]);
 
+        Route::post('/storeProfile',
+            [
+                "uses"=>"LecturerController@storeProfile",
+                "as"=>"lecturer_store_profile"
+            ]);
+
+        Route::post('/storePassword',
+            [
+                "uses"=>"LecturerController@storePassword",
+                "as"=>"lecturer_store_password"
+            ]);
+
         Route::get('/completed_courses',
             [
                 "uses"=>"LecturerController@completed",
@@ -182,7 +194,7 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_store_course"
             ]);
 
-        Route::get('/course_profile',
+        Route::get('/course_profile/{id}',
             [
                 "uses"=>"LecturerController@courseProfile",
                 "as"=>"lecturer_course_profile_page"

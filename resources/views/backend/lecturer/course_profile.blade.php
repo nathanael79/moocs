@@ -13,7 +13,7 @@
         <div class="container-fluid d-flex align-items-center">
             <div class="row">
                 <div class="col-lg-7 col-md-10">
-                    <h1 class="display-2 text-white">Course Name</h1>
+                    <h1 class="display-2 text-white">{{$course_profile->course_name}}</h1>
                     <p class="text-white mt-0 mb-5">Course Description</p>
                     {{--  <a href="profile.blade.php#!" class="btn btn-neutral">Edit profile</a>--}}
                 </div>

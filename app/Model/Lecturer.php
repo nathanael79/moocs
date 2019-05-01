@@ -13,6 +13,7 @@ class Lecturer extends Model
             'password',
             'gender',
             'address',
+            'pictures'
             /*'token',*/
         ];
 

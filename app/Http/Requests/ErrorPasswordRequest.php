@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ErrorProfileLecturerRequest extends FormRequest
+class ErrorPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class ErrorProfileLecturerRequest extends FormRequest
     public function rules()
     {
         return [
-            'nrp_dosen'=>'required|min:6|max:18',
-            'name'=>'required|min:3',
-            'gender'=>'required',
-            'address'=>'required|min:6',
-            'pictures'=>'required|image|max:5000'
+            'old_password'=>'min:6',
+            'new_password'=>'min:6'
         ];
     }
 }
