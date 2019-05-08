@@ -101,6 +101,11 @@ class LecturerController extends Controller
     {
         return view('backend.lecturer.form_course');
     }
+
+    public function deleteCourse($id)
+    {
+        $course = Course::find($id);
+    }
     
 
     public function storeCourse(ErrorCourseRequest $request)
@@ -124,19 +129,19 @@ class LecturerController extends Controller
         ]);
     }
 
-    public function createSubCourse()
+    public function createContent()
     {
         return view('backend.lecturer.form_sub_course');
     }
 
-    public function storeSubCourse(ErrorSubCourseRequest $request, $id)
+    public function storeSubCourse(ErrorSubCourseRequest $request)
     {
-        SubCourse::create([
+        $new_subcourse= SubCourse::create([
             'sub_course_name'=>$request->sub_course_name,
-            'course_id'=>$id
+            'course_id'=>$request->course_id
         ]);
 
-        return redirect('/lecturer/create_sub_course');
+        return redirect('/lecturer/sub_course_profile/'.$new_subcourse->id);
     }
 
     public function courseProfile($id)
@@ -147,9 +152,12 @@ class LecturerController extends Controller
         ]);
     }
 
-    public function subCourseProfile()
+    public function subCourseProfile($id)
     {
-        return view('backend.lecturer.sub_course_profile');
+        $sub_course = SubCourse::find($id);
+        return view('backend.lecturer.sub_course_profile',[
+            'sub_course_profile'=>$sub_course
+        ]);
     }
 
     public function subCourseQuestion()

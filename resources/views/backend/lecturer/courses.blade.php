@@ -122,23 +122,23 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Daftar Kursus</h3>
+                            <h3 class="mb-0">Course List</h3>
                         </div>
                         <div class="col text-right">
-                            <a href="{{url('/lecturer/create_course')}}" class="btn btn-sm btn-primary">Buat Kursus Baru</a>
+                            <a href="{{url('/lecturer/create_course')}}" class="btn btn-sm btn-primary">Make new course</a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-12 mb-5 mb-xl-0">
                         <div class="table-responsive" >
-                            <table class="table table-flush" id="myTable">
+                            <table class="table table-hover" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
+                                    <th scope="col">Created At</th>
                                     <th scope="col">Courses</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Completion</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                {{-- <tbody>
@@ -226,14 +226,19 @@
         $(document).ready(function () {
             $('#myTable').dataTable({
                 "ajax":"{{url('/lecturer/getCourses')}}",
-                buttons: [
-                    'copy', 'excel', 'pdf'
-                ],
+                "autoWidth": false,
                 "columns":
                     [
+                        {"data":"created_at"},
                         {"data":"course_name"},
                         {"data":"status"},
-                        {"data":"completion"}
+                        { render: function(data, type, row, meta){
+                                return "<div class='btn-group'>"+
+                                    "<a href='{{url('/lecturer/course_profile')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
+                                    "<a href='{{url("/lecturer/delete_course")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                    "</div>";
+                            }
+                        }
                     ],
 
             })

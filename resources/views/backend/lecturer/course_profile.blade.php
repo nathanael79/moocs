@@ -84,56 +84,14 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div>
-                                <table class="table align-items-center">
+                                <table class="table table-hover align-items-center" id="myTable">
                                     <thead class="thead-light">
                                     <tr>
-                                        <th scope="col" class="sort" data-sort="number">No</th>
-                                        <th scope="col" class="sort" data-sort="budget">Sub Course Name</th>
-                                        <th scope="col" class="sort" data-sort="status">Amount of Content</th>
-                                        <th scope="col">Details</th>
-                                        <th scope="col" class="sort" data-sort="completion">Action</th>
+                                        <th scope="col">Created At</th>
+                                        <th scope="col">Sub Course Name</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                     </thead>
-                                    <tbody class="list">
-
-                                    <tr>
-                                        <td class="number">1</td>
-                                        <td class="budget">
-                                            $2500 USD
-                                        </td>
-                                        <td>
-                                            30 Matter
-                                        </td>
-                                        <td>
-
-
-                                            <p>
-                                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                    Button with data-target
-                                                </button>
-                                            </p>
-                                            <div class="collapse" id="collapseExample">
-                                                <div class="card card-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                                </div>
-                                            </div>
-
-
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
                                 </table>
                             </div>
 
@@ -157,7 +115,8 @@
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="ni ni-book-bookmark"></i></span>
                                                             </div>
-                                                            <input class="form-control" placeholder="Sub Course Name" type="text" name="sub_course_name" value="{{old('sub_course_name')}}">
+                                                            <input type="hidden" name="course_id" value="{{$course_profile->id}}">
+                                                            <input class="form-control" id="sub_course_name" placeholder="Sub Course Name" type="text" name="sub_course_name" value="{{old('sub_course_name')}}">
                                                             @if ($errors->has('sub_course_name'))
                                                                 <span class="text-danger">{{ $errors->first('sub_course_name') }}</span>
                                                             @endif
@@ -165,7 +124,7 @@
                                                     </div>
                                                     <div class="text-center">
                                                         {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
-                                                        <button type="submit" class="btn btn-primary my-4">Create</button>
+                                                        <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -206,6 +165,24 @@
 
 @section('js')
     <script type="application/javascript">
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                'ajax':'{{url('/lecturer/getSubCourses')}}',
+                'autoWidth':false,
+                'columns':[
+                    {'data':'created_at'},
+                    {'data':'sub_course_name'},
+                    { render: function(data, type, row, meta){
+                            return "<div class='btn-group'>"+
+                                "<a href='{{url('/lecturer/sub_course_profile')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
+                                "<a href='{{url("#")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                "</div>";
+                        }
+                    }
+                ]
+            })
+            
+        })
 
 
     </script>

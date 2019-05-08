@@ -24,16 +24,7 @@ class ErrorSubCourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'sub_course_name'=>'required|min:6',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'sub_course_name.required'=>'Sub Course Name is required',
-            'sub_course_name.min'=>'Sub Course Name length length must be min.6 characters'
-
+            'sub_course_name'=>'required',
         ];
     }
 }

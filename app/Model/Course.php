@@ -15,7 +15,6 @@ class Course extends Model
             'lecturer_id',
             'course_category_id',
             'status',
-            'completion'
         ];
 
     public function subCourse()

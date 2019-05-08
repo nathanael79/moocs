@@ -19,7 +19,7 @@ class CreateSubCourseTable extends Migration
             $table->string('sub_course_name');
             $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('course');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

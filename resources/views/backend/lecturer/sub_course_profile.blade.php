@@ -25,7 +25,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Sub Course Name</h3>
+                                <h3 class="mb-0">{{$sub_course_profile->sub_course_name}}</h3>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h6 class="heading-small text-muted mb-4">Sub Course Content</h6>
+                                    <h6 class="heading-small text-muted mb-4">{{$sub_course_profile->sub_course_name}} Content</h6>
                                 </div>
                                 <div class="col-lg-3">
                                     <a href="{{url('/lecturer/create_sub_course')}}" class="btn btn-icon btn-primary btn-sm" type="button">
@@ -117,7 +117,7 @@
                         </form>
                         <div class="row">
                             <div class="col-lg-9">
-                                <h6 class="heading-small text-muted mb-4">Sub Course Question</h6>
+                                <h6 class="heading-small text-muted mb-4">{{$sub_course_profile->sub_course_name}} Question</h6>
                             </div>
                             <div class="col-lg-3">
                                 <a href="{{url('/lecturer/sub_course_question')}}" class="btn btn-icon btn-primary btn-sm" type="button">

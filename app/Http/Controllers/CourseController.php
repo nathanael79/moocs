@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Course;
 use App\Model\CourseCategory;
+use App\Model\SubCourse;
 
 class CourseController extends Controller
 {
@@ -26,6 +27,12 @@ class CourseController extends Controller
     {
         $course = Course::all();
         return response()->json(['data'=>$course]);
+    }
+
+    public function getSubCourses()
+    {
+        $subCourse = SubCourse::all();
+        return response()->json(['data'=>$subCourse]);
     }
 
 }
