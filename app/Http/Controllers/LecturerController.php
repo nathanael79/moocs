@@ -12,10 +12,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ErrorCourseRequest;
 use App\Http\Requests\ErrorPasswordRequest;
 use App\Http\Requests\ErrorProfileLecturerRequest;
+use App\Http\Requests\ErrorSubCourseContent;
 use App\Http\Requests\ErrorSubCourseRequest;
 use App\Model\Course;
 use App\Model\Lecturer;
 use App\Model\SubCourse;
+use App\Model\SubCourseDetail;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -105,6 +107,7 @@ class LecturerController extends Controller
     public function deleteCourse($id)
     {
         $course = Course::find($id);
+        //delete cascade
     }
     
 
@@ -114,12 +117,13 @@ class LecturerController extends Controller
         $name = $image->getClientOriginalName();
         $image->move(public_path().'/images/courses/',$name);
         //dd($request->all());
+        $lecturer_id = Lecturer::where('user_id', session()->get('activeUser')->id)->first();
         $new_course = Course::create([
             "course_name"=>$request->course_name,
             "course_category_id"=>$request->course_category_hid,
             "keterangan"=>$request->course_description,
             "pictures"=>$name,
-            'lecturer_id'=>session()->get('activeUser')->id,
+            'lecturer_id'=>$lecturer_id->id,
             "status"=>"pending"
         ]);
         //dd($new_course);
@@ -129,9 +133,46 @@ class LecturerController extends Controller
         ]);
     }
 
-    public function createContent()
+    public function createContent($id)
     {
-        return view('backend.lecturer.form_sub_course');
+        $sub_course = SubCourse::find($id);
+        return view('backend.lecturer.form_sub_course',[
+            'sub_course'=>$sub_course
+        ]);
+    }
+
+    public function storeContent(ErrorSubCourseContent $request)
+    {
+        if($request->hasFile('video_file'))
+        {
+            $video = $request->file('video_file');
+            $video_name = $video->getClientOriginalName();
+            $video->move(public_path().'/videos/courses/',$video_name);
+            SubCourseDetail::create([
+                'sub_course_detail_name'=>$request->content_name,
+                'sub_course_detail_type'=>'video',
+                'sub_course_detail_file'=>$video_name,
+                'view'=>0,
+                'sub_course_id'=>$request->sub_course_id,
+
+            ]);
+
+            return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+        }
+        else
+        {
+            SubCourseDetail::create([
+                'sub_course_detail_name'=>$request->content_name,
+                'sub_course_detail_type'=>'text',
+                'sub_course_detail_description'=>$request->course_description,
+                'view'=>0,
+                'sub_course_id'=>$request->sub_course_id
+            ]);
+
+            return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+        }
+
+
     }
 
     public function storeSubCourse(ErrorSubCourseRequest $request)

@@ -37,7 +37,7 @@
                                     <h6 class="heading-small text-muted mb-4">{{$sub_course_profile->sub_course_name}} Content</h6>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a href="{{url('/lecturer/create_sub_course')}}" class="btn btn-icon btn-primary btn-sm" type="button">
+                                    <a href="{{url('/lecturer/create_content/'.$sub_course_profile->id)}}" class="btn btn-icon btn-primary btn-sm" type="button">
                                         <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
                                         <span class="btn-inner--text">Add new content</span>
                                     </a>

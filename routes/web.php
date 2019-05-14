@@ -212,10 +212,16 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_store_sub_course"
             ]);
 
-        Route::get('/create_content',
+        Route::get('/create_content/{id}',
             [
                 "uses"=>"LecturerController@createContent",
                 "as"=>"lecturer_create_sub_course_page"
+            ]);
+
+        Route::post('/storeContent',
+            [
+                "uses"=>"LecturerController@storeContent",
+                "as"=>'lecturer_store_sub_course_content'
             ]);
 
         Route::get('/sub_course_profile/{id}',
@@ -224,7 +230,7 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_sub_course_profile_page"
             ]);
 
-        Route::get('/getSubCourses',
+        Route::get('/getSubCourses/{id}',
             [
                 "uses"=>"CourseController@getSubCourses",
                 "as"=>"get_sub_courses_data"

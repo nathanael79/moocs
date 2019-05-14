@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumTable extends Migration
+class CreateAssignmentScoreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateForumTable extends Migration
      */
     public function up()
     {
-        Schema::create('forum', function (Blueprint $table) {
+        Schema::create('assignment_score', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('forum_questions');
-            $table->string('forum_descriptions');
-            $table->string('forum_like');
-            $table->integer('user_id');
-            $table->string('user_type');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user');
             $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('course');
             $table->timestamps();
@@ -33,6 +30,6 @@ class CreateForumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forum');
+        Schema::dropIfExists('assignment_score');
     }
 }

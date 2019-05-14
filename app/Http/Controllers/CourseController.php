@@ -29,9 +29,9 @@ class CourseController extends Controller
         return response()->json(['data'=>$course]);
     }
 
-    public function getSubCourses()
+    public function getSubCourses($id)
     {
-        $subCourse = SubCourse::all();
+        $subCourse = SubCourse::where('course_id',$id)->get();
         return response()->json(['data'=>$subCourse]);
     }
 

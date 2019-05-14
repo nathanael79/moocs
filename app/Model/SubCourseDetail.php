@@ -11,7 +11,7 @@ class SubCourseDetail extends Model
         [
             'sub_course_detail_name',
             'sub_course_detail_type',
-            'sub_course_detail_path',
+            'sub_course_detail_file',
             'sub_course_detail_description',
             'view',
             'sub_course_id'

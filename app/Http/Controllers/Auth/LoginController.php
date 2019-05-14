@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Model\Administrator;
+use App\Model\Student;
 use App\Model\User;
+use App\Model\Lecturer;
 //use Grimthorr\LaravelToast\Toast;
 use Toast;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -31,11 +34,12 @@ class LoginController extends Controller
         {
             if(Hash::check($request->user_password,$activeUser->user_password))
             {
-                //$request->session()->put('user',$activeUser->user_email);
                 $request->session()->put('activeUser',$activeUser);
                 switch ($activeUser->user_type)
                 {
                     case "student":
+                        //$student_id = Student::where('user_id',$activeUser->id)->first();
+                        //$request->session()->put('activeUser',$student_id);
                         if($activeUser->status == 0)
                         {
                             Toast::success('','Jangan lupa verifikasi email kamu !');
@@ -44,6 +48,8 @@ class LoginController extends Controller
                         break;
 
                     case "lecturer":
+                        //$lecturer_id = Lecturer::where('user_id',$activeUser->id)->first();
+                        //$request->session()->put('activeUser',$lecturer_id);
                         if($activeUser->status == 0)
                         {
                             Toast::success('','Jangan lupa verifikasi email kamu !');
@@ -52,43 +58,11 @@ class LoginController extends Controller
                         break;
 
                     case "admin":
+                        //$admin_id = Administrator::where('user_id',$activeUser->id)->first();
+                        //$request->session()->put('activeUser',$admin_id);
                         return redirect('/admin');
                         break;
                 }
-
-
-
-
-
-
-/*                if($activeUser->user_type == 'student')
-                {
-                    if($activeUser->status == 0)
-                    {
-
-                        Toast::success('','Jangan lupa verifikasi email kamu !');
-                    }
-                    return redirect('/dashboard');
-                }
-                else if($activeUser->status == 'lecturer')
-                {
-                    if($activeUser->status == 0)
-                    {
-
-                        Toast::success('','Jangan lupa verifikasi email kamu !');
-                    }
-                    return redirect('/lecturer');
-                }
-                else
-                {
-                    if($activeUser->status == 0)
-                    {
-
-                        Toast::success('','Jangan lupa verifikasi email kamu !');
-                    }
-                    return redirect('/admin');
-                }*/
-
             }
             else
             {

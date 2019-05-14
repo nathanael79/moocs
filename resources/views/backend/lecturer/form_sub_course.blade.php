@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{url('#')}}">
+                        <form method="post" action="{{url('/lecturer/storeContent')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <h6 class="heading-small text-muted mb-4">Sub Course Content</h6>
                             <div class="pl-lg-4">
@@ -40,28 +40,29 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-course-name">Content Name</label>
                                             <input type="text" id="input-course-name" name='course_name' class="form-control" placeholder="Input Course Name">
+                                            <input name="sub_course_id" type="hidden" value="{{$sub_course->id}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group form-inline">
-                                            <label class="form-control-label" for="input-course-name">Content Type</label>
-                                            <label class="custom-toggle">
-                                                <input type="checkbox" checked>
-                                                <span class="custom-toggle-slider rounded-circle" id='toggle_content' data-label-off="Text" data-label-on="Video"></span>
-                                            </label>
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-course-name">Content Details</label>
+                                            <select id="select_content" class="form-control form-control-sm" data-toggle="select" title="Select Content" data-live-search="true" data-live-search-placeholder="Search ...">
+                                                <option value="video">Video</option>
+                                                <option value="text">Text</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group" id="sub_course_content">
-                                            <textarea type="text" id="input-course-description" style="display: none" name="course_desription" class="form-control" rows="10" placeholder="Input your course description"></textarea>
-                                            <div class="dropzone dropzone-single"  data-toggle="dropzone" data-dropzone-url="http://">
+                                            <textarea type="text" id="content_text" style="display: none"  name="course_desription" class="form-control" rows="10" placeholder="Input your course description"></textarea>
+                                            <div class="dropzone dropzone-single" data-toggle="dropzone" data-dropzone-url="http://" id="content_video">
                                                 <div class="fallback">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="dropzoneBasicUpload">
+                                                        <input type="file" class="custom-file-input" id="dropzoneBasicUpload" name="video_file">
                                                         <label class="custom-file-label" for="dropzoneBasicUpload">Choose file</label>
                                                     </div>
                                                 </div>
@@ -127,14 +128,26 @@
 @section('js')
     <script type="application/javascript">
         $(document).ready(function () {
-//            $('#sub_course_content').hide();
-
-            $('#toggle_content').click(function () {
-                $('#sub_course_content').toggle('0',function () {
-                    $('#sub_course_content').hide();
-                    $('#input-course-description').show()
-                })
+            $('#select_content').on('select2:select', function (e) {
+               var data = e.params.data;
+               console.log(data);
+               var video = document.getElementById('content_video');
+               var text = document.getElementById('content_text');
+               if(data.id === 'text')
+               {
+                   console.log('ini data text');
+                   video.style.display = 'none';
+                   text.style.display ='block';
+               }
+               else
+               {
+                   text.style.display ='none';
+                   video.style.display = 'block';
+               }
             })
+
+
+
         })
     </script>
 @endsection

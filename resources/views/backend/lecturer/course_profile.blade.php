@@ -6,7 +6,7 @@
 @endif
 @section('main_content')
     <!--Mask Header-->
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('../../images/courses/'.$course_profile->pictures)}}); background-size: cover; background-position: center top;">
         <!-- Mask -->
         <span class="mask bg-gradient-orange opacity-8"></span>
         <!-- Header container -->
@@ -167,7 +167,7 @@
     <script type="application/javascript">
         $(document).ready(function () {
             $('#myTable').dataTable({
-                'ajax':'{{url('/lecturer/getSubCourses')}}',
+                'ajax':'{{url('/lecturer/getSubCourses/'.$course_profile->id)}}',
                 'autoWidth':false,
                 'columns':[
                     {'data':'created_at'},
