@@ -172,7 +172,7 @@ class LecturerController extends Controller
             return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
         }
 
-
+        //dd($request);
     }
 
     public function storeSubCourse(ErrorSubCourseRequest $request)

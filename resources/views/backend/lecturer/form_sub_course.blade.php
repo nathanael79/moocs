@@ -31,15 +31,18 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{url('/lecturer/storeContent')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{url('/lecturer/storeContent')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <h6 class="heading-small text-muted mb-4">Sub Course Content</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{$errors->has('content_name') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-course-name">Content Name</label>
-                                            <input type="text" id="input-course-name" name='course_name' class="form-control" placeholder="Input Course Name">
+                                            <input type="text" id="input-course-name" name='content_name' class="form-control" placeholder="Input Content Name">
+                                            @if($errors->has('content_name'))
+                                                <span class="text-danger">{{ $errors->first('content_name') }}</span>
+                                            @endif
                                             <input name="sub_course_id" type="hidden" value="{{$sub_course->id}}">
                                         </div>
                                     </div>
@@ -58,20 +61,16 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group" id="sub_course_content">
-                                            <textarea type="text" id="content_text" style="display: none"  name="course_desription" class="form-control" rows="10" placeholder="Input your course description"></textarea>
-                                            <div class="dropzone dropzone-single" data-toggle="dropzone" data-dropzone-url="http://" id="content_video">
-                                                <div class="fallback">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="dropzoneBasicUpload" name="video_file">
-                                                        <label class="custom-file-label" for="dropzoneBasicUpload">Choose file</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="dz-preview dz-preview-single">
-                                                    <div class="dz-preview-cover">
-                                                        <img class="dz-preview-img" src="..." alt="..." data-dz-thumbnail>
-                                                    </div>
-                                                </div>
+                                            <textarea type="text" id="content_text" style="display: none"  name="course_desription" class="form-control {{$errors->has('course_description') ? 'has-error':''}}" rows="10" placeholder="Input your course description"></textarea>
+                                            @if($errors->has('course_description'))
+                                                <span class="text-danger">{{ $errors->first('course_description') }}</span>
+                                            @endif
+                                            <div class="custom-file {{$errors->has('video_file') ? 'has-error':''}}" id="content_video">
+                                                <input type="file" class="custom-file-input" id="customFileLang" lang="en" name="video_file">
+                                                <label class="custom-file-label" for="customFileLang">Select file</label>
+                                                @if($errors->has('video_file'))
+                                                    <span class="text-danger">{{ $errors->first('video_file') }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
