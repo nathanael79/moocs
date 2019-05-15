@@ -61,7 +61,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group" id="sub_course_content">
-                                            <textarea type="text" id="content_text" style="display: none"  name="course_desription" class="form-control {{$errors->has('course_description') ? 'has-error':''}}" rows="10" placeholder="Input your course description"></textarea>
+                                            <textarea type="text" id="content_text" style="display: none"  name="course_description" class="form-control {{$errors->has('course_description') ? 'has-error':''}}" rows="10" placeholder="Input your course description"></textarea>
                                             @if($errors->has('course_description'))
                                                 <span class="text-danger">{{ $errors->first('course_description') }}</span>
                                             @endif
