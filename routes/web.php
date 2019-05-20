@@ -112,6 +112,7 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"get_course_category"
             ]);
 
+        //LECTURER ROUTE
     Route::group(['prefix'=>'/lecturer'],function (){
 
         Route::get('/',
@@ -242,6 +243,67 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_sub_course_page"
             ]);
 
+
+
+    });
+
+    Route::group(['prefix'=>'/admin'],function (){
+
+        Route::get('/',
+            [
+                'uses'=>'AdminController@dashboard',
+                'as'=>'admin_dashboard_page'
+            ]);
+
+        Route::get('/unconfirmedCourse',
+            [
+                'uses'=>'AdminController@unconfirmedCourse',
+                'as'=>'admin_unconfirmed_course_page'
+            ]);
+
+        Route::get('/getUnconfirmed',
+            [
+                'uses'=>'AdminController@getUnconfirmedCourse',
+                'as'=>'admin_get_unconfirmed_course'
+
+            ]);
+
+        Route::get('/registeredCourse',
+            [
+                'uses'=>'AdminController@registeredCourse',
+                'as'=>'admin_registered_course_page'
+            ]);
+
+        Route::get('/getAllCourse',
+            [
+                'uses'=>'AdminController@getAllCourse',
+                'as'=>'admin_get_all_course'
+
+            ]);
+
+        Route::get('/userStudent',
+            [
+                'uses'=>'AdminController@userStudent',
+                'as'=>'admin_user_student_page'
+            ]);
+
+        Route::get('/getStudent',
+            [
+                'uses'=>'AdminController@getStudent',
+                'as'=>'admin_get_student'
+            ]);
+
+        Route::get('/userLecturer',
+            [
+                'uses'=>'AdminController@userLecturer',
+                'as'=>'admin_user_lecturer_page'
+            ]);
+
+        Route::get('/userAdmin',
+            [
+                'uses'=>'AdminController@userAdmin',
+                'as'=>'admin_user_admin_page'
+            ]);
 
 
     });

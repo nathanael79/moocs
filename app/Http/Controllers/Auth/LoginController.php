@@ -54,14 +54,16 @@ class LoginController extends Controller
                         {
                             Toast::success('','Jangan lupa verifikasi email kamu !');
                         }
-                        return redirect('/lecturer');
+                        return redirect('/lecturer/courses');
                         break;
 
-                    case "admin":
+                    case "administrator":
                         //$admin_id = Administrator::where('user_id',$activeUser->id)->first();
                         //$request->session()->put('activeUser',$admin_id);
                         return redirect('/admin');
                         break;
+                    default:
+                        return redirect('/');
                 }
             }
             else

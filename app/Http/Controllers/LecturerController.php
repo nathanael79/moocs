@@ -133,6 +133,12 @@ class LecturerController extends Controller
         ]);
     }
 
+    public function updateCourse(ErrorCourseRequest $request, $id)
+    {
+        $activeCourse = Course::find($id);
+        if($request->hasFile(''));
+    }
+
     public function createContent($id)
     {
         $sub_course = SubCourse::find($id);
