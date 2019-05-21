@@ -299,6 +299,12 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_user_lecturer_page'
             ]);
 
+        Route::get('/getLecturer',
+            [
+                'uses'=>'AdminController@getLecturer',
+                'as'=>'admin_get_lecturer'
+            ]);
+
         Route::get('/userAdmin',
             [
                 'uses'=>'AdminController@userAdmin',

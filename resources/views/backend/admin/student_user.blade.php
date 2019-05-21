@@ -135,10 +135,10 @@
                             <table class="table table-hover" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Created At</th>
-                                    <th scope="col">Courses</th>
-                                    <th scope="col">Lecturer</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Registered at</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
@@ -228,14 +228,14 @@
     <script type="application/javascript">
         $(document).ready(function () {
             $('#myTable').dataTable({
-                "ajax":"{{url('/admin/getAllCourse')}}",
+                "ajax":"{{url('/admin/getStudent')}}",
                 "autoWidth": false,
                 "columns":
                     [
-                        {"data":"created_at"},
-                        {"data":"course_name"},
                         {"data":"name"},
-                        {"data":"status"},
+                        {"data":"user_email"},
+                        {"data":"gender"},
+                        {"data":"created_at"},
                         { render: function(data, type, row, meta){
                                 return "<div class='btn-group'>"+
                                     "<a href='{{url('#')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
