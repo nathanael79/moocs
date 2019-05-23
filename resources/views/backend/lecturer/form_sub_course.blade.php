@@ -134,7 +134,7 @@
                var text = document.getElementById('content_text');
                if(data.id === 'text')
                {
-                   console.log('ini data text');
+                   //console.log('ini data text');
                    video.style.display = 'none';
                    text.style.display ='block';
                }

@@ -16,7 +16,7 @@
                                  </ol>
                              </nav>--}}
                         </div>
-                        {{-- <div class="col-lg-6 col-5 text-right">
+{{--                        <div class="col-lg-6 col-5 text-right">
                              <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">New</a>
                              <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">Filters</a>
                          </div>--}}
@@ -124,9 +124,9 @@
                         <div class="col">
                             <h3 class="mb-0">Students List</h3>
                         </div>
-                        {{--                        <div class="col text-right">
-                                                    <a href="{{url('/lecturer/create_course')}}" class="btn btn-sm btn-primary">Make new course</a>
-                                                </div>--}}
+                        <div class="col text-right">
+                            <a href="{{url('#')}}" class="btn btn-sm btn-primary">Add new student</a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

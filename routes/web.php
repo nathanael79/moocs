@@ -311,6 +311,12 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_user_admin_page'
             ]);
 
+        Route::get('/getAdmin',
+            [
+                'uses'=>'AdminController@getAdmin',
+                'as'=>'admin_get_admin'
+            ]);
+
 
     });
 
