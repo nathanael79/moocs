@@ -1,229 +1,400 @@
 @include('toast::messages')
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>MOOC PENS</title>
+    <!doctype html>
+<html lang="zxx">
+
+<!-- Mirrored from envytheme.com/tf-demo/edufield/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 May 2019 18:45:50 GMT -->
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/bootstrap.min.css') !!}">
+    <!-- IcoFont Min CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/icofont.min.css') !!}">
+    <!-- Classy Nav CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/classy-nav.min.css') !!}">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/animate.css') !!}">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/owl.carousel.css') !!}">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/magnific-popup.css') !!}">
+    <!-- Owl Theme Default CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/owl.theme.default.min.css') !!}">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/style.css') !!}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{!! asset('../../edufield/assets/css/responsive.css') !!}">
 
-    <link rel="stylesheet" href="{{url(asset('../../skwela/css/bootstrap.css'))}}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/css/animate.css') !!}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/css/owl.carousel.min.css') !!}">
+    <title>EduField - Education & Online Courses HTML Template</title>
 
-    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/ionicons/css/ionicons.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/fontawesome/css/font-awesome.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('../../skwela/fonts/flaticon/font/flaticon.css') !!}">
+    <link rel="icon" type="image/png" href="{!! asset('../../edufield/assets/img/favicon.png') !!}">
+</head>
+<body>
+<!-- Start Preloader Area -->
+<div class="preloader-area">
+    <div class="loader">
+        <div class="dots">
+            <i class="dots-item dots-item-move-down"></i>
+            <i class="dots-item dots-item-move-left"></i>
+            <i class="dots-item dots-item-move-left"></i>
+            <i class="dots-item dots-item-move-left"></i>
+            <i class="dots-item dots-item-move-left"></i>
+            <i class="dots-item dots-item-move-down"></i>
+            <i class="dots-item dots-item-move-right"></i>
+            <i class="dots-item dots-item-move-right"></i>
+            <i class="dots-item dots-item-move-down"></i>
+            <i class="dots-item dots-item-move-up"></i>
+            <i class="dots-item dots-item-move-down"></i>
+            <i class="dots-item dots-item-move-up"></i>
 
-    <!-- Theme Style -->
-    <link rel="stylesheet" href="{!! asset('../../skwela/css/style.css') !!}">
-  </head>
-  <body>
-    
-    <header role="banner">
-     
-      <nav class="navbar navbar-expand-md navbar-dark bg-light">
-        <div class="container">
-          <a class="navbar-brand absolute" href="{{url('/')}}">MOOC PENS</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <i class="dots-item"></i>
 
-          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Online Courses</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.html">HTML</a>
-                  <a class="dropdown-item" href="courses.html">WordPress</a>
-                  <a class="dropdown-item" href="courses.html">Web Development</a>
-                  <a class="dropdown-item" href="courses.html">Javascript</a>
-                  <a class="dropdown-item" href="courses.html">Photoshop</a>
-                </div>
-
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" href="#">HTML</a>
-                  <a class="dropdown-item" href="#">WordPress</a>
-                  <a class="dropdown-item" href="#">Web Development</a>
-                  <a class="dropdown-item" href="#">Javascript</a>
-                  <a class="dropdown-item" href="#">Photoshop</a>
-                </div>
-
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/login')}}">Lecturer</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-            </ul>
-             <ul class="navbar-nav absolute-right">
-              <li class="nav-item">
-                <a href="{{url('/login')}}" class="nav-link active">Login</a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/register')}}" class="nav-link">Register</a>
-              </li>
-            </ul>
-            
-          </div>
+            <i class="dots-item dots-item-move-down"></i>
+            <i class="dots-item dots-item-move-up"></i>
+            <i class="dots-item dots-item-move-down"></i>
+            <i class="dots-item dots-item-move-up"></i>
+            <i class="dots-item dots-item-move-left"></i>
+            <i class="dots-item dots-item-move-left"></i>
+            <i class="dots-item dots-item-move-up"></i>
+            <i class="dots-item dots-item-move-right"></i>
+            <i class="dots-item dots-item-move-right"></i>
+            <i class="dots-item dots-item-move-right"></i>
+            <i class="dots-item dots-item-move-right"></i>
+            <i class="dots-item dots-item-move-up"></i>
         </div>
-      </nav>
-    </header>
-    <!-- END header -->
+    </div>
+</div>
+<!-- End Preloader Area -->
 
-    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url({{asset('../../skwela/images/big_image_3.jpg')}});">
-      <div class="container">
-        <div class="row align-items-center site-hero-inner justify-content-center">
-          <div class="col-md-8 text-center">
-            <div class="mb-5 element-animate">
-              <h1>Login</h1>
+<!-- Start Main Menu Area -->
+<div class="main-header-area navbar-area header-sticky">
+    <div class="container">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="EduStudyNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="index-default.html"><img src="{!! asset('../../edufield/assets/img/logo.png') !!}" alt="logo"></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="#">Home</a>
+                                <ul class="dropdown">
+                                    <li><a href="index-default.html">Home Demo One</a></li>
+                                    <li><a href="index-two.html">Home Demo Two</a></li>
+                                    <li><a href="index-three.html">Home Demo Three</a></li>
+                                    <li><a href="index-four.html">Home Demo Four</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">About Us</a>
+                                <ul class="dropdown">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="admission.html">Admission</a></li>
+                                    <li><a href="teacher-style-one.html">Teacher Style One</a></li>
+                                    <li><a href="teacher-style-two.html">Teacher Style Two</a></li>
+                                    <li><a href="single-teacher.html">Teacher Details</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Courses</a>
+                                <ul class="dropdown">
+                                    <li><a href="courses-style-one.html">Courses Style One</a></li>
+                                    <li><a href="courses-style-two.html">Courses Style Two</a></li>
+                                    <li><a href="single-courses.html">Courses Details</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Events</a>
+                                <ul class="dropdown">
+                                    <li><a href="event-style-one.html">Events Style One</a></li>
+                                    <li><a href="event-style-two.html">Events Style Two</a></li>
+                                    <li><a href="single-events.html">Events Details</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#" class="active">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="#">Blog</a>
+                                        <ul class="dropdown">
+                                            <li><a href="blog-style-one.html">Blog Style One</a></li>
+                                            <li><a href="blog-style-two.html">Blog Style Two</a></li>
+                                            <li><a href="blog-style-three.html">Blog Style Three</a></li>
+                                            <li><a href="single-blog.html">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Shop</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-style-one.html">Shop Style One</a></li>
+                                            <li><a href="shop-style-two.html">Shop Style Two</a></li>
+                                            <li><a href="single-shop.html">Shop Details</a></li>
+                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Courses</a>
+                                        <ul class="dropdown">
+                                            <li><a href="courses-style-one.html">Courses Style One</a></li>
+                                            <li><a href="courses-style-two.html">Courses Style Two</a></li>
+                                            <li><a href="single-courses.html">Courses Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Teacher</a>
+                                        <ul class="dropdown">
+                                            <li><a href="teacher-style-one.html">Teacher Style One</a></li>
+                                            <li><a href="teacher-style-two.html">Teacher Style Two</a></li>
+                                            <li><a href="single-teacher.html">Teacher Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Events</a>
+                                        <ul class="dropdown">
+                                            <li><a href="event-style-one.html">Events Style One</a></li>
+                                            <li><a href="event-style-two.html">Events Style Two</a></li>
+                                            <li><a href="single-events.html">Events Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Contact</a>
+                                        <ul class="dropdown">
+                                            <li><a href="contact-style-one.html">Contact Style One</a></li>
+                                            <li><a href="contact-style-two.html">Contact Style Two</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="admission.html">Admission</a></li>
+                                    <li><a href="error.html">404 Error</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li class="active"><a href="login.html">Login</a></li>
+                                    <li><a href="register.html">Register</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Blog</a>
+                                <ul class="dropdown">
+                                    <li><a href="blog-style-one.html">Blog Style One</a></li>
+                                    <li><a href="blog-style-two.html">Blog Style Two</a></li>
+                                    <li><a href="blog-style-three.html">Blog Style Three</a></li>
+                                    <li><a href="single-blog.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Shop</a>
+                                <ul class="dropdown">
+                                    <li><a href="shop-style-one.html">Shop Style One</a></li>
+                                    <li><a href="shop-style-two.html">Shop Style Two</a></li>
+                                    <li><a href="single-shop.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Contact</a>
+                                <ul class="dropdown">
+                                    <li><a href="contact-style-one.html">Contact Style One</a></li>
+                                    <li><a href="contact-style-two.html">Contact Style Two</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#search" class="search-btn"><i class="icofont-search-2"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Main Menu Area -->
+
+<!-- Start Search Popup Area -->
+<div id="search-area">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="Search Kewword(s)">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+<!-- End Search Popup Area -->
+
+<!-- Start Page Title Area -->
+<div class="page-title">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <h3>Login</h3>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <!-- END section -->
+    </div>
+</div>
+<!-- End Page Title Area -->
 
-
-    <section class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-5 box">
-            <h2 class="mb-5">Log in with your account</h2>
-            <form action="{{url('/login')}}" method="post">
-                {{ csrf_field() }}
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="name">Email</label>
-                      <input type="email" id="name" name="user_email" class="form-control ">
-                    </div>
-                  </div>
-                  <div class="row mb-5">
-                    <div class="col-md-12 form-group">
-                      <label for="name">Password</label>
-                      <input type="password" id="name" name="user_password" class="form-control ">
-                    </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input type="submit" value="Login" class="btn btn-primary">
-                    </div>
-                  </div>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <center>
-                            <a href="{{url('/lecturer/register')}}" type="button">Daftar sebagai Lecturer</a>
-                        </center>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <center>
-                            <a href="{{url('/register')}}" type="button">Daftar sebagai Student</a>
-                        </center>
-                    </div>
-                </div>
-                </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
-{{--     <section class="overflow">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          
-          
-          <div class="col-lg-7 order-lg-3 order-1 mb-lg-0 mb-5">
-            <img src="{{url(asset('../../skwela/images/person_testimonial_1.jpg'))}}" alt="Image placeholder" class="img-md-fluid">
-          </div>
-          <div class="col-lg-1 order-lg-2"></div>
-          <div class="col-lg-4 order-lg-1 order-2 mb-lg-0 mb-5">
-            <blockquote class="testimonial">
-              &ldquo; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt incidunt nihil ab cumque molestiae commodi. &rdquo;
-            </blockquote>
-            <p>&mdash; John Doe, Certified ReactJS Student</p>
-          </div>
-        </div>
-      </div>
-    </section>--}}
-    <!-- END section -->
-    
-  
-    <footer class="site-footer" style="background-image: url({{asset('../../skwela/images/big_image_3.jpg')}});">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-4">
-            <h3>About</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, accusantium optio unde perferendis eum illum voluptatibus dolore tempora, consequatur minus asperiores temporibus reprehenderit.</p>
-          </div>
-          <div class="col-md-6 ml-auto">
-            <div class="row">
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Company</a></li>
-                  <li><a href="#">Teachers</a></li>
-                  <li><a href="#">Courses</a></li>
-                  <li><a href="#">Categories</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Company</a></li>
-                  <li><a href="#">Teachers</a></li>
-                  <li><a href="#">Courses</a></li>
-                  <li><a href="#">Categories</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Company</a></li>
-                  <li><a href="#">Teachers</a></li>
-                  <li><a href="#">Courses</a></li>
-                  <li><a href="#">Categories</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- Start Login Area -->
+<section class="login-area ptb-100">
+    <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
+            <div class="col-lg-12 col-md-12">
+                <form id="login-form" action="{{url('/login')}}" method="post">
+                    {{ csrf_field() }}
+                    <div class="heading">Sign in here</div>
+                    <div class="left">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="user_email" class="form-control" placeholder="Your Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="user_password" class="form-control" placeholder="Your Password">
+                        </div>
+
+                        <input type="submit" value="submit" class="btn btn-primary"/>
+                    </div>
+
+                    <div class="right">
+                        <div class="connect">Register here</div>
+                        <a href="{{url('/register')}}" class="facebook">As Student</a>
+                        <a href="{{url('/lecturer/register')}}" class="twitter">As Lecturer</a>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </footer>
-    <!-- END footer -->
-    
-    <!-- loader -->
-    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+    </div>
+</section>
+<!-- End Login Area -->
 
-    <script src="{{url(asset('../../skwela/js/jquery-3.2.1.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/jquery-migrate-3.0.0.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/popper.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/bootstrap.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/owl.carousel.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/jquery.waypoints.min.js'))}}"></script>
-    <script src="{{url(asset('../../skwela/js/jquery.stellar.min.js'))}}"></script>
+<!-- Start Footer Area -->
+<footer class="footer-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer">
+                    <h3>About EduField</h3>
 
-    
-    <script src="{{url(asset('../../skwela/js/main.js'))}}"></script>
-  @yield('js')
-  </body>
+                    <ul class="footer-contact-info">
+                        <li>2750 Quadra Street , Park Area, Victoria, Canada.</li>
+                        <li><a href="#">+4 (05) 345 6789</a></li>
+                        <li><a href="#">+4 (15) 345 6789</a></li>
+                        <li><a href="#">contact@EduField.com</a></li>
+                    </ul>
+
+                    <ul class="social">
+                        <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                        <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                        <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                        <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                        <li><a href="#"><i class="icofont-pinterest"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer">
+                    <h3>Courses</h3>
+
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Notice</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Scholarship</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer">
+                    <h3>Research</h3>
+
+                    <ul class="list">
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Documenation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer">
+                    <h3>Support</h3>
+
+                    <ul class="list">
+                        <li><a href="#">Language Packs</a></li>
+                        <li><a href="#">Relase Status</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Become A Teacher</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">LearnPress</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <p>Copyright <i class="icofont-copyright"></i> 2018 EduField Template by EnvyTheme. All rights reserved</p>
+                </div>
+
+                <div class="col-lg-5 col-md-5">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer Area -->
+
+<!-- Back to top -->
+<a class="scrolltop" href="#top"><i class="icofont-hand-drawn-up"></i></a>
+<!-- End Back to top -->
+
+<!-- jQuery Min JS -->
+<script src="{!! asset('../../edufield/assets/js/jquery.min.js') !!}"></script>
+<!-- Prpper JS -->
+<script src="{!! asset('../../edufield/assets/js/popper.min.js') !!}"></script>
+<!-- Bootstrap Min JS -->
+<script src="{!! asset('../../edufield/assets/js/bootstrap.min.js') !!}"></script>
+<!-- Classy Nav Min Js -->
+<script src="{!! asset('../../edufield/assets/js/classy-nav.min.js') !!}"></script>
+<!-- Owl Carousel Min Js -->
+<script src="{!! asset('../../edufield/assets/js/owl.carousel.min.js') !!}"></script>
+<!-- Magnific Popup JS -->
+<script src="{!! asset('../../edufield/assets/js/jquery.magnific-popup.min.js') !!}"></script>
+<!-- CounterUp JS -->
+<script src="{!! asset('../../edufield/assets/js/jquery.counterup.min.js') !!}"></script>
+<!-- Waypoints JS -->
+<script src="{!! asset('../../edufield/assets/js/waypoints.min.js') !!}"></script>
+<!-- Form Validator Min JS -->
+<script src="{!! asset('../../edufield/assets/js/form-validator.min.js') !!}"></script>
+<!-- Contact Form Min JS -->
+<script src="{!! asset('../../edufield/assets/js/contact-form-script.js') !!}"></script>
+<!-- Main JS -->
+<script src="{!! asset('../../edufield/assets/js/main.js') !!}"></script>
+</body>
+
+<!-- Mirrored from envytheme.com/tf-demo/edufield/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 May 2019 18:45:50 GMT -->
 </html>

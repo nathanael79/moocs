@@ -65,7 +65,7 @@
                                             @if($errors->has('course_description'))
                                                 <span class="text-danger">{{ $errors->first('course_description') }}</span>
                                             @endif
-                                            <div class="custom-file {{$errors->has('video_file') ? 'has-error':''}}" id="content_video">
+                                            <div class="custom-file {{$errors->has('video_file') ? 'has-er/ror':''}}" id="content_video">
                                                 <input type="file" class="custom-file-input" id="customFileLang" lang="en" name="video_file">
                                                 <label class="custom-file-label" for="customFileLang">Select file</label>
                                                 @if($errors->has('video_file'))

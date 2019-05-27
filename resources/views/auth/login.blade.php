@@ -1,5 +1,6 @@
 @extends('layouts.login')
 
+{{--
 @if(!empty(Session::get('error_login')) && Session::get('error_login') == 1)
     <script>
         function errorLogin()
@@ -13,3 +14,4 @@
         });
     </script>
 @endif
+--}}
