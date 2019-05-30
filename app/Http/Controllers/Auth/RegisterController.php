@@ -61,7 +61,7 @@ class RegisterController extends Controller
         else
         {
             $user = User::where('user_email',$request->email)->first();
-            $token = str_random(255);
+            $token = str_random(100);
             if($user)
             {
                 Toast::info('Email yang anda gunakan untuk mendaftarkan akun baru telah terdaftar, gunakan email lainnya.','Email sudah terdaftar !');
@@ -74,6 +74,7 @@ class RegisterController extends Controller
                     'user_email'=>$request->email,
                     'user_password'=>Hash::make($request->password),
                     'user_type'=>'student',
+                    'status'=>0,
                     'token'=>$token
                 ]);
                 Mail::to($request->email)->send(new SendMail($request->email, $token));

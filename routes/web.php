@@ -73,6 +73,18 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"profile_page_student"
             ]);
 
+        Route::get('/all-course',
+            [
+                'uses'=>'FrontPageController@getAllCourse',
+                'as'=>'all_course_page'
+            ]);
+
+        Route::get('/single-course/{id}',
+            [
+                'uses'=>'FrontPageController@singleCourse',
+                'as'=>'single_course_page'
+            ]);
+
         //testing
         Route::get('/coba',
             [
@@ -96,6 +108,12 @@ Route::group(['prefix'=>'/'],function (){
             [
                 "uses"=>"CobaController@index4",
                 "as"=>"coba_page_4"
+            ]);
+
+        Route::get('/coba5',
+            [
+                "uses"=>"CobaController@index5",
+                "as"=>"coba_page_5"
             ]);
 
         //email

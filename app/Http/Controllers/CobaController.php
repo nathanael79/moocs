@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Model\Course;
+
 class CobaController extends Controller
 {
     public function index()
@@ -30,6 +32,15 @@ class CobaController extends Controller
     public function index4()
     {
         return view('layouts.front_end.blog-single');
+    }
+
+    public function index5()
+    {
+        $params =
+            [
+                'course'=>Course::paginate(15),
+            ];
+        return view('all-courses',$params);
     }
 
 }
