@@ -85,6 +85,12 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'single_course_page'
             ]);
 
+        Route::get('/lecturer-profile/{id}',
+            [
+                'uses'=>'FrontPageController@lecturerProfile',
+                'as'=>'lecturer_profile_page'
+            ]);
+
         //testing
         Route::get('/coba',
             [

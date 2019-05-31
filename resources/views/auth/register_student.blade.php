@@ -1,4 +1,4 @@
-@extends('layouts.front_end.frontend_register')
+@extends('frontend_register')
 
 
 {{--

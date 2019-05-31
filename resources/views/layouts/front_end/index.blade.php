@@ -128,7 +128,7 @@
                 <div class="teacher-box">
                     <div class="pic">
                         <img src="{!! asset('../../edufield/assets/img/teacher-one.jpg') !!}" alt="teacher">
-                        <a href="#" class="view-profile">View Profile</a>
+                        <a href="{{url('/lecturer-profile').'/'.$item->id}}" class="view-profile">View Profile</a>
                     </div>
 
                     <div class="teacher-content">

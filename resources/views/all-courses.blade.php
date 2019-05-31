@@ -49,19 +49,7 @@
                 <div class="pagination-area">
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <i class="icofont-stylish-left"></i>
-                                </a>
-                            </li>
-
-                            <li class="page-item active"><a class="page-link" href="#">{{ $course->links() }}</a></li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <i class="icofont-stylish-right"></i>
-                                </a>
-                            </li>
+                            {{ $course->links() }}
                         </ul>
                     </nav>
                 </div>
