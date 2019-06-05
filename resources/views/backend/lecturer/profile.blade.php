@@ -1,5 +1,8 @@
 @extends('backend.lecturer.dashboard_layout')
 @section('main_content')
+    @foreach($data as $item)
+        @if(!isset($item['profile']))
+            @item['
     <!--Mask Header-->
     <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
         <!-- Mask -->
@@ -8,7 +11,11 @@
         <div class="container-fluid d-flex align-items-center">
             <div class="row">
                 <div class="col-lg-7 col-md-10">
-                    <h1 class="display-2 text-white">Halo {{$data['profile']->name}}</h1>
+                   @if(isset($data['profile']))
+                        <h1 class="display-2 text-white">Halo {{$data['profile']->name}}</h1>
+                       @else
+                        <h1 class="display-2 text-white">Halo Unknown</h1>
+                    @endif
                     <p class="text-white mt-0 mb-5">Dapatkan pengalaman belajar lebih dengan MOOC PENS, dapatkan kursus kursus berkualitas disini.</p>
                     {{--  <a href="profile.blade.php#!" class="btn btn-neutral">Edit profile</a>--}}
                 </div>

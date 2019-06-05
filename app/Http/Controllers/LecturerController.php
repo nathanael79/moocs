@@ -51,9 +51,9 @@ class LecturerController extends Controller
         $data = [
             'profile'=>Lecturer::where('user_id',session()->get('activeUser')->id)->first(),
             'user'=>User::find(session()->get('activeUser')->id)
-        ];
+        ];  
         //dd($profile);
-        return view('backend.lecturer.profile', ['data' => $data]);
+        return view('backend.lecturer.profile', $data);
     }
 
     public function storeProfile(ErrorProfileLecturerRequest $request)

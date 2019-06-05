@@ -39,13 +39,14 @@ class FrontPageController extends Controller
 
     public function singleCourse($id)
     {
-/*        $params =
+        $course = Course::find($id);
+        $params =
             [
-                'single-course'=>Course::find($id)
-            ];*/
-        $params = Course::find($id);
-        return view('single-courses',$params);
+                'course'=>$course,
+                'lecturer'=>Lecturer::where('id',$course->lecturer_id)->first()
+            ];
 
+        return view('single-courses',$params);
     }
 
     public function lecturerProfile($id)

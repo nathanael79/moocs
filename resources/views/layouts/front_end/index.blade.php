@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="courses-content">
-                        <h3><a href="#">{{$item->course_name}}</a></h3>
+                        <h3><a href="{{url('/single-course'.'/'.$item->id)}}">{{$item->course_name}}</a></h3>
                         <ul>
                             <li><i class="icofont-star"></i></li>
                             <li><i class="icofont-star"></i></li>

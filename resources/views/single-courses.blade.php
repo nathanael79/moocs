@@ -22,14 +22,14 @@
                         <ul>
                             <li>
                                 <div class="teacher-img">
-                                    <img src="{!! asset('images/courses').'/'.$params->pictures !!}" alt="teacher">
+                                    <img src="{!! asset('images/users/lecturer').'/'.$lecturer->pictures !!}" alt="teacher">
                                 </div>
 
-                                Teacher: Jasika Pearl
+                                Teacher: {{$lecturer->name}}
                             </li>
 
                             <li>
-                                Category: Design
+                                Category: {{$course->category_id}}
                             </li>
                         </ul>
 
@@ -39,12 +39,10 @@
                     </div>
 
                     <div class="courses-details-img">
-                        <img src="assets/img/courses-details.jpg" alt="courses-details">
+                        <img src="{!! asset('images/courses').'/'.$course->pictures !!}" alt="courses-details">
                     </div>
 
-                    <h3>Python for Machine Learning</h3>
-
-                    <p>Learn how to use NumPy, Pandas, Seaborn, Matplotlib, Plotly, Scikit-Learn, Machine Learning, Tensorflow, and more!</p>
+                    <h3>{{$course->course_name}}</h3>
 
                     <div class="course-details-tabs">
                         <ul id="tabs">
@@ -57,9 +55,7 @@
                         <div class="content show" id="tab_1_content">
                             <h4 class="title">Course Details</h4>
 
-                            <p>Donec lorem leo, gravida ut cursus et, ultrices non tortor. Duis vel venenatis ligula. Etiam hendrerit at urna ac tempus. Integer sagittis luctus tellus, eu molestie magna volutpat quis. Praesent ullamcorper faucibus quam. Nam sed facilisis neque. Etiam dictum dolor et volutpat malesuada. Aliquam molestie felis in justo feugiat semper. In magna arcu, luctus a nisl et, mollis ultricies sem. Etiam cursus mi eget tellus ultrices fermentum. Vestibulum tempor erat ac eros egestas rutrum.</p>
-
-                            <p class="mb-0">Aliquam pulvinar blandit eros, vel tempor tellus eleifend eget. Vestibulum ultricies egestas ante, eu consectetur leo pretium vel. Aliquam mollis dolor libero, ac sagittis velit dignissim at. Nulla a tellus eu enim porta posuere. Sed posuere at lectus ac fringilla.</p>
+                            <p>{{$course->keterangan}}</p>
 
                             <div class="requirements-list">
                                 <h4 class="title">Requirements</h4>
