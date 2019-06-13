@@ -73,6 +73,18 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"profile_page_student"
             ]);
 
+        Route::post('/store-profile',
+            [
+                'uses'=>'StudentController@storeProfile',
+                'as'=>'student_store_profile'
+            ]);
+
+        Route::post('/store-password',
+            [
+                'uses'=>'StudentController@storePassword',
+                'as'=>'student_store_password'
+            ]);
+
         Route::get('/all-course',
             [
                 'uses'=>'FrontPageController@getAllCourse',
@@ -120,6 +132,12 @@ Route::group(['prefix'=>'/'],function (){
             [
                 "uses"=>"CobaController@index5",
                 "as"=>"coba_page_5"
+            ]);
+
+        Route::get('/coba6',
+            [
+                'uses'=>'CobaController@copyFile',
+                'as'=>'copy_page'
             ]);
 
         //email

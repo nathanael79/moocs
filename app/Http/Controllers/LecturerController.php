@@ -21,6 +21,7 @@ use App\Model\SubCourseDetail;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use mysql_xdevapi\Exception;
 use Validator;
 use Session;
 
@@ -52,36 +53,59 @@ class LecturerController extends Controller
             'profile'=>Lecturer::where('user_id',session()->get('activeUser')->id)->first(),
             'user'=>User::find(session()->get('activeUser')->id)
         ];  
-        //dd($profile);
+        //dd($data);
         return view('backend.lecturer.profile', $data);
     }
 
-    public function storeProfile(ErrorProfileLecturerRequest $request)
+    public function storeProfile(Request $request)
     {
-        $lecturer = Lecturer::where('user_id',session()->get('activeUser')->id)
-            ->update([
-                'nrp_dosen'=>$request->lecturer_nrp,
-                'name'=>$request->lecturer_name,
-                'gender'=>$request->lecturer_gender,
-                'address'=>$request->lecturer_address,
-                'pictures'=>$request->lecturer_image
-            ]);
-
-    }
-
-    public function storePassword(ErrorPasswordRequest $request)
-    {
-        $lecturer = User::where('id',session()->get('activeUser')->id)->first();
-        if(Hash::check($request->old_password,$lecturer->user_password))
+        $id = session()->get('activeUser')->id;
+        $lecturer = Lecturer::where('user_id',$id)->first();
+        $user = User::find($id);
+        if($request->hasFile('image'))
         {
-            $lecturer->user_password = Hash::make($request->new_password);
-            return redirect('/login');
+            unlink(public_path().'/images/users/lecturer/'.$lecturer->pictures);
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            $image->move(public_path().'/images/users/lecturer/',$name);
+            $lecturer->nrp_dosen = $request->nrp_dosen;
+            $lecturer->name = $request->name;
+            $lecturer->gender = $request->gender;
+            $lecturer->address = $request->address;
+            $lecturer->pictures = $name;
+            $lecturer->save();
+            $user->user_email = $request->user_email;
+            $user->save();
+
+            return redirect()->back();
         }
         else
         {
+            $lecturer->nrp_dosen = $request->nrp_dosen;
+            $lecturer->name = $request->name;
+            $lecturer->gender = $request->gender;
+            $lecturer->address = $request->address;
+            $lecturer->save();
+            $user->user_email = $request->user_email;
+            $user->save();
+
             return redirect()->back();
         }
 
+    }
+
+    public function storePassword(Request $request)
+    {
+        $lecturer = User::where('id',session()->get('activeUser')->id)->first();
+        //dd($lecturer);
+            $lecturer->user_password = Hash::make($request->new_password);
+            if($lecturer->save()) {
+                return redirect('/login')->with('success', 'Success to change your password, relogin again!');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','You are failed to change your password');
+            }
     }
 
     public function uncompleted()

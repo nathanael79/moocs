@@ -45,7 +45,8 @@
     <link rel="stylesheet" href="{!! asset('../../assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('../../assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('../../assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') !!}">
-  <!-- Argon CSS -->
+    <link rel="stylesheet" href="{!! asset('../../assets/vendor/quill/dist/quill.core.css') !!}" type="text/css">
+    <!-- Argon CSS -->
   {{--<link rel="stylesheet" href="{!! asset('../../assets/css/argon.min-v=1.0.0.css') !!}" type="text/css">--}}
     <link rel="stylesheet" href="{{asset('../../assets/css/argon.min-v=1.0.0.css')}}" type="text/css">
 
@@ -62,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{{--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>--}}
 <!-- End Google Tag Manager (noscript) -->
 <!-- Sidenav -->
 @yield('sidenav')
@@ -1946,7 +1947,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="{!! asset('../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/datatables.net-select/js/dataTables.select.min.js') !!}"></script>
-  <!-- Argon JS -->
+  <script src="{!! asset('../../assets/vendor/quill/dist/quill.min.js') !!}"></script>
+
+<!-- Argon JS -->
   <script src="{!! asset('../../assets/js/argon.min-v=1.0.0.js') !!}"></script>
   <!-- Demo JS - remove this in your project -->
   <script src="{!! asset('../../assets/js/demo.min.js') !!}"></script>

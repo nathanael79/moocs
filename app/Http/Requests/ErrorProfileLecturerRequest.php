@@ -24,11 +24,12 @@ class ErrorProfileLecturerRequest extends FormRequest
     public function rules()
     {
         return [
-            'nrp_dosen'=>'required|min:6|max:18',
-            'name'=>'required|min:3',
+            'nrp_dosen'=>'min:6|max:18',
+            'email'=>'email',
+            'name'=>'min:3',
             'gender'=>'required',
             'address'=>'required|min:6',
-            'pictures'=>'required|image|max:5000'
+            'pictures'=>'image|max:5000'
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Mail\SendMail;
 use App\Model\Lecturer;
+use App\Model\Student;
 use Illuminate\Support\Facades\Mail;
 use Toast;
 use Validator;
@@ -40,6 +41,14 @@ class RegisterController extends Controller
             $password = Hash::make($request->password);
             $activeLecturer->user_password = $password;
             $activeLecturer->save();
+            $name = str_slug(($request->email).'-'.'unknown');
+            copy(public_path().'/images/users/unknown.png', public_path().'/images/users/lecturer/'.$name);
+
+            $lecturer = new Lecturer();
+            $lecturer->user_id = $activeLecturer->id;
+            $lecturer->pictures = $name;
+            $lecturer->status = 0;
+            $lecturer->save();
             Toast::info('Silahkan lengkapi data profil anda pada halaman profil','Akun anda telah dibuat !');
             return redirect('/lecturer');
         }
@@ -69,7 +78,7 @@ class RegisterController extends Controller
             }
             else
             {
-                User::create([
+                $user = User::create([
                     //'name'=>$request->name,
                     'user_email'=>$request->email,
                     'user_password'=>Hash::make($request->password),
@@ -77,6 +86,14 @@ class RegisterController extends Controller
                     'status'=>0,
                     'token'=>$token
                 ]);
+                $name = str_slug(($request->email).'-'.'unknown');
+                copy(public_path().'/images/users/unknown.png', public_path().'/images/users/student/'.$name);
+
+                $student = new Student();
+                $student->user_id = $user->id;
+                $student->pictures = $name;
+                $student->status = 0;
+                $student->save();
                 Mail::to($request->email)->send(new SendMail($request->email, $token));
                 Toast::info('Segera periksa kotak masuk email yang kamu gunakan untuk mendaftar','Konfirmasikan email kamu !');
                 return redirect('/dashboard');

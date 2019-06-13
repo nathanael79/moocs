@@ -8,6 +8,8 @@
 
 namespace App\Http\Controllers;
 use App\Model\Course;
+use App\Model\Student;
+use App\Model\User;
 use Illuminate\Http\Request;
 use Session;
 use Validator;
@@ -44,7 +46,50 @@ class StudentController extends Controller
 
     public function profile()
     {
-        return view('backend.student.profile');
+        $data = [
+            'profile'=>Student::where('user_id',session()->get('activeUser')->id)->first(),
+            'user'=>User::find(session()->get('activeUser')->id)
+        ];
+        return view('backend.student.profile', $data);
+    }
+
+    public function storeProfile(Request $request)
+    {
+        $id = session()->get('activeUser')->id;
+        $student = Student::where('user_id',$id)->first();
+        $user = User::find($id);
+        if($request->hasFile('image'))
+        {
+            unlink(public_path().'/images/users/student/'.$student->pictures);
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            $image->move(public_path().'/images/users/student/',$name);
+            $student->name = $request->name;
+            $student->gender = $request->gender;
+            $student->address = $request->address;
+            $student->pictures = $name;
+            $student->save();
+            $user->user_email = $request->user_email;
+            $user->save();
+
+            return redirect()->back();
+        }
+        else
+        {
+            $student->name = $request->name;
+            $student->gender = $request->gender;
+            $student->address = $request->address;
+            $student->save();
+            $user->user_email = $request->user_email;
+            $user->save();
+
+            return redirect()->back();
+        }
+    }
+
+    public function storePassword()
+    {
+
     }
 
     public function store_content(Request $request)

@@ -12,6 +12,8 @@ class Student extends Model
             'name',
             'gender',
             'address',
+            'pictures',
+            'status'
 /*            'token',
             'status',*/
         ];

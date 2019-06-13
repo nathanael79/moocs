@@ -1,8 +1,23 @@
+@if($message = Session::get('success'))
+    <div class="alert alert-default alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+        <span class="alert-text"><strong>Success!</strong> {{$message}}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+@if($message = Session::get('failed'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+        <span class="alert-text"><strong>Failed!</strong> {{$message}}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 @extends('backend.lecturer.dashboard_layout')
 @section('main_content')
-    @foreach($data as $item)
-        @if(!isset($item['profile']))
-            @item['
     <!--Mask Header-->
     <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
         <!-- Mask -->
@@ -11,8 +26,8 @@
         <div class="container-fluid d-flex align-items-center">
             <div class="row">
                 <div class="col-lg-7 col-md-10">
-                   @if(isset($data['profile']))
-                        <h1 class="display-2 text-white">Halo {{$data['profile']->name}}</h1>
+                   @if(null!=$profile)
+                        <h1 class="display-2 text-white">Halo {{$profile->name}}</h1>
                        @else
                         <h1 class="display-2 text-white">Halo Unknown</h1>
                     @endif
@@ -22,7 +37,7 @@
             </div>
         </div>
     </div>
-    <!--Mask Header-->
+<!--Mask Header-->
     <div class="container-fluid mt--6">
         <div class="row">
             <div class="col-xl-4 order-xl-2">
@@ -39,18 +54,18 @@
                     </div>
                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                         <div class="d-flex justify-content-between">
-                            {{--<a href="profile.blade.php#" class="btn btn-sm btn-info mr-4">Connect</a>
-                            <a href="profile.blade.php#" class="btn btn-sm btn-default float-right">Message</a>--}}
+                            <a href="profile.blade.php#" class="btn btn-sm btn-info mr-4">Connect</a>
+                            <a href="profile.blade.php#" class="btn btn-sm btn-default float-right">Message</a>
                         </div>
                     </div>
                     <div class="card-body pt-0">
                         <div class="row">
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center">
-                                    {{--                                    <div>
+                                    <div>
                                                                             <span class="heading">22</span>
                                                                             <span class="description">Friends</span>
-                                                                        </div>--}}
+                                                                        </div>
                                     <div>
                                         <span class="heading">10</span>
                                         <span class="description">Forum</span>
@@ -68,10 +83,18 @@
                         </div>
                         <div class="text-center">
                             <h5 class="h3">
-                                {{$data['profile']->name}}
+                                @if(null!=$profile)
+                                    {{$profile->name}}
+                                @else
+                                    Unkown
+                                @endif
                             </h5>
                             <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>{{$data['profile']->nrp_dosen}}
+                                @if(null!=$profile)
+                                    <i class="ni location_pin mr-2"></i>{{$profile->nrp_dosen}}
+                                @else
+                                    <i class="ni location_pin mr-2"></i>Unknown
+                                @endif
                             </div>
                             <div class="h5 mt-4">
                                 <i class="ni business_briefcase-24 mr-2"></i>Lecturer
@@ -145,45 +168,88 @@
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{$errors->has('nrp_dosen') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-nidn">NIP/NIDN</label>
-                                            <input type="number" min="0" id="input-nidn" class="form-control" value="{{$data['profile']->nrp_dosen}}">
+                                            @if(null!=$profile)
+                                                <input name="nrp_dosen" type="number" min="0" id="input-nidn" class="form-control" value="{{$profile->nrp_dosen}}">
+                                            @else
+                                                <input name="nrp_dosen" type="number" min="0" id="input-nidn" class="form-control" value="Unknown">
+                                            @endif
+                                            @if ($errors->has('nrp_dosen'))
+                                                <span class="text-danger">{{ $errors->first('nrp_dosen') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{$errors->has('user_email') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-email">Email</label>
-                                            <input type="email" id="input-email" class="form-control" placeholder="user@example.com" value="{{$data['user']->user_email}}">
+                                            @if(null!=$user)
+                                                <input name="user_email" type="email" id="input-email" class="form-control" value="{{$user->user_email}}">
+                                            @else
+                                                <input name="user_email" type="email" id="input-email" class="form-control" value="Unknown">
+                                            @endif
+                                            @if ($errors->has('user_email'))
+                                                <span class="text-danger">{{ $errors->first('user_email') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group">
+                                        <div class="form-group {{$errors->has('name') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-first-name">Full Name</label>
-                                            <input type="text" id="input-first-name" class="form-control" placeholder="First name" value="{{$data['profile']->name}}">
+                                            @if(null!=$profile)
+                                                <input type="text" name="name" id="input-first-name" class="form-control" placeholder="First name" value="{{$profile->name}}">
+                                            @else
+                                                <input type="text" name="name" id="input-first-name" class="form-control" placeholder="First name" value="Unknown">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group {{$errors->has('lecturer_address')}}">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-address">Gender</label>
+                                            @if(null!=$profile)
+                                                <select name="gender" id="gender" value="{{$profile->gender}}">
+                                                    <option value="Pria">Pria</option>
+                                                    <option value="Wanita">Wanita</option>
+                                                </select>
+                                            @else
+                                                <select name="gender" id="gender">
+                                                    <option value="Pria">Pria</option>
+                                                    <option value="Wanita">Wanita</option>
+                                                </select>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group {{$errors->has('address')}}">
                                             <label class="form-control-label" for="input-address">Address</label>
-                                            <input id="input-address" name="lecturer_address" class="form-control" placeholder="Home Address" value="{{$data['profile']->address}}" type="text">
+                                            @if(null!=$profile)
+                                                <input id="input-address" name="address" class="form-control" placeholder="Home Address" value="{{$profile->address}}" type="text">
+                                            @else
+                                                <input id="input-address" name="address" class="form-control" placeholder="Home Address" value="Unknown" type="text">
+                                            @endif
+                                            @if ($errors->has('address'))
+                                                <span class="text-danger">{{ $errors->first('adress') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group {{$errors->has('lecturer_image') ? 'has-error' : ''}}">
+                                        <div class="form-group {{$errors->has('image') ? 'has-error' : ''}}">
                                             <label class="form-control-label">Image</label>
                                             <div class="custom-file">
                                                 <label class="custom-file-label">Upload in here</label>
-                                                <input type="file"  class="custom-file-input" name="lecturer_image">
-                                                @if($errors->has('lecturer_image'))
-                                                    <span class="text-danger">{{ $errors->first('lecturer_image') }}</span>
+                                                <input type="file"  class="custom-file-input" name="image">
+                                                @if($errors->has('image'))
+                                                    <span class="text-danger">{{ $errors->first('image') }}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -198,6 +264,7 @@
                                 </div>
                             </div>
                         </form>
+
                         <form action="{{url('/lecturer/storePassword')}}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <hr class="my-4" />
@@ -207,7 +274,11 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-old-password">Old Password</label>
-                                            <input type="password" id="input-old-password" class="form-control" placeholder="Old Password" value="{{$data['user']->user_password}}">
+                                            @if(null!=$user)
+                                                <input name="old_password" type="password" id="input-old-password" class="form-control" disabled placeholder="Old Password" value="{{$user->user_password}}">
+                                            @else
+                                                <input name="old_password" type="password" id="input-old-password" class="form-control" disabled placeholder="Old Password" value="Unknown">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +286,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-new-password">New Password</label>
-                                            <input type="password" id="input-new-password" class="form-control" placeholder="New Password">
+                                            <input name="new_password" type="password" id="input-new-password" class="form-control" placeholder="New Password">
                                         </div>
                                     </div>
                                 </div>
@@ -259,4 +330,12 @@
             </div>
         </footer>
     </div>
+@endsection
+
+@section('js')
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('#gender').select2();
+        })
+    </script>
 @endsection

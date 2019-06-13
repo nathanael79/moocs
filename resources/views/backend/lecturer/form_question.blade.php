@@ -38,7 +38,8 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-course-description">Question</label>
                                             {{--<div class="ql-toolbar ql-snow"></div>--}}
-                                            <textarea type="text" id="input-course-description" name="course_desription" class="form-control" rows="10" placeholder="Input your question here"></textarea>
+                                            {{--<textarea type="text" id="input-course-description" name="course_desription" class="form-control" rows="10" placeholder="Input your question here"></textarea>--}}
+                                            <div data-toggle="quill" data-quill-placeholder="Quill WYSIWYG"></div>
                                         </div>
                                     </div>
                                 </div>

@@ -255,7 +255,7 @@
                     <img alt="Image placeholder" src="../../assets/img/theme/team-4.jpg">
                   </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">{{session()->get('activeUser')->user_email}}</span>
                                 </div>
                             </div>
                         </a>

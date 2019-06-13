@@ -10,6 +10,9 @@ namespace App\Http\Controllers;
 
 
 use App\Model\Course;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Exception;
 
 class CobaController extends Controller
 {
@@ -41,6 +44,18 @@ class CobaController extends Controller
                 'course'=>Course::paginate(15),
             ];
         return view('all-courses',$params);
+    }
+
+    public function copyFile(Request $request)
+    {
+        $email = 'imanuelronaldo@gmail.com';
+        $name = str_slug($email.'-'.'unknown');
+        try {
+            copy(public_path().'/images/users/unknown.png', public_path().'/images/users/student/'.$name);
+        }catch (Exception $e)
+        {
+            echo 'message = '.$e->getMessage();
+        }
     }
 
 }
