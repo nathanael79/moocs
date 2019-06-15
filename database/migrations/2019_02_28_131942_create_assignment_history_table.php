@@ -21,7 +21,7 @@ class CreateAssignmentHistoryTable extends Migration
             $table->string('user_type');
             $table->string('user_answer');
             $table->bigInteger('assignment_id')->unsigned();
-            $table->foreign('assignment_id')->references('id')->on('assignment');
+            $table->foreign('assignment_id')->references('id')->on('assignment')->onDelete('cascade');
             $table->timestamps();
         });
     }

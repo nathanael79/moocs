@@ -16,7 +16,7 @@ class CreateAssignmentOptionsTable extends Migration
         Schema::create('assignment_options', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigInteger('assignment_id')->unsigned();
-            $table->foreign('assignment_id')->references('id')->on('assignment');
+            $table->foreign('assignment_id')->references('id')->on('assignment')->onDelete('cascade');
             $table->string('assignment_options_name');
             $table->string('assignment_options_description');
             $table->timestamps();

@@ -21,7 +21,7 @@ class CreateStudentTable extends Migration
             $table->string('pictures');
             $table->integer('status');
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             //$table->timestamp('login_at');
             $table->timestamps(); //will create created_at and updated_at
         });

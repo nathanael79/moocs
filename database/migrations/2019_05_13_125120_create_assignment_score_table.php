@@ -16,9 +16,9 @@ class CreateAssignmentScoreTable extends Migration
         Schema::create('assignment_score', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('course');
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
             $table->timestamps();
         });
     }

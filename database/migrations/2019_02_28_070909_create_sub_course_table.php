@@ -18,7 +18,7 @@ class CreateSubCourseTable extends Migration
             $table->bigIncrements('id');
             $table->string('sub_course_name');
             $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('course');
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -8,18 +8,7 @@
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
                             <h6 class="h2 text-white d-inline-block mb-0">Admin Dashboard</h6>
-                            {{-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                     <li class="breadcrumb-item"><a href="dashboard.blade.php#"><i class="fas fa-home"></i></a></li>
-                                     <li class="breadcrumb-item"><a href="dashboard.blade.php#">Dashboards</a></li>
-                                     <li class="breadcrumb-item active" aria-current="page">Default</li>
-                                 </ol>
-                             </nav>--}}
                         </div>
-                        {{--                        <div class="col-lg-6 col-5 text-right">
-                                                     <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">New</a>
-                                                     <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">Filters</a>
-                                                 </div>--}}
                     </div>
                     <!-- Card stats -->
                     <div class="row">
@@ -125,7 +114,100 @@
                             <h3 class="mb-0">Lecturers List</h3>
                         </div>
                         <div class="col text-right">
-                            <a href="{{url('#')}}" class="btn btn-sm btn-primary">Add new lecturer</a>
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-form"><i class="ni ni-fat-add">Add New Lecturer</i></button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                            <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body p-0">
+                                        <div class="card bg-secondary border-0 mb-0">
+                                            <div class="card-body px-lg-5 py-lg-5">
+                                                <div class="text-center text-muted mb-4">
+                                                    <large>Create new account for lecturer</large>
+                                                </div>
+                                                <form role="form" method="POST" action="{{url('/admin/create-lecturer')}}">
+                                                    {{ csrf_field() }}
+                                                    <div class="form-group mb-3 {{ $errors->has('name') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                                            </div>
+                                                            <input class="form-control" id="name" placeholder="Name" type="text" name="name" value="{{old('name')}}">
+                                                            @if ($errors->has('name'))
+                                                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-3 {{ $errors->has('email') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                            </div>
+                                                            <input class="form-control" id="email" placeholder="Email" type="email" name="email" value="{{old('email')}}">
+                                                            @if ($errors->has('email'))
+                                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
+                                                        <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal Add -->
+                        <div class="modal fade" id="modal-form-add" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                            <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body p-0">
+                                        <div class="card bg-secondary border-0 mb-0">
+                                            <div class="card-body px-lg-5 py-lg-5">
+                                                <div class="text-center text-muted mb-4">
+                                                    <large>Create new account for lecturer</large>
+                                                </div>
+                                                <form role="form" method="POST" action="{{url('/admin/create-lecturer')}}">
+                                                    {{ csrf_field() }}
+                                                    <div class="form-group mb-3 {{ $errors->has('name') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                                            </div>
+                                                            <input class="form-control" id="name" placeholder="Name" type="text" name="name" value="{{old('name')}}">
+                                                            @if ($errors->has('name'))
+                                                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-3 {{ $errors->has('email') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                            </div>
+                                                            <input class="form-control" id="email" placeholder="Email" type="email" name="email" value="{{old('email')}}">
+                                                            @if ($errors->has('email'))
+                                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
+                                                        <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,47 +224,6 @@
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
-                                {{-- <tbody>
-                                 <tr>
-                                     <th scope="row">
-                                         <div class="media align-items-center">
-                                             <a href="#" class="avatar rounded-circle mr-3">
-                                                 <img alt="Image placeholder" src="{{asset('../../assets/img/theme/bootstrap.jpg')}}">
-                                             </a>
-                                             <div class="media-body">
-                                                 <span class="mb-0 text-sm">Argon Design System</span>
-                                             </div>
-                                         </div>
-                                     </th>
-                                     <td>
-                 <span class="badge badge-dot mr-4">
-                   <i class="bg-warning"></i> pending
-                 </span>
-                                     </td>
-                                     <td>
-                                         <div class="d-flex align-items-center">
-                                             <span class="mr-2">60%</span>
-                                             <div>
-                                                 <div class="progress">
-                                                     <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </td>
-                                     <td class="text-right">
-                                         <div class="dropdown">
-                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                 <i class="fas fa-ellipsis-v"></i>
-                                             </a>
-                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                 <a class="dropdown-item" href="#">Action</a>
-                                                 <a class="dropdown-item" href="#">Another action</a>
-                                                 <a class="dropdown-item" href="#">Something else here</a>
-                                             </div>
-                                         </div>
-                                     </td>
-                                 </tr>
-                                 </tbody>--}}
                             </table>
 
                         </div>
@@ -227,6 +268,12 @@
 @section('js')
     <script type="application/javascript">
         $(document).ready(function () {
+
+            var getData = function ()
+            {
+                console.log('function berjalan');
+            };
+
             $('#myTable').dataTable({
                 "ajax":"{{url('/admin/getLecturer')}}",
                 "autoWidth": false,
@@ -238,14 +285,17 @@
                         {"data":"created_at"},
                         { render: function(data, type, row, meta){
                                 return "<div class='btn-group'>"+
-                                    "<a href='{{url('#')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
-                                    "<a href='{{url("#")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                    "<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-form-add\"><i class=\"ni ni-ruler-pencil\"></i></button>"+
+                                    "<a href='{{url("/admin/delete-lecturer")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+
                                     "</div>";
                             }
                         }
                     ],
-
+                drawCallback:getData,
             })
+
+
         })
     </script>
 @endsection

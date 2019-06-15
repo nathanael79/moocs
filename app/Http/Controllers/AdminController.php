@@ -6,8 +6,11 @@ namespace App\Http\Controllers;
 
 use App\Model\Administrator;
 use App\Model\Course;
+use App\Model\Lecturer;
 use App\Model\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Exception;
 
 class AdminController extends Controller
 {
@@ -85,11 +88,58 @@ class AdminController extends Controller
         return view('backend.admin.lecturer_user');
     }
 
+    public function createLecturer(Request $request)
+    {
+        $token = str_random('100');
+        $activeUser = User::where('user_email',$request->email)->first();
+        if($activeUser)
+        {
+            return redirect()->back()->with('exist','Email for this account is registered');
+        }
+        else
+        {
+            $user = User::create([
+                'user_email'=>$request->email,
+                'user_type'=>'lecturer',
+                'status'=>0,
+                'token'=>$token
+            ]);
+
+
+            try {
+                $lecturer = new Lecturer();
+                $lecturer->nrp_dosen = 0;
+                $lecturer->name = $request->name;
+                $lecturer->user_id = $user->id;
+                $lecturer->save();
+            }catch (Exception $e)
+            {
+                dd($e);
+            }
+
+            return redirect()->back()->with('success','This account was succesfully registered');
+        }
+    }
+
+    public function deleteLecturer($id)
+    {
+        $activeLecturer = User::find($id);
+        if($activeLecturer->delete())
+        {
+            return redirect()->back()->with('success','Lecturer deleted');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Lecturer not deleted');
+        }
+    }
+
     public function getLecturer()
     {
         $lecturer = User::where('user_type','lecturer')
             ->join('lecturer','lecturer.user_id','=','user.id')
             ->select(
+                'user.id',
                 'user.user_email',
                 'user.status',
                 'lecturer.name',

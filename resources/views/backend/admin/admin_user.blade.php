@@ -8,18 +8,7 @@
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
                             <h6 class="h2 text-white d-inline-block mb-0">Admin Dashboard</h6>
-                            {{-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                     <li class="breadcrumb-item"><a href="dashboard.blade.php#"><i class="fas fa-home"></i></a></li>
-                                     <li class="breadcrumb-item"><a href="dashboard.blade.php#">Dashboards</a></li>
-                                     <li class="breadcrumb-item active" aria-current="page">Default</li>
-                                 </ol>
-                             </nav>--}}
                         </div>
-                        {{--                        <div class="col-lg-6 col-5 text-right">
-                                                     <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">New</a>
-                                                     <a href="dashboard.blade.php#" class="btn btn-sm btn-neutral">Filters</a>
-                                                 </div>--}}
                     </div>
                     <!-- Card stats -->
                     <div class="row">
@@ -125,7 +114,43 @@
                             <h3 class="mb-0">Admin List</h3>
                         </div>
                         <div class="col text-right">
-                            <a href="{{url('#')}}" class="btn btn-sm btn-primary">Add new lecturer</a>
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-form">Add New Administrator</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                            <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body p-0">
+                                        <div class="card bg-secondary border-0 mb-0">
+                                            <div class="card-body px-lg-5 py-lg-5">
+                                                <div class="text-center text-muted mb-4">
+                                                    <small>Insert the sub course name</small>
+                                                </div>
+                                                <form role="form" method="POST" action="{{url('/lecturer/storeSubCourse')}}">
+                                                    {{ csrf_field() }}
+                                                    <div class="form-group mb-3 {{ $errors->has('sub_course_name') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-book-bookmark"></i></span>
+                                                            </div>
+                                                            <input type="hidden" name="course_id" value="">
+                                                            <input class="form-control" id="sub_course_name" placeholder="Sub Course Name" type="text" name="sub_course_name" value="{{old('sub_course_name')}}">
+                                                            @if ($errors->has('sub_course_name'))
+                                                                <span class="text-danger">{{ $errors->first('sub_course_name') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
+                                                        <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,47 +167,6 @@
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
-                                {{-- <tbody>
-                                 <tr>
-                                     <th scope="row">
-                                         <div class="media align-items-center">
-                                             <a href="#" class="avatar rounded-circle mr-3">
-                                                 <img alt="Image placeholder" src="{{asset('../../assets/img/theme/bootstrap.jpg')}}">
-                                             </a>
-                                             <div class="media-body">
-                                                 <span class="mb-0 text-sm">Argon Design System</span>
-                                             </div>
-                                         </div>
-                                     </th>
-                                     <td>
-                 <span class="badge badge-dot mr-4">
-                   <i class="bg-warning"></i> pending
-                 </span>
-                                     </td>
-                                     <td>
-                                         <div class="d-flex align-items-center">
-                                             <span class="mr-2">60%</span>
-                                             <div>
-                                                 <div class="progress">
-                                                     <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </td>
-                                     <td class="text-right">
-                                         <div class="dropdown">
-                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                 <i class="fas fa-ellipsis-v"></i>
-                                             </a>
-                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                 <a class="dropdown-item" href="#">Action</a>
-                                                 <a class="dropdown-item" href="#">Another action</a>
-                                                 <a class="dropdown-item" href="#">Something else here</a>
-                                             </div>
-                                         </div>
-                                     </td>
-                                 </tr>
-                                 </tbody>--}}
                             </table>
 
                         </div>

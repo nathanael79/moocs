@@ -15,13 +15,11 @@ class CreateAdministratorTable extends Migration
     {
         Schema::create('administrator', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',100);
-            //$table->string('email');
-            //$table->string('password',255);
-            $table->string('gender');
-            $table->string('address');
+            $table->string('name',100)->nullable();
+            $table->string('gender')->nullable();
+            $table->string('address')->nullable();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->timestamps();
         });
     }

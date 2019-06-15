@@ -341,10 +341,22 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_user_lecturer_page'
             ]);
 
+        Route::post('/create-lecturer',
+            [
+                'uses'=>'AdminController@createLecturer',
+                'as'=>'admin_create_lecturer'
+            ]);
+
         Route::get('/getLecturer',
             [
                 'uses'=>'AdminController@getLecturer',
                 'as'=>'admin_get_lecturer'
+            ]);
+
+        Route::get('/delete-lecturer/{id}',
+            [
+                'uses'=>'AdminController@deleteLecturer',
+                'as'=>'admin_delete_lecturers'
             ]);
 
         Route::get('/userAdmin',

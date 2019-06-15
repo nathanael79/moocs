@@ -20,7 +20,7 @@ class CreateForumReplyTable extends Migration
             $table->integer('user_id');
             $table->string('user_type');
             $table->bigInteger('forum_id')->unsigned();
-            $table->foreign('forum_id')->references('id')->on('forum');
+            $table->foreign('forum_id')->references('id')->on('forum')->onDelete('cascade');
             $table->timestamps();
         });
     }
