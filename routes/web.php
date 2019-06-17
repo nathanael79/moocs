@@ -353,6 +353,18 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_get_lecturer'
             ]);
 
+        Route::post('get-lecturer-one',
+            [
+               'uses'=>'AdminController@getLecturerOne',
+               'as'=>'admin_post_lecturer_one'
+            ]);
+
+        Route::post('/update-lecturer',
+            [
+                'uses'=>'AdminController@updateLecturer',
+                'as'=>'admin_update_lecturer'
+            ]);
+
         Route::get('/delete-lecturer/{id}',
             [
                 'uses'=>'AdminController@deleteLecturer',

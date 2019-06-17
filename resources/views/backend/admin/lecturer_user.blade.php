@@ -106,7 +106,7 @@
         </div>
         <!-- Page content -->
         <div class="container-fluid mt--7">
-
+            <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
@@ -163,43 +163,82 @@
                             </div>
                         </div>
 
-                        <!--Modal Add -->
-                        <div class="modal fade" id="modal-form-add" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                        <!--Modal Edit -->
+                        <div class="modal fade" id="modal-form-edit" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                             <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body p-0">
                                         <div class="card bg-secondary border-0 mb-0">
                                             <div class="card-body px-lg-5 py-lg-5">
                                                 <div class="text-center text-muted mb-4">
-                                                    <large>Create new account for lecturer</large>
+                                                    <large>Lecturer Profile</large>
                                                 </div>
-                                                <form role="form" method="POST" action="{{url('/admin/create-lecturer')}}">
+                                                <form role="form" method="POST" action="{{url('/admin/update-lecturer')}}">
                                                     {{ csrf_field() }}
-                                                    <div class="form-group mb-3 {{ $errors->has('name') ? 'has-error' : '' }}">
-                                                        <div class="input-group input-group-merge input-group-alternative">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                                            </div>
-                                                            <input class="form-control" id="name" placeholder="Name" type="text" name="name" value="{{old('name')}}">
-                                                            @if ($errors->has('name'))
-                                                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group mb-3 {{ $errors->has('email') ? 'has-error' : '' }}">
+                                                    <div class="form-group mb-3 {{ $errors->has('nrp_dosen') ? 'has-error' : '' }}">
                                                         <div class="input-group input-group-merge input-group-alternative">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                                             </div>
-                                                            <input class="form-control" id="email" placeholder="Email" type="email" name="email" value="{{old('email')}}">
-                                                            @if ($errors->has('email'))
-                                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                            <input type="hidden" name="lecturer_id" id="lecturer_id">
+                                                            <input class="form-control" id="nrp_dosen" placeholder="nrp_dosen" type="number" min="0" name="nrp_dosen" value="">
+                                                            @if ($errors->has('nrp_dosen'))
+                                                                <span class="text-danger">{{ $errors->first('nrp_dosen') }}</span>
                                                             @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-3 {{ $errors->has('modal-name') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                                            </div>
+                                                            <input class="form-control" id="modal-name" placeholder="Name" type="text" name="modal_name" value="">
+                                                            @if ($errors->has('modal-name'))
+                                                                <span class="text-danger">{{ $errors->first('modal-name') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-3 {{ $errors->has('modal-email') ? 'has-error' : '' }}">
+                                                        <div class="input-group input-group-merge input-group-alternative">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                            </div>
+                                                            <input class="form-control" id="modal-email" placeholder="Email" type="email" name="modal-email" value="">
+                                                            @if ($errors->has('modal-email'))
+                                                                <span class="text-danger">{{ $errors->first('modal-email') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="form-control-label" for="input-address">Gender</label>
+                                                                    <select name="gender" id="gender">
+                                                                        <option value="Pria">Pria</option>
+                                                                        <option value="Wanita">Wanita</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <label class="form-control-label" for="input-address">Address</label>
+                                                                {{--<div class="ql-toolbar ql-snow"></div>--}}
+                                                                <textarea type="text" id="address" name="address" class="form-control" rows="4" placeholder="Address"></textarea>
+                                                                {{--<div data-toggle="quill" data-quill-placeholder="Quill WYSIWYG" id="address"></div>--}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group" id="image">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="text-center">
                                                         {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
-                                                        <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
+                                                        <button type="submit" class="btn btn-primary my-4">Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -267,13 +306,39 @@
 
 @section('js')
     <script type="application/javascript">
+
+        function myModal(id)
+        {
+            $.ajax({
+                url:'{{url('/admin/get-lecturer-one/')}}',
+                type:'post',
+                dataType:'json',
+                data:
+                    {
+                        id:id
+                    },
+                headers:
+                    { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                success:function (res) {
+                    console.log(res.data[0].nrp_dosen);
+                    $('#lecturer_id').val(res.data[0].user_id);
+                    $('#nrp_dosen').val(res.data[0].nrp_dosen);
+                    $('#modal-name').val(res.data[0].name);
+                    $('#modal-email').val(res.data[0].user_email);
+                    $('#gender').val(res.data[0].gender);
+                    $('#address').val(res.data[0].address);
+                    $('#image').html("<center><img src='{{ asset("../../images/users/lecturer/") }}/"+res.data[0].pictures+"' style='width:200px'></center>")
+                    $('#modal-form-edit').modal('show');
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+
+
+            });
+        }
+
         $(document).ready(function () {
-
-            var getData = function ()
-            {
-                console.log('function berjalan');
-            };
-
             $('#myTable').dataTable({
                 "ajax":"{{url('/admin/getLecturer')}}",
                 "autoWidth": false,
@@ -285,17 +350,13 @@
                         {"data":"created_at"},
                         { render: function(data, type, row, meta){
                                 return "<div class='btn-group'>"+
-                                    "<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-form-add\"><i class=\"ni ni-ruler-pencil\"></i></button>"+
+                                    '<button type="button" class="btn btn-primary" onclick="myModal(' + row["user_id"] + ')"><i class="ni ni-ruler-pencil"></i></button>'+
                                     "<a href='{{url("/admin/delete-lecturer")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
-
                                     "</div>";
                             }
                         }
                     ],
-                drawCallback:getData,
             })
-
-
         })
     </script>
 @endsection

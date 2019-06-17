@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Model\Administrator;
 use App\Model\Course;
 use App\Model\Lecturer;
+use App\Model\Student;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -111,6 +112,10 @@ class AdminController extends Controller
                 $lecturer->nrp_dosen = 0;
                 $lecturer->name = $request->name;
                 $lecturer->user_id = $user->id;
+                $name = str_slug(($request->email).'-'.'unknown');
+                copy(public_path().'/images/users/unknown.png', public_path().'/images/users/lecturer/'.$name);
+                $lecturer->pictures = $name;
+
                 $lecturer->save();
             }catch (Exception $e)
             {
@@ -124,8 +129,11 @@ class AdminController extends Controller
     public function deleteLecturer($id)
     {
         $activeLecturer = User::find($id);
+        $lecturer = Lecturer::where('user_id',$id)->first();
+        $destination_path = public_path().'/images/users/lecturer/'.$lecturer->pictures;
         if($activeLecturer->delete())
         {
+            unlink($destination_path);
             return redirect()->back()->with('success','Lecturer deleted');
         }
         else
@@ -136,22 +144,54 @@ class AdminController extends Controller
 
     public function getLecturer()
     {
-        $lecturer = User::where('user_type','lecturer')
-            ->join('lecturer','lecturer.user_id','=','user.id')
+        $lecturer = User::where('user_type', 'lecturer')
+            ->join('lecturer', 'lecturer.user_id', '=', 'user.id')
             ->select(
                 'user.id',
                 'user.user_email',
                 'user.status',
+                'lecturer.*'
+            )
+            ->get();
+
+        return response()->json(['data' => $lecturer]);
+    }
+
+    public function getLecturerOne(Request $request)
+    {
+        $lecturer = User::where('user_id',$request->id)
+            ->join('lecturer','lecturer.user_id','=','user.id')
+            ->select(
+                'user.user_email',
+                'lecturer.user_id',
+                'lecturer.nrp_dosen',
                 'lecturer.name',
                 'lecturer.gender',
                 'lecturer.address',
-                'lecturer.created_at',
-                'lecturer.nrp_dosen'
+                'lecturer.pictures'
             )
             ->get();
 
         return response()->json(['data'=>$lecturer]);
     }
+
+    public function updateLecturer(Request $request)
+    {
+        $lecturer = Lecturer::where('user_id',$request->lecturer_id)->first();
+        $lecturer->nrp_dosen = $request->nrp_dosen;
+        $lecturer->name = $request->modal_name;
+        $lecturer->gender = $request->gender;
+        $lecturer->address = $request->address;
+        if($lecturer->save())
+        {
+            return redirect()->back()->with('success','Lecturer account updated!');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Lecturer account failed to update!');
+        }
+    }
+
 
     public function userAdmin()
     {
