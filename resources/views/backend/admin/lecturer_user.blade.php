@@ -351,7 +351,7 @@
                         { render: function(data, type, row, meta){
                                 return "<div class='btn-group'>"+
                                     '<button type="button" class="btn btn-primary" onclick="myModal(' + row["user_id"] + ')"><i class="ni ni-ruler-pencil"></i></button>'+
-                                    "<a href='{{url("/admin/delete-lecturer")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                    "<a href='{{url("/admin/delete-lecturer")}}/"+row["user_id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
                                     "</div>";
                             }
                         }

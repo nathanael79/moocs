@@ -140,6 +140,12 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'copy_page'
             ]);
 
+        Route::get('/coba7',
+            [
+                'uses'=>'CobaController@testVideo',
+                'as'=>'test_video'
+            ]);
+
         //email
 
         Route::get('/confirm/{email}/{token}',
@@ -297,6 +303,24 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_dashboard_page'
             ]);
 
+        Route::get('/profile',
+            [
+                'uses'=>'AdminController@profile',
+                'as'=>'admin_profile_page'
+            ]);
+
+        Route::post('/store-profile',
+            [
+                'uses'=>'AdminController@storeProfile',
+                'as'=>'admin_store_profile'
+            ]);
+
+        Route::post('/store-password',
+            [
+                'uses'=>'AdminController@storePassword',
+                'as'=>'admin_store_password'
+            ]);
+
         Route::get('/unconfirmedCourse',
             [
                 'uses'=>'AdminController@unconfirmedCourse',
@@ -329,10 +353,34 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_user_student_page'
             ]);
 
+        Route::post('/create-student',
+            [
+                'uses'=>'AdminController@createStudent',
+                'as'=>'admin_create_student'
+            ]);
+
         Route::get('/getStudent',
             [
                 'uses'=>'AdminController@getStudent',
                 'as'=>'admin_get_student'
+            ]);
+
+        Route::post('get-student-one',
+            [
+                'uses'=>'AdminController@getStudentOne',
+                'as'=>'admin_post_student_one'
+            ]);
+
+        Route::post('/update-student',
+            [
+                'uses'=>'AdminController@updateStudent',
+                'as'=>'admin_update_student'
+            ]);
+
+        Route::get('/delete-student/{user_id}',
+            [
+                'uses'=>'AdminController@deleteStudent',
+                'as'=>'admin_delete_student'
             ]);
 
         Route::get('/userLecturer',
@@ -365,7 +413,7 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_update_lecturer'
             ]);
 
-        Route::get('/delete-lecturer/{id}',
+        Route::get('/delete-lecturer/{user_id}',
             [
                 'uses'=>'AdminController@deleteLecturer',
                 'as'=>'admin_delete_lecturers'

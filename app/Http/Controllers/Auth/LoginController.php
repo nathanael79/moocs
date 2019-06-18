@@ -30,6 +30,7 @@ class LoginController extends Controller
     {
         /*$toast = new Toast();*/
         $activeUser = User::where(['user_email'=>$request->user_email])->first();
+        $id = $activeUser->id;
         if($activeUser)
         {
             if(Hash::check($request->user_password,$activeUser->user_password))
@@ -38,8 +39,8 @@ class LoginController extends Controller
                 switch ($activeUser->user_type)
                 {
                     case "student":
-                        //$student_id = Student::where('user_id',$activeUser->id)->first();
-                        //$request->session()->put('activeUser',$student_id);
+                        $activeProfile = Student::where('user_id',$id)->first();
+                        $request->session()->put('activeProfile',$activeProfile->pictures);
                         if($activeUser->status == 0)
                         {
                             Toast::success('','Jangan lupa verifikasi email kamu !');
@@ -48,8 +49,8 @@ class LoginController extends Controller
                         break;
 
                     case "lecturer":
-                        //$lecturer_id = Lecturer::where('user_id',$activeUser->id)->first();
-                        //$request->session()->put('activeUser',$lecturer_id);
+                        $activeProfile = Lecturer::where('user_id',$id)->first();
+                        $request->session()->put('activeProfile',$activeProfile->pictures);
                         if($activeUser->status == 0)
                         {
                             Toast::success('','Jangan lupa verifikasi email kamu !');
@@ -58,8 +59,8 @@ class LoginController extends Controller
                         break;
 
                     case "administrator":
-                        //$admin_id = Administrator::where('user_id',$activeUser->id)->first();
-                        //$request->session()->put('activeUser',$admin_id);
+                        $activeProfile = Administrator::where('user_id',$id)->first();
+                        $request->session()->put('activeProfile',$activeProfile->pictures);
                         return redirect('/admin');
                         break;
                     default:

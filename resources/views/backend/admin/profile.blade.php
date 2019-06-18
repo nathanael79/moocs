@@ -1,19 +1,35 @@
-@extends('backend.student.dashboard_layout')
-@section('title','MOOC PENS')
+@if($message = Session::get('success'))
+    <div class="alert alert-default alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+        <span class="alert-text"><strong>Success!</strong> {{$message}}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+@if($message = Session::get('failed'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+        <span class="alert-text"><strong>Failed!</strong> {{$message}}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+@extends('backend.admin.dashboard_layout')
 @section('main_content')
     <!--Mask Header-->
     <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
         <!-- Mask -->
-        <span class="mask bg-gradient-info opacity-8"></span>
+        <span class="mask bg-gradient-purple opacity-8"></span>
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
             <div class="row">
                 <div class="col-lg-7 col-md-10">
                     @if(null!=$profile)
-                        <h1 class="display-2 text-white">Halo,</h1>
-                        <h1 class="display-2 text-white">{{$profile->name}}</h1>
+                        <h1 class="display-2 text-white">Halo {{$profile->name}}</h1>
                     @else
-                        <h1 class="display-2 text-white">Halo, Unknown</h1>
+                        <h1 class="display-2 text-white">Halo Unknown</h1>
                     @endif
                     <p class="text-white mt-0 mb-5">Dapatkan pengalaman belajar lebih dengan MOOC PENS, dapatkan kursus kursus berkualitas disini.</p>
                     {{--  <a href="profile.blade.php#!" class="btn btn-neutral">Edit profile</a>--}}
@@ -31,7 +47,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="{{url('/profile')}}">
-                                    <img src="{{asset('images/users/student').'/'.$profile->pictures}}" class="rounded-circle">
+                                    <img src="{{asset('../../assets/images/users/admin')}}" class="rounded-circle">
                                 </a>
                             </div>
                         </div>
@@ -67,21 +83,21 @@
                         </div>
                         <div class="text-center">
                             <h5 class="h3">
-                                @if(null!=$profile->name)
+                                @if(null!=$profile)
                                     {{$profile->name}}
                                 @else
-                                    Unknown
+                                    Unkown
                                 @endif
                             </h5>
                             <div class="h5 font-weight-300">
-                                @if(null!=$profile->nrp_dosen)
+                                @if(null!=$profile)
                                     <i class="ni location_pin mr-2"></i>{{$profile->nrp_dosen}}
                                 @else
                                     <i class="ni location_pin mr-2"></i>Unknown
                                 @endif
                             </div>
                             <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>Lecturer
+                                <i class="ni business_briefcase-24 mr-2"></i>Administrator
                             </div>
                             <div>
                                 <i class="ni education_hat mr-2"></i>Politeknik Elektronika Negeri Surabaya
@@ -146,15 +162,15 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{url('/store-profile')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('admin/store-profile')}}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            <h6 class="heading-small text-muted mb-4">Lecturer information</h6>
+                            <h6 class="heading-small text-muted mb-4">Administrator information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group {{$errors->has('user_email') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-email">Email</label>
-                                            @if(null!=$user->user_email)
+                                            @if(null!=$user)
                                                 <input name="user_email" type="email" id="input-email" class="form-control" value="{{$user->user_email}}">
                                             @else
                                                 <input name="user_email" type="email" id="input-email" class="form-control" value="Unknown">
@@ -169,7 +185,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group {{$errors->has('name') ? 'has-error' : ''}}">
                                             <label class="form-control-label" for="input-first-name">Full Name</label>
-                                            @if(null!=$profile->name)
+                                            @if(null!=$profile)
                                                 <input type="text" name="name" id="input-first-name" class="form-control" placeholder="First name" value="{{$profile->name}}">
                                             @else
                                                 <input type="text" name="name" id="input-first-name" class="form-control" placeholder="First name" value="Unknown">
@@ -234,19 +250,19 @@
                             </div>
                         </form>
 
-                        <form action="{{url('/store-password')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('/admin/store-password')}}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <hr class="my-4" />
-                            <h6 class="heading-small text-muted mb-4">Lecturer Password</h6>
+                            <h6 class="heading-small text-muted mb-4">Administrator Password</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-old-password">Old Password</label>
                                             @if(null!=$user)
-                                                <input type="password" id="input-old-password" class="form-control" disabled placeholder="Old Password" value="{{$user->user_password}}">
+                                                <input name="old_password" type="password" id="input-old-password" class="form-control" disabled placeholder="Old Password" value="{{$user->user_password}}">
                                             @else
-                                                <input type="password" id="input-old-password" class="form-control" disabled placeholder="Old Password" value="Unknown">
+                                                <input name="old_password" type="password" id="input-old-password" class="form-control" disabled placeholder="Old Password" value="Unknown">
                                             @endif
                                         </div>
                                     </div>

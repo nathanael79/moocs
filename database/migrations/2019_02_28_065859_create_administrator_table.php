@@ -18,6 +18,7 @@ class CreateAdministratorTable extends Migration
             $table->string('name',100)->nullable();
             $table->string('gender')->nullable();
             $table->string('address')->nullable();
+            $table->string('pictures',255)->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->timestamps();

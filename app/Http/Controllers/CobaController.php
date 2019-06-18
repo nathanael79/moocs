@@ -58,4 +58,9 @@ class CobaController extends Controller
         }
     }
 
+    public function testVideo()
+    {
+        return view('coba.coba');
+    }
+
 }

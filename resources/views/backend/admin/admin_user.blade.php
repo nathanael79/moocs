@@ -114,7 +114,7 @@
                             <h3 class="mb-0">Admin List</h3>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-form">Add New Administrator</button>
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-form"><i class="ni ni-fat-add">Add New Administrator</i></button>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">

@@ -276,7 +276,13 @@
                         <a class="nav-link pr-0" href="dashboard.blade.php#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../../assets/img/theme/team-4.jpg">
+                     @if((session()->get('activeUser')->user_type) == 'lecturer')
+                          <img alt="Image placeholder" src="{{asset('images/users/lecturer').'/'.session()->get('activeProfile')}}">
+                      @elseif((session()->get('activeUser')->user_type) == 'student')
+                          <img alt="Image placeholder" src="{{asset('images/users/student').'/'.session()->get('activeProfile')}}">
+                      @else
+                          <img alt="Image placeholder" src="{{asset('images/users/admin').'/'.session()->get('activeProfile')}}">
+                      @endif
                   </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">{{session()->get('activeUser')->user_email}}</span>
@@ -287,7 +293,7 @@
                             <div class="dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Welcome!</h6>
                             </div>
-                            <a href="{{url('/lecturer/profile')}}" class="dropdown-item">
+                            <a href="{{url('/admin/profile')}}" class="dropdown-item">
                                 <i class="ni ni-single-02"></i>
                                 <span>My Profile</span>
                             </a>
