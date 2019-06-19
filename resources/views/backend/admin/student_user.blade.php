@@ -197,6 +197,7 @@
                                         <form role="form" method="POST" action="{{url('/admin/update-student')}}">
                                             {{ csrf_field() }}
                                             <div class="form-group mb-3 {{ $errors->has('modal-name') ? 'has-error' : '' }}">
+                                                <label class="form-control-label">Name</label>
                                                 <div class="input-group input-group-merge input-group-alternative">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
@@ -209,6 +210,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 {{ $errors->has('modal-email') ? 'has-error' : '' }}">
+                                                <label class="form-control-label" >Email</label>
                                                 <div class="input-group input-group-merge input-group-alternative">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -217,6 +219,14 @@
                                                     @if ($errors->has('modal-email'))
                                                         <span class="text-danger">{{ $errors->first('modal-email') }}</span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-password">Password</label>
+                                                        <input name="password" type="password" id="password" class="form-control" placeholder="Password">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">

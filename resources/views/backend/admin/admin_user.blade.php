@@ -106,51 +106,165 @@
         </div>
         <!-- Page content -->
         <div class="container-fluid mt--7">
-
+            <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="card">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Admin List</h3>
+                            <h3 class="mb-0">Administrators List</h3>
                         </div>
                         <div class="col text-right">
                             <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-form"><i class="ni ni-fat-add">Add New Administrator</i></button>
                         </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-                            <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-body p-0">
-                                        <div class="card bg-secondary border-0 mb-0">
-                                            <div class="card-body px-lg-5 py-lg-5">
-                                                <div class="text-center text-muted mb-4">
-                                                    <small>Insert the sub course name</small>
-                                                </div>
-                                                <form role="form" method="POST" action="{{url('/lecturer/storeSubCourse')}}">
-                                                    {{ csrf_field() }}
-                                                    <div class="form-group mb-3 {{ $errors->has('sub_course_name') ? 'has-error' : '' }}">
-                                                        <div class="input-group input-group-merge input-group-alternative">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i class="ni ni-book-bookmark"></i></span>
-                                                            </div>
-                                                            <input type="hidden" name="course_id" value="">
-                                                            <input class="form-control" id="sub_course_name" placeholder="Sub Course Name" type="text" name="sub_course_name" value="{{old('sub_course_name')}}">
-                                                            @if ($errors->has('sub_course_name'))
-                                                                <span class="text-danger">{{ $errors->first('sub_course_name') }}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
-                                                        <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div class="card bg-secondary border-0 mb-0">
+                                    <div class="card-body px-lg-5 py-lg-5">
+                                        <div class="text-center text-muted mb-4">
+                                            <large>Create new account for administrator</large>
                                         </div>
+                                        <form role="form" method="POST" action="{{url('/admin/create-admin')}}">
+                                            {{ csrf_field() }}
+                                            <div class="form-group mb-3 {{ $errors->has('name') ? 'has-error' : '' }}">
+                                                <label class="form-control-label">Name</label>
+                                                <div class="input-group input-group-merge input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                                    </div>
+                                                    <input class="form-control" id="name" placeholder="Name" type="text" name="name" value="{{old('name')}}">
+                                                    @if ($errors->has('name'))
+                                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3 {{ $errors->has('email') ? 'has-error' : '' }}">
+                                                <label class="form-control-label">Email</label>
+                                                <div class="input-group input-group-merge input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                    </div>
+                                                    <input class="form-control" id="email" placeholder="Email" type="email" name="email" value="{{old('email')}}">
+                                                    @if ($errors->has('email'))
+                                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-password">Password</label>
+                                                <input name="password" type="password" id="input-password" class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Gender</label>
+                                                <select name="gender" id="gender">
+                                                    <option value="Pria">Pria</option>
+                                                    <option value="Wanita">Wanita</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group {{$errors->has('address')}}">
+                                                <label class="form-control-label" for="input-address">Address</label>
+                                                <textarea type="text" id="address" name="address" class="form-control" rows="4" placeholder="Address"></textarea>
+                                                @if ($errors->has('address'))
+                                                    <span class="text-danger">{{ $errors->first('adress') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="text-center">
+                                                {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
+                                                <button type="submit" id="createSubCourse" class="btn btn-primary my-4">Create</button>
+                                            </div>
+                                        </form>
                                     </div>
-
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Modal Edit -->
+                <div class="modal fade" id="modal-form-edit" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div class="card bg-secondary border-0 mb-0">
+                                    <div class="card-body px-lg-5 py-lg-5">
+                                        <div class="text-center text-muted mb-4">
+                                            <large>Administrator Profile</large>
+                                        </div>
+                                        <form role="form" method="POST" action="{{url('/admin/update-admin')}}">
+                                            {{ csrf_field() }}
+                                            <div class="form-group mb-3 {{ $errors->has('modal-name') ? 'has-error' : '' }}">
+                                                <label class="form-control-label" >Name</label>
+                                                <div class="input-group input-group-merge input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                                    </div>
+                                                    <input type="hidden" name="admin_id" id="admin_id">
+                                                    <input class="form-control" id="modal-name" placeholder="Name" type="text" name="modal_name" value="">
+                                                    @if ($errors->has('modal-name'))
+                                                        <span class="text-danger">{{ $errors->first('modal-name') }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3 {{ $errors->has('modal-email') ? 'has-error' : '' }}">
+                                                <label class="form-control-label" >Email</label>
+                                                <div class="input-group input-group-merge input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                    </div>
+                                                    <input class="form-control" id="modal-email" placeholder="Email" type="email" name="modal_email" value="">
+                                                    @if ($errors->has('modal-email'))
+                                                        <span class="text-danger">{{ $errors->first('modal-email') }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-password">Password</label>
+                                                        <input name="password" type="password" id="password" class="form-control" placeholder="Password">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-address">Gender</label>
+                                                        <select name="gender" id="gender-edit">
+                                                            <option value="Pria">Pria</option>
+                                                            <option value="Wanita">Wanita</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-address">Address</label>
+                                                        {{--<div class="ql-toolbar ql-snow"></div>--}}
+                                                        <textarea type="text" id="address" name="address" class="form-control" rows="4" placeholder="Address"></textarea>
+                                                        {{--<div data-toggle="quill" data-quill-placeholder="Quill WYSIWYG" id="address"></div>--}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group" id="image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                {{--<a href="{{url('/lecturer/course_profile')}}" class="btn btn-danger active" role="button" aria-pressed="true">Cancel</a>--}}
+                                                <button type="submit" class="btn btn-primary my-4">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -210,6 +324,36 @@
 
 @section('js')
     <script type="application/javascript">
+        function myModal(id)
+        {
+            console.log(id);
+            $.ajax({
+                url:'{{url('/admin/get-admin-one/')}}',
+                type:'post',
+                dataType:'json',
+                data:
+                    {
+                        id:id
+                    },
+                headers:
+                    { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                success:function (res) {
+                    $('#admin_id').val(res.data[0].user_id);
+                    $('#modal-name').val(res.data[0].name);
+                    $('#modal-email').val(res.data[0].user_email);
+                    $('#gender-edit').val(res.data[0].gender);
+                    $('#address').val(res.data[0].address);
+                    $('#image').html("<center><img src='{{ asset("../../images/users/admin/") }}/"+res.data[0].pictures+"' style='width:200px'></center>")
+                    $('#modal-form-edit').modal('show');
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+
+
+            });
+        }
+
         $(document).ready(function () {
             $('#myTable').dataTable({
                 "ajax":"{{url('/admin/getAdmin')}}",
@@ -222,14 +366,25 @@
                         {"data":"created_at"},
                         { render: function(data, type, row, meta){
                                 return "<div class='btn-group'>"+
-                                    "<a href='{{url('#')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
-                                    "<a href='{{url("#")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                    '<button type="button" class="btn btn-primary" onclick="myModal(' + row["user_id"] + ')"><i class="ni ni-ruler-pencil"></i></button>'+
+                                    "<a href='{{url("/admin/delete-student")}}/"+row["user_id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
                                     "</div>";
                             }
                         }
                     ],
-
             })
+        })
+
+
+    </script>
+
+    <script>
+        $('#gender').select2({
+            dropdownParent: $('#modal-form')
+        })
+
+        $('#gender-edit').select2({
+            dropdownParent: $('#modal-form-edit')
         })
     </script>
 @endsection

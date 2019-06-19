@@ -64,7 +64,6 @@ class AdminController extends Controller
         }
         else
         {
-            $admin->nrp_dosen = $request->nrp_dosen;
             $admin->name = $request->name;
             $admin->gender = $request->gender;
             $admin->address = $request->address;
@@ -208,6 +207,7 @@ class AdminController extends Controller
         $student->gender = $request->gender;
         $student->address = $request->address;
         $user->user_email = $request->modal_email;
+        $user->user_password = Hash::make($request->password);
         if($user->save())
         {
             $student->save();
@@ -330,12 +330,16 @@ class AdminController extends Controller
     public function updateLecturer(Request $request)
     {
         $lecturer = Lecturer::where('user_id',$request->lecturer_id)->first();
+        $user = User::where('id',$request->lecturer_id)->first();
         $lecturer->nrp_dosen = $request->nrp_dosen;
         $lecturer->name = $request->modal_name;
         $lecturer->gender = $request->gender;
         $lecturer->address = $request->address;
+        $user->user_email = $request->modal_email;
+        $user->user_password = Hash::make($request->password);
         if($lecturer->save())
         {
+            $user->save();
             return redirect()->back()->with('success','Lecturer account updated!');
         }
         else
@@ -355,16 +359,107 @@ class AdminController extends Controller
         $admin = User::where('user_type','administrator')
             ->join('administrator','administrator.user_id','=','user.id')
             ->select(
+                'user.id',
                 'user.user_email',
                 'user.status',
-                'administrator.name',
-                'administrator.gender',
-                'administrator.address',
-                'administrator.created_at'
+                'administrator.*'
             )
             ->get();
 
         return response()->json(['data'=>$admin]);
+    }
+
+    public function getAdminOne(Request $request)
+    {
+        $admin = User::where('user_id',$request->id)
+            ->join('administrator','administrator.user_id','=','user.id')
+            ->select(
+                'user.user_email',
+                'administrator.user_id',
+                'administrator.name',
+                'administrator.gender',
+                'administrator.address',
+                'administrator.pictures'
+            )
+            ->get();
+
+        return response()->json(['data'=>$admin]);
+    }
+
+    public function createAdmin(Request $request)
+    {
+        $token = str_random('100');
+        $activeUser = User::where('user_email',$request->email)->first();
+        if($activeUser)
+        {
+            return redirect()->back()->with('exist','Email for this account is registered');
+        }
+        else
+        {
+            $user = User::create([
+                'user_email'=>$request->email,
+                'user_password'=>Hash::make($request->password),
+                'user_type'=>'administrator',
+                'status'=>0,
+                'token'=>$token
+            ]);
+
+
+            try {
+                $admin = new Administrator();
+                $admin->name = $request->name;
+                $admin->gender = $request->gender;
+                $admin->user_id = $user->id;
+                $admin->address = $request->address;
+                $name = str_slug(($request->email).'-'.'unknown');
+                copy(public_path().'/images/users/unknown.png', public_path().'/images/users/student/'.$name);
+                $admin->pictures = $name;
+                $admin->save();
+
+            }catch (Exception $e)
+            {
+                dd($e);
+            }
+
+            return redirect()->back()->with('success','This account was succesfully registered');
+        }
+    }
+
+    public function updateAdmin(Request $request)
+    {
+        $admin = Administrator::where('user_id',$request->admin_id)->first();
+        $user = User::where('id',$request->admin_id)->first();
+        $admin->name = $request->modal_name;
+        $admin->gender = $request->gender;
+        $admin->address = $request->address;
+        $user->user_email = $request->modal_email;
+        $user->user_password = Hash::make($request->password);
+        if($admin->save())
+        {
+            $user->save();
+            return redirect()->back()->with('success','Lecturer account updated!');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Lecturer account failed to update!');
+        }
+    }
+
+    public function deleteAdmin($user_id)
+    {
+        $activeAdmin = User::where('id',$user_id)->first();
+        $admin = Administrator::where('user_id',$user_id)->first();
+        $destination_path = public_path().'/images/users/admin/'.$admin->pictures;
+
+        if($admin->delete())
+        {
+            unlink($destination_path);
+            return redirect()->back()->with('success','Admin deleted');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Admin not deleted');
+        }
     }
 
 

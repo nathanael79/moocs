@@ -431,6 +431,31 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'admin_get_admin'
             ]);
 
+        Route::post('/create-admin',
+            [
+                'uses'=>'AdminController@createAdmin',
+                'as'=>'admin_create_admin'
+            ]);
+
+        Route::post('get-admin-one',
+            [
+                'uses'=>'AdminController@getAdminOne',
+                'as'=>'admin_post_admin_one'
+            ]);
+
+        Route::post('/update-admin',
+            [
+                'uses'=>'AdminController@updateAdmin',
+                'as'=>'admin_update_admin'
+            ]);
+
+        Route::get('/delete-admin/{user_id}',
+            [
+                'uses'=>'AdminController@deleteAdmin',
+                'as'=>'admin_delete_admins'
+            ]);
+
+
 
     });
 

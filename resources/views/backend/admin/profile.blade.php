@@ -47,7 +47,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="{{url('/profile')}}">
-                                    <img src="{{asset('../../assets/images/users/admin')}}" class="rounded-circle">
+                                    <img src="{{asset('../../images/users/admin').'/'.$profile->pictures}}" class="rounded-circle">
                                 </a>
                             </div>
                         </div>

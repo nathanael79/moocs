@@ -1948,6 +1948,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="{!! asset('../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/datatables.net-select/js/dataTables.select.min.js') !!}"></script>
   <script src="{!! asset('../../assets/vendor/quill/dist/quill.min.js') !!}"></script>
+<script src="{!! '../../assets/vendor/chart.js/dist/Chart.min.js' !!}"></script>
+<script src="{!! '../../assets/vendor/chart.js/dist/Chart.extension.js' !!}"></script>
+
 
 <!-- Argon JS -->
   <script src="{!! asset('../../assets/js/argon.min-v=1.0.0.js') !!}"></script>

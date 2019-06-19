@@ -30,9 +30,9 @@ class LoginController extends Controller
     {
         /*$toast = new Toast();*/
         $activeUser = User::where(['user_email'=>$request->user_email])->first();
-        $id = $activeUser->id;
         if($activeUser)
         {
+            $id = $activeUser->id;
             if(Hash::check($request->user_password,$activeUser->user_password))
             {
                 $request->session()->put('activeUser',$activeUser);

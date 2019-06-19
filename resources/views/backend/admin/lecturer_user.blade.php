@@ -176,6 +176,7 @@
                                                 <form role="form" method="POST" action="{{url('/admin/update-lecturer')}}">
                                                     {{ csrf_field() }}
                                                     <div class="form-group mb-3 {{ $errors->has('nrp_dosen') ? 'has-error' : '' }}">
+                                                        <label class="form-control-label">NIDN</label>
                                                         <div class="input-group input-group-merge input-group-alternative">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -188,6 +189,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group mb-3 {{ $errors->has('modal-name') ? 'has-error' : '' }}">
+                                                        <label class="form-control-label">Name</label>
                                                         <div class="input-group input-group-merge input-group-alternative">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
@@ -199,21 +201,30 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group mb-3 {{ $errors->has('modal-email') ? 'has-error' : '' }}">
+                                                        <label class="form-control-label">Email</label>
                                                         <div class="input-group input-group-merge input-group-alternative">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                                             </div>
-                                                            <input class="form-control" id="modal-email" placeholder="Email" type="email" name="modal-email" value="">
+                                                            <input class="form-control" id="modal-email" placeholder="Email" type="email" name="modal_email" value="">
                                                             @if ($errors->has('modal-email'))
                                                                 <span class="text-danger">{{ $errors->first('modal-email') }}</span>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <label class="form-control-label" for="input-password">Password</label>
+                                                                <input name="password" type="password" id="password" class="form-control" placeholder="Password">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label class="form-control-label" for="input-address">Gender</label>
-                                                                    <select name="gender" id="gender">
+                                                                    <select name="gender" id="gender-edit">
                                                                         <option value="Pria">Pria</option>
                                                                         <option value="Wanita">Wanita</option>
                                                                     </select>
@@ -256,6 +267,7 @@
                             <table class="table table-hover" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
+                                    <th scope="col">NIDN</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Gender</th>
@@ -344,6 +356,7 @@
                 "autoWidth": false,
                 "columns":
                     [
+                        {'data':'nrp_dosen'},
                         {"data":"name"},
                         {"data":"user_email"},
                         {"data":"gender"},
@@ -357,6 +370,16 @@
                         }
                     ],
             })
+        })
+    </script>
+
+    <script>
+        $('#gender').select2({
+            dropdownParent: $('#modal-form')
+        })
+
+        $('#gender-edit').select2({
+            dropdownParent: $('#modal-form-edit')
         })
     </script>
 @endsection

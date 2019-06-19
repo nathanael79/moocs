@@ -133,6 +133,11 @@ class LecturerController extends Controller
         $course = Course::find($id);
         //delete cascade
     }
+
+    public function orderId()
+    {
+        if(SubCourse::where('order_id')->latest()->first);
+    }
     
 
     public function storeCourse(ErrorCourseRequest $request)

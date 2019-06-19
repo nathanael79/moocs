@@ -72,108 +72,109 @@
                 </div>
                 <!--COURSE INFORMATION-->
                 <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">Course Information</h3>
-                            </div>
-                        </div>
-
                         <div class="card-body">
-                            <form action="{{url('#')}}" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div class="pl-lg-4">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group {{ $errors->has('course_name') ? 'has-error' : '' }}">
-                                                <label class="form-control-label" for="input-course-name">Course Name</label>
-                                                <input type="text" id="input-course-name" name='course_name' class="form-control" value="{{ $course_profile->course_name }}">
-                                                @if ($errors->has('course_name'))
-                                                    <span class="text-danger">{{ $errors->first('course_name') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group {{ $errors->has('course_description') ? 'has-error' : '' }}">
-                                                <label class="form-control-label">Course Description</label>
-                                                <textarea type="text" name="course_description" class="form-control" rows="3">{{$course_profile->keterangan}}</textarea>
-                                                @if($errors->has('course_description'))
-                                                    <span class="text-danger">{{ $errors->first('course_description') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group {{$errors->has('course_picture') ? 'has-error' : ''}}">
-                                                <label class="form-control-label">Course Picture</label>
-                                                <div class="custom-file">
-                                                    <label class="custom-file-label">Upload in here</label>
-                                                    <input type="file"  class="custom-file-input" name="course_picture">
-                                                    @if($errors->has('course_picture'))
-                                                        <span class="text-danger">{{ $errors->first('course_picture') }}</span>
-                                                    @endif
+
+
+                            <div class="nav-wrapper">
+                                <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-cloud-upload-96 mr-2"></i>Sub Course List</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-bell-55 mr-2"></i>Course Information</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                                            <div class="table-responsive">
+                                                <div>
+                                                    <table class="table table-hover align-items-center table-dark" id="myTable">
+                                                        <thead class="thead-light">
+                                                        <tr>
+                                                            <th scope="col">Created At</th>
+                                                            <th scope="col">Sub Course Name</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
                                                 </div>
+
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group {{$errors->has('course_category') ? 'has-error' : ''}}">
-                                                <label class="form-control-label" for="course_category">Course Category</label>
-                                                <input type="hidden" name="course_category_hid" id="course_category_hid">
-                                                <select id="course_category" name="course_category" class="form-control"></select>
-                                                @if($errors->has('course_category'))
-                                                    <span class="text-danger">{{ $errors->first('course_category') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group float-right">
-                                                <button class="btn btn-icon btn-primary" type="submit">
-                                                    <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
-                                                    <span class="btn-inner--text">Save Informations</span>
-                                                </button>
-                                            </div>
+                                        <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+                                            <form action="{{url('#')}}" method="POST" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <div class="pl-lg-4">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group {{ $errors->has('course_name') ? 'has-error' : '' }}">
+                                                                <label class="form-control-label" for="input-course-name">Course Name</label>
+                                                                <input type="text" id="input-course-name" name='course_name' class="form-control" value="{{ $course_profile->course_name }}">
+                                                                @if ($errors->has('course_name'))
+                                                                    <span class="text-danger">{{ $errors->first('course_name') }}</span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group {{ $errors->has('course_description') ? 'has-error' : '' }}">
+                                                                <label class="form-control-label">Course Description</label>
+                                                                <textarea type="text" name="course_description" class="form-control" rows="3">{{$course_profile->keterangan}}</textarea>
+                                                                @if($errors->has('course_description'))
+                                                                    <span class="text-danger">{{ $errors->first('course_description') }}</span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group {{$errors->has('course_picture') ? 'has-error' : ''}}">
+                                                                <label class="form-control-label">Course Picture</label>
+                                                                <div class="custom-file">
+                                                                    <label class="custom-file-label">Upload in here</label>
+                                                                    <input type="file"  class="custom-file-input" name="course_picture">
+                                                                    @if($errors->has('course_picture'))
+                                                                        <span class="text-danger">{{ $errors->first('course_picture') }}</span>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group {{$errors->has('course_category') ? 'has-error' : ''}}">
+                                                                <label class="form-control-label" for="course_category">Course Category</label>
+                                                                <input type="hidden" name="course_category_hid" id="course_category_hid">
+                                                                <select id="course_category" name="course_category" class="form-control"></select>
+                                                                @if($errors->has('course_category'))
+                                                                    <span class="text-danger">{{ $errors->first('course_category') }}</span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group float-right">
+                                                                <button class="btn btn-icon btn-primary" type="submit">
+                                                                    <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
+                                                                    <span class="btn-inner--text">Save Informations</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--SUB COURSE LIST-->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">Sub Course List</h3>
-                            </div>
-                            <div class="col-4 text-right">
-                                <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#modal-form">Add Sub Course</button>
-                            </div>
-                        </div>
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <div>
-                                <table class="table table-hover align-items-center" id="myTable">
-                                    <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col">Created At</th>
-                                        <th scope="col">Sub Course Name</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-
-                        </div>
-                    </div>
                         <!-- Modal -->
                         <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                             <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
@@ -210,6 +211,7 @@
                                 </div>
             </div>
         </div>
+    </div>
         <!-- Footer -->
         <footer class="footer pt-0">
             <div class="row align-items-center justify-content-lg-between">
@@ -236,7 +238,6 @@
                 </div>
             </div>
         </footer>
-    </div>
                 </div>
             </div>
         </div>
@@ -247,9 +248,10 @@
     <script type="application/javascript">
         $(document).ready(function () {
             $('#myTable').dataTable({
-                'ajax':'{{url('/lecturer/getSubCourses/'.$course_profile->id)}}',
-                'autoWidth':false,
-                'columns':[
+                dom: 'Bfrtip',
+                ajax:'{{url('/lecturer/getSubCourses/'.$course_profile->id)}}',
+                autoWidth:false,
+                columns:[
                     {'data':'created_at'},
                     {'data':'sub_course_name'},
                     { render: function(data, type, row, meta){
@@ -259,8 +261,16 @@
                                 "</div>";
                         }
                     }
+                ],
+                buttons: [
+                    {
+                        text: 'Add new Sub Course',
+                        action: function ( e, dt, node, config ) {
+                            $('#modal-form').modal('show')
+                        }
+                    }
                 ]
-            })
+            });
 
             $('#course_category').select2({
                 ajax:{
