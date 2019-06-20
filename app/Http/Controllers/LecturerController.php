@@ -165,7 +165,43 @@ class LecturerController extends Controller
     public function updateCourse(ErrorCourseRequest $request, $id)
     {
         $activeCourse = Course::find($id);
-        if($request->hasFile(''));
+        $lecturer_id = Lecturer::where('user_id', session()->get('activeUser')->id)->first();
+        if($request->hasFile('course_picture'))
+        {
+            $image = $request->file('course_picture');
+            $name = $image->getClientOriginalName();
+            $image->move(public_path().'/images/courses/',$name);
+            $activeCourse->course_name = $request->course_name;
+            $activeCourse->keterangan = $request->course_description;
+            $activeCourse->course_category_id = $request->course_category_hid;
+            $activeCourse->pictures = $name;
+            $activeCourse->lecturer_id = $lecturer_id->id;
+
+            if($activeCourse->save())
+            {
+                return redirect()->back()->with('success','Course has been updated!');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','Course failed to update!');
+            }
+        }
+        else
+        {
+            $activeCourse->course_name = $request->course_name;
+            $activeCourse->keterangan = $request->course_description;
+            $activeCourse->course_category_id = $request->course_category_hid;
+            $activeCourse->lecturer_id = $lecturer_id->id;
+
+            if($activeCourse->save())
+            {
+                return redirect()->back()->with('success','Course has been updated!');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','Course failed to update!');
+            }
+        }
     }
 
     public function createContent($id)
@@ -178,46 +214,106 @@ class LecturerController extends Controller
 
     public function storeContent(ErrorSubCourseContent $request)
     {
-        if($request->hasFile('video_file'))
+        $cek = SubCourseDetail::latest()->first();
+        $order_id = $cek->subcourse_order_id;
+        if(!is_null($cek))
         {
-            $video = $request->file('video_file');
-            $video_name = $video->getClientOriginalName();
-            $video->move(public_path().'/videos/courses/',$video_name);
-            SubCourseDetail::create([
-                'sub_course_detail_name'=>$request->content_name,
-                'sub_course_detail_description'=>'kosong',
-                'sub_course_detail_type'=>'video',
-                'sub_course_detail_file'=>$video_name,
-                'view'=>0,
-                'sub_course_id'=>$request->sub_course_id,
+            if($request->hasFile('video_file'))
+            {
+                $video = $request->file('video_file');
+                $video_name = $video->getClientOriginalName();
+                $video->move(public_path().'/videos/courses/',$video_name);
+                SubCourseDetail::create([
+                    'sub_course_detail_name'=>$request->content_name,
+                    'sub_course_detail_description'=>'kosong',
+                    'sub_course_detail_type'=>'video',
+                    'sub_course_detail_file'=>$video_name,
+                    'view'=>0,
+                    'sub_course_id'=>$request->sub_course_id,
+                    'subcourse_order_id'=>++$order_id
 
-            ]);
+                ]);
 
-            return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+            }
+            else
+            {
+                SubCourseDetail::create([
+                    'sub_course_detail_name'=>$request->content_name,
+                    'sub_course_detail_type'=>'text',
+                    'sub_course_detail_file'=>null,
+                    'sub_course_detail_description'=>$request->course_description,
+                    'view'=>0,
+                    'sub_course_id'=>$request->sub_course_id,
+                    'subcourse_order_id'=>++$order_id
+                ]);
+
+                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+            }
         }
         else
         {
-            SubCourseDetail::create([
-                'sub_course_detail_name'=>$request->content_name,
-                'sub_course_detail_type'=>'text',
-                'sub_course_detail_file'=>null,
-                'sub_course_detail_description'=>$request->course_description,
-                'view'=>0,
-                'sub_course_id'=>$request->sub_course_id
-            ]);
+            $order_id = 1;
+            if($request->hasFile('video_file'))
+            {
+                $video = $request->file('video_file');
+                $video_name = $video->getClientOriginalName();
+                $video->move(public_path().'/videos/courses/',$video_name);
+                SubCourseDetail::create([
+                    'sub_course_detail_name'=>$request->content_name,
+                    'sub_course_detail_description'=>'kosong',
+                    'sub_course_detail_type'=>'video',
+                    'sub_course_detail_file'=>$video_name,
+                    'view'=>0,
+                    'sub_course_id'=>$request->sub_course_id,
+                    'subcourse_order_id'=>$order_id
 
-            return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+                ]);
+
+                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+            }
+            else
+            {
+                SubCourseDetail::create([
+                    'sub_course_detail_name'=>$request->content_name,
+                    'sub_course_detail_type'=>'text',
+                    'sub_course_detail_file'=>null,
+                    'sub_course_detail_description'=>$request->course_description,
+                    'view'=>0,
+                    'sub_course_id'=>$request->sub_course_id,
+                    'subcourse_order_id'=>$order_id
+                ]);
+
+                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+            }
         }
+
 
         //dd($request);
     }
 
     public function storeSubCourse(ErrorSubCourseRequest $request)
     {
-        $new_subcourse= SubCourse::create([
-            'sub_course_name'=>$request->sub_course_name,
-            'course_id'=>$request->course_id
-        ]);
+        $cek = SubCourse::latest()->first();
+        $order_id = $cek->order_id;
+        if(!is_null($cek))
+        {
+            $new_subcourse= SubCourse::create([
+                'sub_course_name'=>$request->sub_course_name,
+                'course_id'=>$request->course_id,
+                'order_id'=>++$order_id
+            ]);
+        }
+        else
+        {
+            $order_id = 1;
+            $new_subcourse= SubCourse::create([
+                'sub_course_name'=>$request->sub_course_name,
+                'course_id'=>$request->course_id,
+                'order_id'=>$order_id
+            ]);
+        }
+
 
         return redirect('/lecturer/sub_course_profile/'.$new_subcourse->id);
     }
@@ -230,12 +326,63 @@ class LecturerController extends Controller
         ]);
     }
 
+    public function updateSubCourse(Request $request)
+    {
+        $subcourse = SubCourse::find($request->sub_course_id);
+        $subcourse->sub_course_name = $request->sub_course_name;
+        if($subcourse->save())
+        {
+            return redirect()->back()->with('success','Sub Course information updated!');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Sub Course information not updated!');
+        }
+    }
+
     public function subCourseProfile($id)
     {
         $sub_course = SubCourse::find($id);
         return view('backend.lecturer.sub_course_profile',[
             'sub_course_profile'=>$sub_course
         ]);
+    }
+
+    public function subCourseDetailContent()
+    {
+        $content = SubCourseDetail::all();
+        return response()->json(['data'=>$content]);
+    }
+
+
+
+    public function deleteSubCourseDetailContent($id)
+    {
+        $content = SubCourseDetail::find($id);
+        if(!is_null($content->sub_course_detail_file))
+        {
+            if($content->delete())
+            {
+                unlink(public_path()."/videos/courses".'/'.$content->sub_course_detail_file);
+                return redirect()->back()->with('success','Content deleted!');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','Content not deleted!');
+            }
+        }
+        else
+        {
+            if($content->delete())
+            {
+                return redirect()->back()->with('success','Content deleted!');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','Content not deleted!');
+            }
+        }
+
     }
 
     public function subCourseQuestion()

@@ -19,7 +19,7 @@
 @extends('backend.lecturer.dashboard_layout')
 @section('main_content')
     <!--Mask Header-->
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url('../../assets/img/theme/profile-cover.jpg'); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: {{asset('images/users/lecturer').'/'.$profile->pictures}}; background-size: cover; background-position: center top;">
         <!-- Mask -->
         <span class="mask bg-gradient-orange opacity-8"></span>
         <!-- Header container -->
@@ -47,7 +47,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="{{url('/profile')}}">
-                                    <img src="../../assets/img/theme/team-4.jpg" class="rounded-circle">
+                                    <img src="{{asset('images/users/lecturer').'/'.$profile->pictures}}" class="rounded-circle">
                                 </a>
                             </div>
                         </div>
@@ -63,9 +63,9 @@
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center">
                                     <div>
-                                                                            <span class="heading">22</span>
-                                                                            <span class="description">Friends</span>
-                                                                        </div>
+                                        <span class="heading">22</span>
+                                        <span class="description">Friends</span>
+                                    </div>
                                     <div>
                                         <span class="heading">10</span>
                                         <span class="description">Forum</span>

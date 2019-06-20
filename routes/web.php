@@ -146,6 +146,12 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'test_video'
             ]);
 
+        Route::get('/coba8',
+            [
+                'uses'=>'CobaController@subCourse',
+                'as'=>'test_sub_course'
+            ]);
+
         //email
 
         Route::get('/confirm/{email}/{token}',
@@ -255,6 +261,12 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_course_profile_page"
             ]);
 
+        Route::post('/update-course/{id}',
+            [
+                'uses'=>'LecturerController@updateCourse',
+                'as'=>'lecturer_update_course'
+            ]);
+
         Route::post('/storeSubCourse',
             [
                 "uses"=>"LecturerController@storeSubCourse",
@@ -279,10 +291,29 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"lecturer_sub_course_profile_page"
             ]);
 
+        Route::post('/update-subcourse',
+            [
+                'uses'=>'LecturerController@updateSubCourse',
+                'as'=>'lecturer_update_subcourse'
+
+            ]);
+
         Route::get('/getSubCourses/{id}',
             [
                 "uses"=>"CourseController@getSubCourses",
                 "as"=>"get_sub_courses_data"
+            ]);
+
+        Route::get('/sub-course-detail',
+            [
+                'uses'=>'LecturerController@subCourseDetailContent',
+                'as'=>'get_sub_course_detail_content'
+            ]);
+
+        Route::get('/delete-subcourse-detail/{id}',
+            [
+                'uses'=>'LecturerController@deleteSubCourseDetailContent',
+                'as'=>'delete_sub_course_detail_content'
             ]);
 
         Route::get('/create_question',

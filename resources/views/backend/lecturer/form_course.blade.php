@@ -1,3 +1,4 @@
+
 @extends('backend.lecturer.dashboard_layout')
 @section('main_content')
     <div class="header bg-gradient-orange pb-6">
@@ -7,12 +8,12 @@
                     <div class="col-lg-12 col-7">
                         <h6 class="h2 text-white d-inline-block mb-0">Lecturer Dashboard</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                 <li class="breadcrumb-item"><a href="dashboard.blade.php#"><i class="fas fa-home"></i></a></li>
-                                 <li class="breadcrumb-item"><a href="dashboard.blade.php#">Your Courses</a></li>
-                                 <li class="breadcrumb-item active" aria-current="page">Make a new course</li>
-                             </ol>
-                         </nav>
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="dashboard.blade.php#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="dashboard.blade.php#">Your Courses</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Make a new course</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>

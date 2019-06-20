@@ -23,6 +23,7 @@ class CreateSubCourseDetailTable extends Migration
             $table->bigInteger('view');
             $table->bigInteger('sub_course_id')->unsigned();
             $table->foreign('sub_course_id')->references('id')->on('sub_course')->onDelete('cascade');
+            $table->bigInteger('subcourse_order_id')->nullable();
             $table->timestamps();
         });
     }

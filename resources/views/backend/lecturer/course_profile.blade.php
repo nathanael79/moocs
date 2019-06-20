@@ -14,7 +14,12 @@
             <div class="row">
                 <div class="col-lg-7 col-md-10">
                     <h1 class="display-2 text-white">{{$course_profile->course_name}}</h1>
-                    <p class="text-white mt-0 mb-5">Course Description</p>
+                    <p class="text-white mt-0 mb-5">{{$course_profile->keterangan}}</p>
+                    {{--  <a href="profile.blade.php#!" class="btn btn-neutral">Edit profile</a>--}}
+                </div>
+                <div class="col-lg-7 col-md-10">
+
+                    <p class="text-white mt-0 mb-5">Category: {{$course_profile->course_category}}</p>
                     {{--  <a href="profile.blade.php#!" class="btn btn-neutral">Edit profile</a>--}}
                 </div>
             </div>
@@ -73,8 +78,6 @@
                 <!--COURSE INFORMATION-->
                 <div class="card">
                         <div class="card-body">
-
-
                             <div class="nav-wrapper">
                                 <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                                     <li class="nav-item">
@@ -105,7 +108,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                                            <form action="{{url('#')}}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{url('/lecturer/update-course'.'/'.$course_profile->id)}}" method="POST" enctype="multipart/form-data">
                                                 {{ csrf_field() }}
                                                 <div class="pl-lg-4">
                                                     <div class="row">

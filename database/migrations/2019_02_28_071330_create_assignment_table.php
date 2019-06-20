@@ -20,8 +20,8 @@ class CreateAssignmentTable extends Migration
             $table->string('assignment_question');
             $table->string('assignment_answer');
             $table->float('assignment_score');
-            $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
+            $table->bigInteger('sub_course_id')->unsigned();
+            $table->foreign('sub_course_id')->references('id')->on('sub_course')->onDelete('cascade');
             $table->timestamps();
         });
     }

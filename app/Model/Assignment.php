@@ -9,11 +9,10 @@ class Assignment extends Model
     protected $table = 'assignment';
     protected $fillable =
         [
-            'type',
-            'assignment_category',
             'assignment_question',
             'assignment_answer',
             'assignment_score',
+            'sub_course_id',
             'created_at',
             'updated_at'
         ];

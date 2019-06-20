@@ -17,4 +17,9 @@ class Student extends Model
 /*            'token',
             'status',*/
         ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

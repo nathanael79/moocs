@@ -26,4 +26,9 @@ class Lecturer extends Model
     {
         return $this->hasMany('Certificate');
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

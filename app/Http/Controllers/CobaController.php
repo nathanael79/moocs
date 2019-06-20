@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Model\Course;
+use App\Model\SubCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Exception;
@@ -61,6 +62,12 @@ class CobaController extends Controller
     public function testVideo()
     {
         return view('coba.coba');
+    }
+
+    public function subCourse()
+    {
+        $data = SubCourse::with('subCourseDetail')->get();
+        return response()->json($data);
     }
 
 }

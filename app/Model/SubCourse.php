@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-
 class SubCourse extends Model
 {
     protected $table = 'sub_course';
@@ -11,10 +10,11 @@ class SubCourse extends Model
         [
             'sub_course_name',
             'course_id',
+            'order_id'
         ];
 
     public function subCourseDetail()
     {
-        $this->hasMany('SubCourseDetail');
+        return $this->hasMany('\App\Model\SubCourseDetail','sub_course_id','id');
     }
 }
