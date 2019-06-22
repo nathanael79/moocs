@@ -223,7 +223,7 @@ class LecturerController extends Controller
                 $video = $request->file('video_file');
                 $video_name = $video->getClientOriginalName();
                 $video->move(public_path().'/videos/courses/',$video_name);
-                SubCourseDetail::create([
+                $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
                     'sub_course_detail_description'=>'kosong',
                     'sub_course_detail_type'=>'video',
@@ -234,11 +234,26 @@ class LecturerController extends Controller
 
                 ]);
 
-                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+                if($subcoursedetail)
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'success'=>'Content saved!'
+                        ]);
+                }
+                else
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'failed'=>'Content failed to save!'
+                        ]);
+                }
+
+
             }
             else
             {
-                SubCourseDetail::create([
+                $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
                     'sub_course_detail_type'=>'text',
                     'sub_course_detail_file'=>null,
@@ -248,7 +263,20 @@ class LecturerController extends Controller
                     'subcourse_order_id'=>++$order_id
                 ]);
 
-                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+                if($subcoursedetail)
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'success'=>'Content saved!'
+                        ]);
+                }
+                else
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'failed'=>'Content failed to save!'
+                        ]);
+                }
             }
         }
         else
@@ -259,7 +287,7 @@ class LecturerController extends Controller
                 $video = $request->file('video_file');
                 $video_name = $video->getClientOriginalName();
                 $video->move(public_path().'/videos/courses/',$video_name);
-                SubCourseDetail::create([
+                $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
                     'sub_course_detail_description'=>'kosong',
                     'sub_course_detail_type'=>'video',
@@ -270,11 +298,24 @@ class LecturerController extends Controller
 
                 ]);
 
-                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+                if($subcoursedetail)
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'success'=>'Content saved!'
+                        ]);
+                }
+                else
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'failed'=>'Content failed to save!'
+                        ]);
+                }
             }
             else
             {
-                SubCourseDetail::create([
+                $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
                     'sub_course_detail_type'=>'text',
                     'sub_course_detail_file'=>null,
@@ -284,7 +325,21 @@ class LecturerController extends Controller
                     'subcourse_order_id'=>$order_id
                 ]);
 
-                return redirect('lecturer/sub_course_profile/'.$request->sub_course_id);
+                if($subcoursedetail)
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'success'=>'Content saved!'
+                        ]);
+                }
+                else
+                {
+                    return redirect('lecturer/sub_course_profile/'.$request->sub_course_id)
+                        ->with([
+                            'failed'=>'Content failed to save!'
+                        ]);
+                }
+
             }
         }
 
@@ -348,12 +403,24 @@ class LecturerController extends Controller
         ]);
     }
 
-    public function subCourseDetailContent()
+    public function deleteSubCourse($id)
     {
-        $content = SubCourseDetail::all();
-        return response()->json(['data'=>$content]);
+        $subcourse = SubCourse::find($id);
+        if($subcourse->delete())
+        {
+            return redirect()->back()->with('success','Sub Course deleted');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Sub Course not deleted');
+        }
     }
 
+    public function subCourseDetailContent($id)
+    {
+        $content = SubCourseDetail::where('sub_course_id',$id)->get();
+        return response()->json(['data'=>$content]);
+    }
 
 
     public function deleteSubCourseDetailContent($id)

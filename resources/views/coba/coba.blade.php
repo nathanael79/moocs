@@ -17,8 +17,7 @@
                         <div class="modal-body">
                             <center>
                             <video width="320" height="240" controls>
-                                <source src="{{asset('../../videos/courses/Perang antar saudara - Pdt. Petrus Agung.mp4')}}" type="video/mp4">
-                                Your browser does not support the video tag.
+                                <source src="{{asset('../../video/courses/Tutorial Fix 4G Xiaomi Redmo 3 ido (Redmi 3 dan 3pro) Miui 9.x.x Tanpa UBL - YouTube.mkv')}}" >
                             </video>
                             </center>
                         </div>
@@ -31,5 +30,7 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
 @endsection

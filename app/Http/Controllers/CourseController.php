@@ -29,6 +29,23 @@ class CourseController extends Controller
         return response()->json(['data'=>$course]);
     }
 
+    public function getUnconfirmedCourse()
+    {
+        $unconfirmed_course = Course::where('status','pending')
+            ->join('lecturer','course.lecturer_id','=','lecturer.id')
+            ->select(
+                'course.id',
+                'course.course_name',
+                'course.keterangan',
+                'course.pictures',
+                'course.status',
+                'course.created_at',
+                'lecturer.name'
+            )
+            ->get();
+        return response()->json(['data'=>$unconfirmed_course]);
+    }
+
     public function getSubCourses($id)
     {
         $subCourse = SubCourse::where('course_id',$id)->get();

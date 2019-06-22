@@ -76,7 +76,7 @@
             <nav class="classy-navbar justify-content-between" id="EduStudyNav">
 
                 <!-- Logo -->
-                <a class="nav-brand" href="{{url('/')}}"><img src="{!! asset('../../edufield/assets/img/logo.png') !!}" alt="logo"></a>
+                <a class="nav-brand" href="{{url('/')}}"><img src="{!! asset('../../images/logo.png') !!}" alt="logo" style="width: 300px;"></a>
 
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">

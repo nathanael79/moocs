@@ -25,7 +25,7 @@ class ErrorSubCourseContent extends FormRequest
     {
         return [
             'content_name'=>'required|min:6',
-            'video_file'=>'max:100000|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4,video/x-matroska',
+            'video_file'=>'max:100000|mimetypes:video/mp4,video/webm,video/ogg',
             //'course_description'=>'min:6'
         ];
     }

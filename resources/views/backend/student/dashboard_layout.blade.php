@@ -4,9 +4,8 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="navbar-brand" href="{{url('/dashboard')}}">
-                    {{--<img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">--}}
-                    <p>MOOC PENS <br>Dashboard</p>
+                <a class="nav-brand" href="{{url('/student')}}">
+                    <img src="{!! asset('../../images/logo.png') !!}" alt="logo" style="width: 175px;">
                 </a>
                 <div class="ml-auto">
                     <!-- Sidenav toggler -->

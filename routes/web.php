@@ -304,7 +304,13 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"get_sub_courses_data"
             ]);
 
-        Route::get('/sub-course-detail',
+        Route::get('/delete-subcourse/{id}',
+            [
+                'uses'=>'LecturerController@deleteSubCourse',
+                'as'=>'delete_sub_course'
+            ]);
+
+        Route::get('/sub-course-detail/{id}',
             [
                 'uses'=>'LecturerController@subCourseDetailContent',
                 'as'=>'get_sub_course_detail_content'
@@ -332,6 +338,42 @@ Route::group(['prefix'=>'/'],function (){
             [
                 'uses'=>'AdminController@dashboard',
                 'as'=>'admin_dashboard_page'
+            ]);
+
+        Route::get('/course-category',
+            [
+                'uses'=>'AdminController@courseCategory',
+                'as'=>'admin_course_category_page'
+            ]);
+
+        Route::post('/create-course-category',
+            [
+                'uses'=>'AdminController@createCourseCategory',
+                'as'=>'admin_create_coursecategory'
+            ]);
+
+        Route::post('/update-course-category',
+            [
+                'uses'=>'AdminController@updateCourseCategory',
+                'as'=>'admin_update_coursecategory'
+            ]);
+
+        Route::get('/delete-course-category/{id}',
+            [
+                'uses'=>'AdminController@deleteCourseCategory',
+                'as'=>'admin_delete_coursecategory'
+            ]);
+
+        Route::post('/get-one-coursecategory',
+            [
+                'uses'=>'AdminController@getOneCourseCategory',
+                'as'=>'admin_get_one_coursecategory'
+            ]);
+
+        Route::get('/get-course-category',
+            [
+                'uses'=>'AdminController@getCourseCategory',
+                'as'=>'admin_course_category'
             ]);
 
         Route::get('/profile',
@@ -376,6 +418,24 @@ Route::group(['prefix'=>'/'],function (){
                 'uses'=>'AdminController@getAllCourse',
                 'as'=>'admin_get_all_course'
 
+            ]);
+
+        Route::post('/get-one-course',
+            [
+                'uses'=>'AdminController@getOneCourse',
+                'as'=>'admin_get_onecourse'
+            ]);
+
+        Route::post('/update-course',
+            [
+                'uses'=>'AdminController@updateCourse',
+                'as'=>'admin_update_course'
+            ]);
+
+        Route::get('/unconfirmed-course',
+            [
+                'uses'=>'CourseController@getUnconfirmedCourse',
+                'as'=>'admin_get_unconfirmedcourse'
             ]);
 
         Route::get('/userStudent',

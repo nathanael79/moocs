@@ -260,7 +260,7 @@
                     { render: function(data, type, row, meta){
                             return "<div class='btn-group'>"+
                                 "<a href='{{url('/lecturer/sub_course_profile')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
-                                "<a href='{{url("#")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                "<a href='{{url("/lecturer/delete-subcourse")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
                                 "</div>";
                         }
                     }

@@ -4,9 +4,8 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="navbar-brand" href="{{url('/lecturer/courses')}}">
-                    {{--<img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">--}}
-                    <p>MOOC PENS <br>Dashboard</p>
+                <a class="nav-brand" href="{{url('/lecturer/courses')}}">
+                    <img src="{!! asset('../../images/logo.png') !!}" alt="logo" style="width: 175px;">
                 </a>
                 <div class="ml-auto">
                     <!-- Sidenav toggler -->
@@ -65,6 +64,18 @@
     </nav>
 @endsection
 @section('topnav')
+    @if($message = session()->get('success'))
+    <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> {{$message}}
+    </div>
+    @endif
+
+    @if($message = session()->get('failed'))
+    <div class="alert alert-danger" role="alert">
+        <strong>Danger!</strong> {{$message}}
+    </div>
+    @endif
+
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-orange border-bottom">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

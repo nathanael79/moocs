@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Administrator;
 use App\Model\Course;
+use App\Model\CourseCategory;
 use App\Model\Lecturer;
 use App\Model\Student;
 use App\Model\User;
@@ -39,6 +40,84 @@ class AdminController extends Controller
         ];
 
         return view('backend.admin.profile',$data);
+    }
+
+    public function courseCategory()
+    {
+        return view('backend.admin.category');
+    }
+
+    public function getCourseCategory()
+    {
+        $course_category = CourseCategory::all();
+        return response()->json(['data'=>$course_category]);
+    }
+
+    public function getOneCourseCategory(Request $request)
+    {
+        $course = CourseCategory::find($request->id);
+
+        return response()->json(['data'=>$course]);
+    }
+
+    public function createCourseCategory(Request $request)
+    {
+        $course_category = CourseCategory::where('course_category_name',$request->course_category_name)->first();
+        if(is_null($course_category))
+        {
+            $create = CourseCategory::create([
+                'course_category_name'=>$request->course_category_name
+            ]);
+
+            if($create)
+            {
+                return redirect()->back()->with('success','Course Category success to create');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','Course Category failed to create');
+            }
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Course Category already exist');
+        }
+
+    }
+
+    public function updateCourseCategory(Request $request)
+    {
+        $course_category = CourseCategory::where('course_category_name',$request->course_category_name)->first();
+        $activeCategory = CourseCategory::find($request->course_category_id_edit);
+        if(is_null($course_category))
+        {
+            $activeCategory->course_category_name = $request->course_category_name_edit;
+            if($activeCategory->save())
+            {
+                return redirect()->back()->with('success','Course Category success to update');
+            }
+            else
+            {
+                return redirect()->back()->with('failed','Course Category failed to update');
+            }
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Course Category already exist');
+        }
+    }
+
+    public function deleteCourseCategory($id)
+    {
+        $activeCategory = CourseCategory::find($id);
+        if($activeCategory->delete())
+        {
+            return redirect()->back()->with('succes','Course Category deleted');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Course Category failed to delete');
+        }
     }
 
     public function storeProfile(Request $request)
@@ -95,6 +174,7 @@ class AdminController extends Controller
         $courses = DB::table('course')
             ->join('lecturer','course.lecturer_id','=','lecturer.id')
             ->select(
+                'course.id',
                 'course.course_name',
                 'course.keterangan',
                 'course.status',
@@ -106,7 +186,31 @@ class AdminController extends Controller
         return response()->json(['data'=>$courses]);
     }
 
-    public function getUnconfirmedCourse()
+    public function getOneCourse(Request $request)
+    {
+        $course = Course::find($request->id);
+
+        return response()->json(['data'=>$course]);
+    }
+
+    public function updateCourse(Request $request)
+    {
+        $course = Course::find($request->course_id);
+        $course->course_name = $request->course_name;
+        $course->keterangan = $request->course_description;
+        $course->course_category_id = $request->course_category;
+        $course->status = $request->course_status;
+        if($course->save())
+        {
+            return redirect()->back()->with('success','courses updated');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','courses failed');
+        }
+    }
+
+/*    public function getUnconfirmedCourse()
     {
         $unconfirmed_course = Course::where('status','pending')
             ->join('lecturer','course.lecturer_id','=','lecturer.id')
@@ -120,7 +224,7 @@ class AdminController extends Controller
             ->get();
 
         return response()->json(['data'=>$unconfirmed_course]);
-    }
+    }*/
 
     public function userStudent()
     {

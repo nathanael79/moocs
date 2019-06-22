@@ -62,7 +62,6 @@
                                                                     <thead class="thead-light">
                                                                     <tr>
                                                                         <th scope="col" class="sort" data-sort="status">No.</th>
-                                                                        <th scope="col" class="sort" data-sort="status">Content Type</th>
                                                                         <th scope="col" class="sort" data-sort="budget">Content Name</th>
                                                                         <th scope="col" class="sort" data-sort="status">Content File</th>
                                                                         <th scope="col" class="sort" data-sort="status">Content Description</th>
@@ -389,25 +388,62 @@
 
     <script type="application/javascript">
         $(document).ready(function () {
-            var t = $('#table-content').dataTable({
-                "ajax":"{{url('/lecturer/sub-course-detail')}}",
+            $('#table-content').dataTable({
+                "ajax":"{{url('/lecturer/sub-course-detail/'.$sub_course_profile->id)}}",
                 "autoWidth": false,
-                "columns":
-                    [
-                        {"data":"subcourse_order_id"},
-                        {"data":"sub_course_detail_type"},
-                        {"data":"sub_course_detail_name"},
-                        {"data":"sub_course_detail_file"},
-                        {"data":"sub_course_detail_description"},
-                        {"data":"view"},
-                        { render: function(data, type, row, meta){
-                                return "<div class='btn-group'>"+
-                                    "<a href='{{url('#')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
-                                    "<a href='{{url("/lecturer/delete-subcourse-detail")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
-                                    "</div>";
-                            }
+                "columnDefs": [
+                    {
+                        class: "text-center",
+                        width: 'auto',
+                        "targets": [0],
+                        "orderable": false,
+                        render: function(data, type, row, meta){
+                            return meta.row+meta.settings._iDisplayStart+1
                         }
-                    ],
+                    },
+                    {
+                        "targets": [1],
+                        "data": "sub_course_detail_name",
+                        width: 90,
+                        "orderable": true,
+                    },
+                    {
+                        class:"text-center",
+                        "orderable": false,
+                        "targets": [2],
+                        width:25,
+                        "data":"sub_course_detail_file",
+                        "render": function ( data, type, full, meta ) {
+                            console.log(data);
+                            return ' <center><video width="160" height="120" controls>\n' +
+                                ' <source src="{{asset('videos/courses/')}}/'+data+'">\n' +
+                                ' </video></center>';
+                                }
+                    },
+                    {
+                        class: "text-center",
+                        "orderable": false,
+                        "targets": [3],
+                        "data": "sub_course_detail_description"
+                    },
+                    {
+                        class: "text-center",
+                        "orderable": false,
+                        "targets": [4],
+                        "data": "view"
+                    },
+                    {
+                        targets: [5],
+                        "sortable": false,
+                        "searchable": false,
+                        render: function(data, type, row, meta){
+                            return "<div class='btn-group'>"+
+                                "<a href='{{url('#')}}/"+row["id"]+"' class='btn btn-info' '><span class=\"btn-inner--icon\"><i class=\"ni ni-bullet-list-67\" title='Details'></i></span></a>"+
+                                "<a href='{{url("/lecturer/delete-subcourse-detail")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                "</div>";
+                        }
+                    },
+                ],
 
             });
         })
