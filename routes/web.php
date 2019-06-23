@@ -152,6 +152,18 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'test_sub_course'
             ]);
 
+        Route::get('/coba9',
+            [
+                'uses'=>'CobaController@increment',
+                'as'=>'increment'
+            ]);
+
+        Route::post('/coba10',
+            [
+                'uses'=>'CobaController@createQuestion',
+                'as'=>'coba_post_arraydata'
+            ]);
+
         //email
 
         Route::get('/confirm/{email}/{token}',

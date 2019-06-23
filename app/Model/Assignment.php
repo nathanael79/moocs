@@ -13,6 +13,7 @@ class Assignment extends Model
             'assignment_answer',
             'assignment_score',
             'sub_course_id',
+            'order_id',
             'created_at',
             'updated_at'
         ];

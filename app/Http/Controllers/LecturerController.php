@@ -14,6 +14,8 @@ use App\Http\Requests\ErrorPasswordRequest;
 use App\Http\Requests\ErrorProfileLecturerRequest;
 use App\Http\Requests\ErrorSubCourseContent;
 use App\Http\Requests\ErrorSubCourseRequest;
+use App\Model\Assignment;
+use App\Model\AssignmentOptions;
 use App\Model\Course;
 use App\Model\Lecturer;
 use App\Model\SubCourse;
@@ -456,5 +458,7 @@ class LecturerController extends Controller
     {
         return view('backend.lecturer.form_question');
     }
+
+
 
 }

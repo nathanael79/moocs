@@ -267,16 +267,15 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="{{url('#')}}" id="myForm">
+                                        <form method="post" action="{{url('/coba10')}}" id="myForm">
                                             {{ csrf_field() }}
                                             <div class="pl-lg-4">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
-                                                            <label class="form-control-label" for="input-course-description">Question</label>
-                                                            {{--<div class="ql-toolbar ql-snow"></div>--}}
-                                                            {{--<textarea type="text" id="input-course-description" name="course_desription" class="form-control" rows="10" placeholder="Input your question here"></textarea>--}}
-                                                            <div data-toggle="quill" data-quill-placeholder="Quill WYSIWYG"></div>
+                                                            <input type="hidden" name="sub_course_id_q" value="{{$sub_course_profile->id}}">
+                                                            <label class="form-control-label" for="input-question">Question</label>
+                                                            <textarea type="text" id="input-question" name="question" class="form-control" rows="10" placeholder="Input your question here"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -288,10 +287,11 @@
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text">
-                                                                        <input type="radio" aria-label="Radio button for following text input" name="options[]">
+                                                                        <input type="hidden" name="opsi_huruf" id="opsi_huruf">
+                                                                        <input type="radio" aria-label="Radio button for following text input" onclick="myAnswer(1)" id='options' name="options[]">
                                                                     </div>
                                                                 </div>
-                                                                <input type="text" class="form-control" aria-label="Text input with radio button" name="options_desc[]">
+                                                                <input type="text" class="form-control opsi-1" aria-label="Text input with radio button" id="options_desc" name="options_desc[]">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -355,6 +355,34 @@
 @section('js')
     <script type="application/javascript">
 
+
+        $(document).ready(function () {
+            var i=0;
+            $('#add_button').on('click',function () {
+                ++i
+                $('#answer_section').append('<div class="form-group">\n' +
+                    '    <div class="input-group">\n' +
+                    '        <div class="input-group-prepend">\n' +
+                    '            <div class="input-group-text">\n' +
+                    '                <input type="radio" aria-label="Radio button for following text input" onclick="myAnswer('+(i+1)+')" id="options" name="options[]">\n' +
+                    '            </div>\n' +
+                    '        </div>\n' +
+                    '        <input type="text" class="form-control opsi-'+(i+1)+'" aria-label="Text input with radio button" id="options_desc" name="options_desc[]">\n' +
+                    '    </div>\n' +
+                    '</div>');
+            });
+        })
+    </script>
+
+    <script type="application/javascript">
+
+        function myAnswer(i) {
+            var data = $(".opsi-"+i).val();
+            console.log(data);
+            $('#opsi_huruf').val(data);
+        }
+
+
         function myContent(content)
         {
             console.log(content);
@@ -414,7 +442,6 @@
                         width:25,
                         "data":"sub_course_detail_file",
                         "render": function ( data, type, full, meta ) {
-                            console.log(data);
                             return ' <center><video width="160" height="120" controls>\n' +
                                 ' <source src="{{asset('videos/courses/')}}/'+data+'">\n' +
                                 ' </video></center>';
@@ -446,27 +473,6 @@
                 ],
 
             });
-        })
-    </script>
-
-    <script type="application/javascript">
-        $(document).ready(function () {
-            $('#add_button').on('click',function () {
-                $('#answer_section').append('<div class="form-group">\n' +
-                    '    <div class="input-group">\n' +
-                    '        <div class="input-group-prepend">\n' +
-                    '            <div class="input-group-text">\n' +
-                    '                <input type="radio" aria-label="Radio button for following text input" name="options[]">\n' +
-                    '            </div>\n' +
-                    '        </div>\n' +
-                    '        <input type="text" class="form-control" aria-label="Text input with radio button">\n' +
-                    '    </div>\n' +
-                    '</div>');
-            });
-
-            $('#myForm input').on('change',function () {
-                alert($('input[name=options]:checked', '#myForm')).val();
-            })
         })
     </script>
 @endsection
