@@ -5,20 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cfd8bf3-7a08-491f-97c6-234106cbe91c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/forum.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/forum.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ForumController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c0d6940-0197-4a95-bd47-9942eca2bd77.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c0d6940-0197-4a95-bd47-9942eca2bd77.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/moocs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moocs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssignmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssignmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CobaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CobaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LecturerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LecturerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/AssignmentHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AssignmentHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/AssignmentOptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AssignmentOptions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/dashboard_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/dashboard_layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/lecturer/sub_course_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/lecturer/sub_course_profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Enrollment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Enrollment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Forum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Forum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/forum.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/forum.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/single-courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single-courses.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +67,35 @@
         <item name="tugas_akhir@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="tugas_akhir: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="course: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tugas_akhir@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tugas_akhir: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="enrollment: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tugas_akhir@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tugas_akhir: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="forum: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tugas_akhir@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tugas_akhir: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="forum_reply: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tugas_akhir@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tugas_akhir: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="lecturer: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -92,7 +122,7 @@
     <select />
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="2">
       <content type="file-editors">
         <state>
           <leaf>
@@ -103,30 +133,30 @@
                     <ID>DATABASE</ID>
                     <OriginalElement>6c0d6940-0197-4a95-bd47-9942eca2bd77</OriginalElement>
                     <nodes>
-                      <node x="968.796052631579" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user</node>
-                      <node x="492.9210526315789" y="640.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course</node>
-                      <node x="993.171052631579" y="960.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
-                      <node x="522.0" y="1000.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course</node>
-                      <node x="1559.3026315789475" y="333.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator</node>
+                      <node x="189.45394736842104" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user</node>
+                      <node x="629.703947368421" y="640.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course</node>
+                      <node x="1129.953947368421" y="960.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
+                      <node x="652.875" y="1000.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course</node>
+                      <node x="72.45394736842104" y="333.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator</node>
                       <node x="0.0" y="1014.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score</node>
-                      <node x="799.171052631579" y="1654.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options</node>
-                      <node x="1293.5526315789475" y="973.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate</node>
-                      <node x="668.671052631579" y="1307.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment</node>
-                      <node x="851.796052631579" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student</node>
-                      <node x="973.671052631579" y="1320.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply</node>
-                      <node x="1828.3026315789475" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.migrations</node>
-                      <node x="1315.3026315789475" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer</node>
-                      <node x="423.6710526315789" y="414.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category</node>
-                      <node x="330.6710526315789" y="1280.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail</node>
-                      <node x="261.0" y="987.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment</node>
-                      <node x="499.1710526315789" y="1627.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory</node>
+                      <node x="591.953947368421" y="1654.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options</node>
+                      <node x="1419.953947368421" y="973.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate</node>
+                      <node x="805.453947368421" y="1307.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment</node>
+                      <node x="316.453947368421" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student</node>
+                      <node x="1110.453947368421" y="1320.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply</node>
+                      <node x="1717.953947368421" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.migrations</node>
+                      <node x="1441.703947368421" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer</node>
+                      <node x="560.453947368421" y="414.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category</node>
+                      <node x="467.453947368421" y="1280.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail</node>
+                      <node x="370.26315789473676" y="987.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment</node>
+                      <node x="979.953947368421" y="1627.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory</node>
                     </nodes>
                     <notes />
                     <edges>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
                         <point x="0.0" y="-108.0" />
-                        <point x="381.5" y="940.0" />
-                        <point x="587.421052631579" y="940.0" />
+                        <point x="490.76315789473676" y="940.0" />
+                        <point x="724.203947368421" y="940.0" />
                         <point x="-63.0" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category">
@@ -134,39 +164,39 @@
                         <point x="0.0" y="40.5" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
-                        <point x="5.6843418860808015E-14" y="-135.0" />
-                        <point x="963.796052631579" y="300.0" />
-                        <point x="1056.546052631579" y="300.0" />
-                        <point x="-29.25" y="135.0" />
+                        <point x="0.0" y="-135.0" />
+                        <point x="428.453947368421" y="300.0" />
+                        <point x="335.70394736842104" y="300.0" />
+                        <point x="29.25" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
                         <point x="0.0" y="-121.5" />
-                        <point x="1671.3026315789475" y="290.0" />
-                        <point x="1173.546052631579" y="290.0" />
-                        <point x="87.75" y="135.0" />
+                        <point x="184.45394736842104" y="300.0" />
+                        <point x="277.20394736842104" y="300.0" />
+                        <point x="-29.25" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
                         <point x="0.0" y="-135.0" />
-                        <point x="1427.3026315789475" y="300.0" />
-                        <point x="1115.046052631579" y="300.0" />
-                        <point x="29.25" y="135.0" />
+                        <point x="1553.703947368421" y="290.0" />
+                        <point x="394.20394736842104" y="290.0" />
+                        <point x="87.75" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer">
                         <point x="78.75" y="-135.0" />
-                        <point x="729.171052631579" y="615.0" />
-                        <point x="1371.3026315789475" y="615.0" />
+                        <point x="865.953947368421" y="615.0" />
+                        <point x="1497.703947368421" y="615.0" />
                         <point x="-56.0" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
                         <point x="0.0" y="-135.0" />
-                        <point x="1128.171052631579" y="940.0" />
-                        <point x="713.421052631579" y="940.0" />
+                        <point x="1264.953947368421" y="940.0" />
+                        <point x="850.203947368421" y="940.0" />
                         <point x="63.0" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course">
                         <point x="0.0" y="-121.5" />
-                        <point x="811.171052631579" y="1255.0" />
-                        <point x="713.25" y="1255.0" />
+                        <point x="947.953947368421" y="1255.0" />
+                        <point x="844.125" y="1255.0" />
                         <point x="63.75" y="94.5" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum">
@@ -175,50 +205,52 @@
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
                         <point x="-63.25" y="-121.5" />
-                        <point x="1356.8026315789475" y="930.0" />
-                        <point x="776.421052631579" y="930.0" />
+                        <point x="1483.203947368421" y="930.0" />
+                        <point x="913.203947368421" y="930.0" />
                         <point x="126.0" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
                         <point x="60.25" y="-81.0" />
                         <point x="180.75" y="930.0" />
-                        <point x="524.421052631579" y="930.0" />
+                        <point x="661.203947368421" y="930.0" />
                         <point x="-126.0" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course">
-                        <point x="0.0" y="-148.5" />
-                        <point x="489.6710526315789" y="1255.0" />
-                        <point x="585.75" y="1255.0" />
+                        <point x="5.6843418860808015E-14" y="-148.5" />
+                        <point x="626.453947368421" y="1255.0" />
+                        <point x="716.625" y="1255.0" />
                         <point x="-63.75" y="94.5" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment">
                         <point x="0.0" y="-94.5" />
-                        <point x="983.171052631579" y="1602.0" />
-                        <point x="882.421052631579" y="1602.0" />
-                        <point x="71.25" y="121.5" />
+                        <point x="775.953947368421" y="1602.0" />
+                        <point x="876.703947368421" y="1602.0" />
+                        <point x="-71.25" y="121.5" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
                         <point x="-60.25" y="-81.0" />
                         <point x="60.25" y="290.0" />
-                        <point x="998.046052631579" y="290.0" />
+                        <point x="218.70394736842104" y="290.0" />
                         <point x="-87.75" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
                         <point x="0.0" y="-94.5" />
+                        <point x="780.375" y="940.0" />
+                        <point x="787.203947368421" y="940.0" />
                         <point x="0.0" y="135.0" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment">
                         <point x="0.0" y="-121.5" />
-                        <point x="639.171052631579" y="1602.0" />
-                        <point x="739.921052631579" y="1602.0" />
-                        <point x="-71.25" y="121.5" />
+                        <point x="1119.953947368421" y="1602.0" />
+                        <point x="1019.203947368421" y="1602.0" />
+                        <point x="71.25" y="121.5" />
                       </edge>
                       <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer">
                         <point x="63.25" y="-121.5" />
                         <point x="56.0" y="135.0" />
                       </edge>
                     </edges>
-                    <settings layout="Hierarchic Group" zoom="0.9116402116402116" x="1595.132262042948" y="980.4573418456181" />
+                    <settings layout="Hierarchic Group" zoom="0.8116402116402115" x="1162.7900912646678" y="989.8422425032595" />
                     <SelectedNodes>
                       <node>6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
                     </SelectedNodes>
@@ -240,13 +272,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="174" column="45" lean-forward="true" selection-start-line="174" selection-start-column="45" selection-end-line="174" selection-end-column="45" />
-              <folding>
-                <element signature="e#4385#4551#0#PHP" />
-                <element signature="e#4795#9496#1#PHP" />
-                <element signature="e#9538#15675#1#PHP" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="205" column="39" selection-start-line="205" selection-start-column="39" selection-end-line="205" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -254,86 +281,92 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CobaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+            <state relative-caret-position="249">
+              <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
               <folding>
                 <element signature="e#128#153#0#PHP" expanded="true" />
-                <element signature="e#365#510#0#PHP" />
-                <element signature="e#516#600#0#PHP" />
-                <element signature="e#606#683#0#PHP" />
-                <element signature="e#689#779#0#PHP" />
-                <element signature="e#785#960#0#PHP" />
-                <element signature="e#966#1332#0#PHP" />
-                <element signature="e#1338#1411#0#PHP" />
-                <element signature="e#1417#1555#0#PHP" />
-                <element signature="e#1561#1649#0#PHP" />
-                <element signature="e#1655#3993#0#PHP" />
+                <element signature="e#1499#1637#0#PHP" />
+                <element signature="e#1643#1731#0#PHP" />
+                <element signature="e#1737#4075#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/forum.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ForumController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+              <folding>
+                <element signature="e#42#63#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="48" column="41" lean-forward="true" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/Administrator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding>
+                <element signature="e#29#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/single-courses.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/Course.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/Enrollment.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="52" column="77" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
-              <folding>
-                <element signature="e#362#1173#0#HTML" />
-                <element signature="e#5430#13735#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/course_profile.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="128" column="141" lean-forward="true" selection-start-line="128" selection-start-column="133" selection-end-line="128" selection-end-column="141" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="38" column="80" lean-forward="true" selection-start-line="38" selection-start-column="80" selection-end-line="38" selection-end-column="80" />
-              <folding>
-                <element signature="e#4598#17482#0#Blade" />
-                <element signature="e#32791#125626#0#Blade" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/forum.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="341" column="112" selection-start-line="341" selection-start-column="112" selection-end-line="341" selection-end-column="112" />
-              <folding>
-                <element signature="e#0#15177#0#Blade" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="97" selection-start-line="9" selection-start-column="97" selection-end-line="9" selection-end-column="97" />
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -342,15 +375,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get</find>
-      <find>adminone</find>
-      <find>course</find>
-      <find>getone</find>
-      <find>getuncon</find>
-      <find>pen</find>
-      <find>pe</find>
-      <find>csrf</find>
-      <find>unconfirmed-course</find>
       <find>hidden</find>
       <find>course_category_hid</find>
       <find>getAllCourse</find>
@@ -372,6 +396,15 @@
       <find>coba</find>
       <find>user_t</find>
       <find>textarea</find>
+      <find>foreach</find>
+      <find>comment</find>
+      <find>single-c</find>
+      <find>like</find>
+      <find>follow</find>
+      <find>single</find>
+      <find>lectures</find>
+      <find>require</find>
+      <find>teacher</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -387,12 +420,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_02_28_065859_create_administrator_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_02_28_065832_create_student_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/student/profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/admin/profile.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/admin/lecturer_user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/admin/admin_user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/admin/student_user.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_28_070909_create_sub_course_table.php" />
@@ -407,20 +434,17 @@
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/courses.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_28_071330_create_assignment_table.php" />
         <option value="$PROJECT_DIR$/resources/views/coba/coba.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ErrorSubCourseContent.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/front_end/main_layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/course_profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard_layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/form_question.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/admin/unconfirmed_course.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/admin/registered_course.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend_register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/admin/category.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
@@ -434,9 +458,18 @@
         <option value="$PROJECT_DIR$/resources/views/backend/admin/dashboard_layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/lecturer/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/forum.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/lecturer/course_profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Model/Forum.php" />
         <option value="$PROJECT_DIR$/resources/views/forum.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ForumController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" />
+        <option value="$PROJECT_DIR$/app/Model/Enrollment.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php" />
+        <option value="$PROJECT_DIR$/resources/views/single-courses.blade.php" />
+        <option value="$PROJECT_DIR$/app/Model/User.php" />
+        <option value="$PROJECT_DIR$/app/Model/Course.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CobaController.php" />
       </list>
     </option>
@@ -520,11 +553,16 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/grimthorr/laravel-toast" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/unisharp/laravel-filemanager" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="79" />
-    <option name="y" value="86" />
+    <option name="x" value="-161" />
+    <option name="y" value="258" />
     <option name="width" value="1221" />
     <option name="height" value="686" />
   </component>
@@ -563,48 +601,7 @@
               <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
               <item name="moocs" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moocs" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moocs" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moocs" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moocs" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moocs" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="lecturer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moocs" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="moocs" type="b2602c69:ProjectViewProjectNode" />
@@ -892,12 +889,12 @@
       <workItem from="1561264740102" duration="15211000" />
       <workItem from="1561281364689" duration="2035000" />
       <workItem from="1561300463963" duration="2553000" />
-      <workItem from="1561328857760" duration="12199000" />
+      <workItem from="1561328857760" duration="39531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="756103000" />
+    <option name="totallyTimeSpent" value="783435000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -912,7 +909,7 @@
     <frame x="0" y="28" width="1366" height="740" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.23860182" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.23860182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5013405" side_tool="true" weight="0.41439393" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -926,7 +923,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32289952" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32784185" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4924012" visible="true" weight="0.24382208" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4924012" visible="true" weight="0.24382208" />
       <window_info anchor="bottom" id="Database Console" order="11" weight="0.3294702" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50759876" side_tool="true" weight="0.1878089" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1013,102 +1010,10 @@
           <line>270</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/CobaController.php</url>
-          <line>54</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/form_sub_course.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="150" column="13" selection-start-line="127" selection-start-column="3" selection-end-line="150" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/form_course.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="134" selection-start-line="134" selection-end-line="161" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_28_071330_create_assignment_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ErrorSubCourseRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ErrorSubCourseContent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="27" column="78" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/front_end/main_layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="78" column="144" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="144" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/SubCourseDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/form_question.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-877">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/coba/coba.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -1174,13 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1213,16 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="283" column="78" selection-start-line="283" selection-start-column="78" selection-end-line="283" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="42" column="89" selection-start-line="42" selection-start-column="89" selection-end-line="42" selection-end-column="89" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1265,13 +1153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/sub_course_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4035">
-          <caret line="269" column="100" selection-start-line="269" selection-start-column="100" selection-end-line="269" selection-end-column="100" />
         </state>
       </provider>
     </entry>
@@ -1325,138 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/6c0d6940-0197-4a95-bd47-9942eca2bd77">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>6c0d6940-0197-4a95-bd47-9942eca2bd77</OriginalElement>
-          <nodes>
-            <node x="968.796052631579" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user</node>
-            <node x="492.9210526315789" y="640.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course</node>
-            <node x="993.171052631579" y="960.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
-            <node x="522.0" y="1000.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course</node>
-            <node x="1559.3026315789475" y="333.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator</node>
-            <node x="0.0" y="1014.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score</node>
-            <node x="799.171052631579" y="1654.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options</node>
-            <node x="1293.5526315789475" y="973.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate</node>
-            <node x="668.671052631579" y="1307.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment</node>
-            <node x="851.796052631579" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student</node>
-            <node x="973.671052631579" y="1320.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply</node>
-            <node x="1828.3026315789475" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.migrations</node>
-            <node x="1315.3026315789475" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer</node>
-            <node x="423.6710526315789" y="414.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category</node>
-            <node x="330.6710526315789" y="1280.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail</node>
-            <node x="261.0" y="987.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment</node>
-            <node x="499.1710526315789" y="1627.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
-              <point x="0.0" y="-108.0" />
-              <point x="381.5" y="940.0" />
-              <point x="587.421052631579" y="940.0" />
-              <point x="-63.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category">
-              <point x="-78.75" y="-135.0" />
-              <point x="0.0" y="40.5" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
-              <point x="5.6843418860808015E-14" y="-135.0" />
-              <point x="963.796052631579" y="300.0" />
-              <point x="1056.546052631579" y="300.0" />
-              <point x="-29.25" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
-              <point x="0.0" y="-121.5" />
-              <point x="1671.3026315789475" y="290.0" />
-              <point x="1173.546052631579" y="290.0" />
-              <point x="87.75" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
-              <point x="0.0" y="-135.0" />
-              <point x="1427.3026315789475" y="300.0" />
-              <point x="1115.046052631579" y="300.0" />
-              <point x="29.25" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer">
-              <point x="78.75" y="-135.0" />
-              <point x="729.171052631579" y="615.0" />
-              <point x="1371.3026315789475" y="615.0" />
-              <point x="-56.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
-              <point x="0.0" y="-135.0" />
-              <point x="1128.171052631579" y="940.0" />
-              <point x="713.421052631579" y="940.0" />
-              <point x="63.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course">
-              <point x="0.0" y="-121.5" />
-              <point x="811.171052631579" y="1255.0" />
-              <point x="713.25" y="1255.0" />
-              <point x="63.75" y="94.5" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum">
-              <point x="0.0" y="-108.0" />
-              <point x="0.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
-              <point x="-63.25" y="-121.5" />
-              <point x="1356.8026315789475" y="930.0" />
-              <point x="776.421052631579" y="930.0" />
-              <point x="126.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
-              <point x="60.25" y="-81.0" />
-              <point x="180.75" y="930.0" />
-              <point x="524.421052631579" y="930.0" />
-              <point x="-126.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course">
-              <point x="0.0" y="-148.5" />
-              <point x="489.6710526315789" y="1255.0" />
-              <point x="585.75" y="1255.0" />
-              <point x="-63.75" y="94.5" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment">
-              <point x="0.0" y="-94.5" />
-              <point x="983.171052631579" y="1602.0" />
-              <point x="882.421052631579" y="1602.0" />
-              <point x="71.25" y="121.5" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
-              <point x="-60.25" y="-81.0" />
-              <point x="60.25" y="290.0" />
-              <point x="998.046052631579" y="290.0" />
-              <point x="-87.75" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
-              <point x="0.0" y="-94.5" />
-              <point x="0.0" y="135.0" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment">
-              <point x="0.0" y="-121.5" />
-              <point x="639.171052631579" y="1602.0" />
-              <point x="739.921052631579" y="1602.0" />
-              <point x="-71.25" y="121.5" />
-            </edge>
-            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer">
-              <point x="63.25" y="-121.5" />
-              <point x="56.0" y="135.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.9116402116402116" x="1595.132262042948" y="980.4573418456181" />
-          <SelectedNodes>
-            <node>6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard_layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
@@ -1471,13 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="50" column="77" selection-start-line="50" selection-start-column="77" selection-end-line="50" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/course_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="128" column="141" lean-forward="true" selection-start-line="128" selection-start-column="133" selection-end-line="128" selection-end-column="141" />
         </state>
       </provider>
     </entry>
@@ -1505,17 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="38" column="80" lean-forward="true" selection-start-line="38" selection-start-column="80" selection-end-line="38" selection-end-column="80" />
-          <folding>
-            <element signature="e#4598#17482#0#Blade" />
-            <element signature="e#32791#125626#0#Blade" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/student/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2820">
@@ -1530,45 +1261,295 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/course_profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="174" column="45" lean-forward="true" selection-start-line="174" selection-start-column="45" selection-end-line="174" selection-end-column="45" />
+        <state relative-caret-position="452">
+          <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/lecturer/sub_course_profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="269" column="100" selection-start-line="269" selection-start-column="100" selection-end-line="269" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Forum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/ForumReply.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4380">
+          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
           <folding>
-            <element signature="e#4385#4551#0#PHP" />
-            <element signature="e#4795#9496#1#PHP" />
-            <element signature="e#9538#15675#1#PHP" />
+            <element signature="e#4598#17482#0#Blade" />
+            <element signature="e#32791#125626#0#Blade" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/forum.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="52" column="77" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
+        <state relative-caret-position="-478">
+          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/SubCourseDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/SubCourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="42" column="89" selection-start-line="42" selection-start-column="89" selection-end-line="42" selection-end-column="89" />
           <folding>
-            <element signature="e#362#1173#0#HTML" />
-            <element signature="e#5430#13735#0#HTML" />
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Enrollment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/single-courses.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/6c0d6940-0197-4a95-bd47-9942eca2bd77">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>6c0d6940-0197-4a95-bd47-9942eca2bd77</OriginalElement>
+          <nodes>
+            <node x="189.45394736842104" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user</node>
+            <node x="629.703947368421" y="640.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course</node>
+            <node x="1129.953947368421" y="960.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
+            <node x="652.875" y="1000.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course</node>
+            <node x="72.45394736842104" y="333.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator</node>
+            <node x="0.0" y="1014.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score</node>
+            <node x="591.953947368421" y="1654.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options</node>
+            <node x="1419.953947368421" y="973.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate</node>
+            <node x="805.453947368421" y="1307.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment</node>
+            <node x="316.453947368421" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student</node>
+            <node x="1110.453947368421" y="1320.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply</node>
+            <node x="1717.953947368421" y="0.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.migrations</node>
+            <node x="1441.703947368421" y="320.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer</node>
+            <node x="560.453947368421" y="414.5">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category</node>
+            <node x="467.453947368421" y="1280.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail</node>
+            <node x="370.26315789473676" y="987.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment</node>
+            <node x="979.953947368421" y="1627.0">6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.enrollment" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
+              <point x="0.0" y="-108.0" />
+              <point x="490.76315789473676" y="940.0" />
+              <point x="724.203947368421" y="940.0" />
+              <point x="-63.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course_category">
+              <point x="-78.75" y="-135.0" />
+              <point x="0.0" y="40.5" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.student" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
+              <point x="0.0" y="-135.0" />
+              <point x="428.453947368421" y="300.0" />
+              <point x="335.70394736842104" y="300.0" />
+              <point x="29.25" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.administrator" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
+              <point x="0.0" y="-121.5" />
+              <point x="184.45394736842104" y="300.0" />
+              <point x="277.20394736842104" y="300.0" />
+              <point x="-29.25" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
+              <point x="0.0" y="-135.0" />
+              <point x="1553.703947368421" y="290.0" />
+              <point x="394.20394736842104" y="290.0" />
+              <point x="87.75" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer">
+              <point x="78.75" y="-135.0" />
+              <point x="865.953947368421" y="615.0" />
+              <point x="1497.703947368421" y="615.0" />
+              <point x="-56.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
+              <point x="0.0" y="-135.0" />
+              <point x="1264.953947368421" y="940.0" />
+              <point x="850.203947368421" y="940.0" />
+              <point x="63.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course">
+              <point x="0.0" y="-121.5" />
+              <point x="947.953947368421" y="1255.0" />
+              <point x="844.125" y="1255.0" />
+              <point x="63.75" y="94.5" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum_reply" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum">
+              <point x="0.0" y="-108.0" />
+              <point x="0.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
+              <point x="-63.25" y="-121.5" />
+              <point x="1483.203947368421" y="930.0" />
+              <point x="913.203947368421" y="930.0" />
+              <point x="126.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
+              <point x="60.25" y="-81.0" />
+              <point x="180.75" y="930.0" />
+              <point x="661.203947368421" y="930.0" />
+              <point x="-126.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course_detail" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course">
+              <point x="5.6843418860808015E-14" y="-148.5" />
+              <point x="626.453947368421" y="1255.0" />
+              <point x="716.625" y="1255.0" />
+              <point x="-63.75" y="94.5" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_options" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment">
+              <point x="0.0" y="-94.5" />
+              <point x="775.953947368421" y="1602.0" />
+              <point x="876.703947368421" y="1602.0" />
+              <point x="-71.25" y="121.5" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment_score" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.user">
+              <point x="-60.25" y="-81.0" />
+              <point x="60.25" y="290.0" />
+              <point x="218.70394736842104" y="290.0" />
+              <point x="-87.75" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.sub_course" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.course">
+              <point x="0.0" y="-94.5" />
+              <point x="780.375" y="940.0" />
+              <point x="787.203947368421" y="940.0" />
+              <point x="0.0" y="135.0" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignmentHistory" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.assignment">
+              <point x="0.0" y="-121.5" />
+              <point x="1119.953947368421" y="1602.0" />
+              <point x="1019.203947368421" y="1602.0" />
+              <point x="71.25" y="121.5" />
+            </edge>
+            <edge source="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.certificate" target="6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.lecturer">
+              <point x="63.25" y="-121.5" />
+              <point x="56.0" y="135.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8116402116402115" x="1162.7900912646678" y="989.8422425032595" />
+          <SelectedNodes>
+            <node>6c0d6940-0197-4a95-bd47-9942eca2bd77.TABLE:tugas_akhir.forum</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="e#29#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontPageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="48" column="41" lean-forward="true" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="205" column="39" selection-start-line="205" selection-start-column="39" selection-end-line="205" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ForumController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+          <folding>
+            <element signature="e#42#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CobaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+        <state relative-caret-position="249">
+          <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
           <folding>
             <element signature="e#128#153#0#PHP" expanded="true" />
-            <element signature="e#365#510#0#PHP" />
-            <element signature="e#516#600#0#PHP" />
-            <element signature="e#606#683#0#PHP" />
-            <element signature="e#689#779#0#PHP" />
-            <element signature="e#785#960#0#PHP" />
-            <element signature="e#966#1332#0#PHP" />
-            <element signature="e#1338#1411#0#PHP" />
-            <element signature="e#1417#1555#0#PHP" />
-            <element signature="e#1561#1649#0#PHP" />
-            <element signature="e#1655#3993#0#PHP" />
+            <element signature="e#1499#1637#0#PHP" />
+            <element signature="e#1643#1731#0#PHP" />
+            <element signature="e#1737#4075#0#PHP" />
           </folding>
         </state>
       </provider>

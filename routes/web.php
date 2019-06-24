@@ -103,6 +103,30 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'lecturer_profile_page'
             ]);
 
+        Route::get('/forum/{id}',
+            [
+                'uses'=>'ForumController@forum',
+                'as'=>'forum_page'
+            ]);
+
+        Route::post('/create-forum',
+            [
+                'uses'=>'ForumController@createForum',
+                'as'=>'create_forum'
+            ]);
+
+        Route::post('/create-reply',
+            [
+                'uses'=>'ForumController@createReply',
+                'as'=>'create_reply'
+            ]);
+
+        Route::get('/create-forum-like/{id}',
+            [
+                'uses'=>'ForumController@createForumLike',
+                'as'=>'create_forum_like'
+            ]);
+
         //testing
         Route::get('/coba',
             [
@@ -174,6 +198,12 @@ Route::group(['prefix'=>'/'],function (){
             [
                 'uses'=>'CobaController@createForum',
                 'as'=>'coba_create_forum'
+            ]);
+
+        Route::get('/coba13',
+            [
+                'uses'=>'CobaController@joinCourse',
+                'as'=>'coba_join_course'
             ]);
 
         //email

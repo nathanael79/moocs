@@ -13,6 +13,7 @@ use App\Model\Assignment;
 use App\Model\AssignmentOptions;
 use App\Model\Course;
 use App\Model\Forum;
+use App\Model\ForumReply;
 use App\Model\SubCourse;
 use App\Model\User;
 use Illuminate\Http\Request;
@@ -147,49 +148,17 @@ class CobaController extends Controller
         }
     }
 
-    public function forum()
+    public function joinCourse()
     {
-        return view('forum');
+        $data = Course::join('sub_course','course.id','=','sub_course.course_id')
+            ->join('sub_course_detail','sub_course.course_id','=','sub_course_detail.sub_course_id')
+            ->get();
+
+        dd($data);
     }
 
-    public function createForum(Request $request)
-    {
-        $user = User::find($request->user_id);
-
-        $validator = Validator::make($request->all(),
-            [
-                'question'=>'required|min:6',
-                'forum_desc'=>'required|min:6'
-            ]);
-
-        if($validator->fails())
-        {
-            return redirect()->back()->withErrors($validator->errors());
-        }
-        else
-        {
-          /*  $forum = Forum::create([
-                'forum_questions'=>$request->question,
-                'forum_descriptions'=>$request->forum_desc,
-                'user_id'=>$user->id,
-                'user_type'=>$user->user_type
-
-            ]);*/
-
-            $forum = Forum::create([
-                'forum_questions'=>$request->question,
-                'forum_descriptions'=>$request->forum_desc,
-                'user_id'=>27,
-                'user_type'=>'lecturer'
-
-            ]);
-
-            return redirect()->back()->with('success','Forum created!');
-        }
 
 
 
-
-    }
 
 }

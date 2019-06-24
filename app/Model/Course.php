@@ -19,7 +19,12 @@ class Course extends Model
 
     public function subCourse()
     {
-        return $this->hasMany('SubCourse');
+        return $this->hasMany('App\SubCourse','course_id','id');
+    }
+
+    public function subCourseDetail()
+    {
+        return $this->subCourse()->with('subCourseDetail');
     }
 
     public function enrollment()

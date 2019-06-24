@@ -25,7 +25,7 @@
                                     <img src="{!! asset('images/users/lecturer').'/'.$lecturer->pictures !!}" alt="teacher">
                                 </div>
 
-                                Teacher: {{$lecturer->name}}
+                                Lecturer: {{$lecturer->name}}
                             </li>
 
                             <li>
@@ -49,7 +49,7 @@
                             <li class="active" id="tab_1">Description</li>
                             <li class="inactive" id="tab_2">Curriculum</li>
                             <li class="inactive" id="tab_3">Instructors</li>
-                            <li class="inactive" id="tab_4">Review</li>
+                            {{--<li class="inactive" id="tab_4">Review</li>--}}
                         </ul>
 
                         <div class="content show" id="tab_1_content">
@@ -57,24 +57,6 @@
 
                             <p>{{$course->keterangan}}</p>
 
-                            <div class="requirements-list">
-                                <h4 class="title">Requirements</h4>
-
-                                <ul>
-                                    <li><i class="icofont-double-right"></i> Use Python for Data Science and Machine Learning</li>
-                                    <li><i class="icofont-double-right"></i> Use Spark for Big Data Analysis</li>
-                                    <li><i class="icofont-double-right"></i> Implement Machine Learning Algorithms</li>
-                                    <li><i class="icofont-double-right"></i> Learn to use NumPy for Numerical Data</li>
-                                    <li><i class="icofont-double-right"></i> Learn to use Pandas for Data Analysis</li>
-                                    <li><i class="icofont-double-right"></i> Learn to use Matplotlib for Python Plotting</li>
-                                </ul>
-                            </div>
-
-                            <div class="certification">
-                                <h4 class="title">Certification</h4>
-
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                            </div>
                         </div>
 
                         <div class="content" id="tab_2_content">
@@ -312,12 +294,12 @@
                         <div class="content" id="tab_3_content">
                             <div class="course-author">
                                 <div class="img">
-                                    <img src="assets/img/teacher-one.jpg" alt="teacher">
+                                    <img src="{{asset('images/users/lecturer/'.'/'.$lecturer->pictures)}}" alt="teacher">
                                 </div>
 
                                 <div class="author-content">
-                                    <h4>Jasika Perl</h4>
-                                    <span>Professor</span>
+                                    <h4>{{$lecturer->name}}</h4>
+                                    <span>{{$lecturer->nrp_dosen}}</span>
                                     <ul>
                                         <li><a href="#"><i class="icofont-facebook"></i></a></li>
                                         <li><a href="#"><i class="icofont-instagram"></i></a></li>
@@ -329,7 +311,7 @@
                             </div>
                         </div>
 
-                        <div class="content" id="tab_4_content">
+                       {{-- <div class="content" id="tab_4_content">
                             <div class="courses-review">
                                 <div class="single-review">
                                     <div class="img">
@@ -403,7 +385,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -414,21 +396,19 @@
                         <h3 class="title">Course Features</h3>
 
                         <ul>
-                            <li><i class="icofont-file-fill"></i> Lectures <span>9</span></li>
 
-                            <li><i class="icofont-clock-time"></i> Duration <span>1.5 hours</span></li>
 
                             <li><i class="icofont-caret-up"></i> Skill level <span>All level</span></li>
 
-                            <li><i class="icofont-read-book"></i> Language <span>English</span></li>
+                            <li><i class="icofont-read-book"></i> Language <span>Indonesia</span></li>
 
                             <li><i class="icofont-users-social"></i> Students <span>560</span></li>
 
-                            <li><i class="icofont-certificate-alt-1"></i> Certificate <span>Yes</span></li>
+                            {{--<li><i class="icofont-certificate-alt-1"></i> Certificate <span>Yes</span></li>--}}
 
                             <li><i class="icofont-checked"></i> Assessments <span>Yes</span></li>
 
-                            <li><i class="icofont-price"></i> Price  <span>$110.99</span></li>
+                            <li><i class="icofont-price"></i> Price  <span>Free</span></li>
                         </ul>
                     </div>
 
@@ -445,82 +425,37 @@
 
                     <div class="single-widget latest-courses">
                         <h3 class="title">All Courses</h3>
-
-                        <div class="single-latest-courses">
+                        @foreach($all as $item)
+                            <div class="single-latest-courses">
                             <div class="img">
-                                <a href="#"><img src="assets/img/course-one.jpg" alt="course"></a>
+                                <a href="{{url('/single-course/'.'/'.$item->id)}}"><img src="{{asset('images/courses/'.'/'.$item->pictures)}}" alt="course"></a>
                             </div>
 
                             <div class="content">
-                                <h4><a href="#">Better tools to support dyslexic students</a></h4>
-
-                                <p><span>$199.99</span> $110.99</p>
+                                <h4><a href="{{url('/single-course/'.'/'.$item->id)}}">{{$item->course_name}}</a></h4>
                             </div>
                         </div>
-
-                        <div class="single-latest-courses">
-                            <div class="img">
-                                <a href="#"><img src="assets/img/course-two.jpg" alt="course"></a>
-                            </div>
-
-                            <div class="content">
-                                <h4><a href="#">Better tools to support dyslexic students</a></h4>
-
-                                <p><span>$199.99</span> $110.99</p>
-                            </div>
-                        </div>
-
-                        <div class="single-latest-courses mb-0">
-                            <div class="img">
-                                <a href="#"><img src="assets/img/course-three.jpg" alt="course"></a>
-                            </div>
-
-                            <div class="content">
-                                <h4><a href="#">Better tools to support dyslexic students</a></h4>
-
-                                <p><span>$199.99</span> $110.99</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <div class="single-widget latest-courses mb-0">
                         <h3 class="title">Latest Courses</h3>
 
-                        <div class="single-latest-courses">
-                            <div class="img">
-                                <a href="#"><img src="assets/img/course-one.jpg" alt="course"></a>
+                        @foreach($latest as $item)
+                            <div class="single-latest-courses">
+                                <div class="img">
+                                    <a href="{{url('/single-course').'/'.$item->id}}"><img src="{{asset('images/courses/'.'/'.$item->pictures)}}" alt="course"></a>
+                                </div>
+
+                                <div class="content">
+                                    <h4><a href="{{url('/single-course').'/'.$item->id}}">{{$item->course_name}}</a></h4>
+
+                                </div>
                             </div>
+                        @endforeach
 
-                            <div class="content">
-                                <h4><a href="#">Better tools to support dyslexic students</a></h4>
 
-                                <p><span>$199.99</span> $110.99</p>
-                            </div>
-                        </div>
 
-                        <div class="single-latest-courses">
-                            <div class="img">
-                                <a href="#"><img src="assets/img/course-two.jpg" alt="course"></a>
-                            </div>
-
-                            <div class="content">
-                                <h4><a href="#">Better tools to support dyslexic students</a></h4>
-
-                                <p><span>$199.99</span> $110.99</p>
-                            </div>
-                        </div>
-
-                        <div class="single-latest-courses mb-0">
-                            <div class="img">
-                                <a href="#"><img src="assets/img/course-three.jpg" alt="course"></a>
-                            </div>
-
-                            <div class="content">
-                                <h4><a href="#">Better tools to support dyslexic students</a></h4>
-
-                                <p><span>$199.99</span> $110.99</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

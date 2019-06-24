@@ -22,16 +22,16 @@ class User extends Model
 
     public function Administrator()
     {
-        return $this->hasMany('Administrator');
+        return $this->hasMany('App\Administrator','user_id','id');
     }
 
     public function Lecturer()
     {
-        return $this->hasMany('Lecturer');
+        return $this->hasMany('App\Lecturer','user_id','id');
     }
 
     public function Student()
     {
-        return $this->hasMany('Student');
+        return $this->hasMany('App\Student','user_id','id');
     }
 }

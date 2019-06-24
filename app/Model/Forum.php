@@ -14,7 +14,7 @@ class Forum extends Model
             'forum_like',
             'user_id',
             'user_type',
-            'user_status'
+            'course_id'
         ];
 
     public function forumReply()
