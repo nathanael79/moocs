@@ -454,11 +454,6 @@ class LecturerController extends Controller
 
     }
 
-    public function subCourseQuestion()
-    {
-        return view('backend.lecturer.form_question');
-    }
-
 
 
 }

@@ -267,7 +267,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="{{url('/coba10')}}" id="myForm">
+                                        <form method="post" action="{{url('/lecturer/create-question')}}" id="myForm">
                                             {{ csrf_field() }}
                                             <div class="pl-lg-4">
                                                 <div class="row">

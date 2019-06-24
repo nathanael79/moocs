@@ -12,10 +12,13 @@ namespace App\Http\Controllers;
 use App\Model\Assignment;
 use App\Model\AssignmentOptions;
 use App\Model\Course;
+use App\Model\Forum;
 use App\Model\SubCourse;
+use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Exception;
+use Validator;
 
 class CobaController extends Controller
 {
@@ -82,10 +85,10 @@ class CobaController extends Controller
     public function createQuestion(Request $request)
     {
        $cek = Assignment::latest()->first();
-       $order_id = $cek->order_id;
 
       if(!is_null($cek))
         {
+            $order_id = $cek->order_id;
             $assignment = Assignment::create([
                 'assignment_question'=>$request->question,
                 'sub_course_id'=>$request->sub_course_id_q,
@@ -142,6 +145,51 @@ class CobaController extends Controller
             }
 
         }
+    }
+
+    public function forum()
+    {
+        return view('forum');
+    }
+
+    public function createForum(Request $request)
+    {
+        $user = User::find($request->user_id);
+
+        $validator = Validator::make($request->all(),
+            [
+                'question'=>'required|min:6',
+                'forum_desc'=>'required|min:6'
+            ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator->errors());
+        }
+        else
+        {
+          /*  $forum = Forum::create([
+                'forum_questions'=>$request->question,
+                'forum_descriptions'=>$request->forum_desc,
+                'user_id'=>$user->id,
+                'user_type'=>$user->user_type
+
+            ]);*/
+
+            $forum = Forum::create([
+                'forum_questions'=>$request->question,
+                'forum_descriptions'=>$request->forum_desc,
+                'user_id'=>27,
+                'user_type'=>'lecturer'
+
+            ]);
+
+            return redirect()->back()->with('success','Forum created!');
+        }
+
+
+
+
     }
 
 }

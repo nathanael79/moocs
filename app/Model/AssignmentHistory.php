@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Model\Assignment;
+use Illuminate\Database\Eloquent\Model;
 
 class AssignmentHistory extends Model
 {
@@ -18,4 +18,9 @@ class AssignmentHistory extends Model
             'created_at',
             'updated_at'
         ];
+
+    public function assignment()
+    {
+        return $this->hasOne(Assignment::class);
+    }
 }

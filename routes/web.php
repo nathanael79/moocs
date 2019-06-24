@@ -164,6 +164,18 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'coba_post_arraydata'
             ]);
 
+        Route::get('/coba11',
+            [
+                'uses'=>'CobaController@forum',
+                'as'=>'coba_forum_page'
+            ]);
+
+        Route::post('/coba12',
+            [
+                'uses'=>'CobaController@createForum',
+                'as'=>'coba_create_forum'
+            ]);
+
         //email
 
         Route::get('/confirm/{email}/{token}',
@@ -334,12 +346,11 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'delete_sub_course_detail_content'
             ]);
 
-        Route::get('/create_question',
+        Route::post('/create-question',
             [
-                "uses"=>"LecturerController@subCourseQuestion",
-                "as"=>"lecturer_sub_course_page"
+                'uses'=>'AssignmentController@createQuestion',
+                'as'=>'lecturer_create_question'
             ]);
-
 
 
     });

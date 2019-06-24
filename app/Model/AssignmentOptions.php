@@ -13,4 +13,12 @@ class AssignmentOptions extends Model
             'assignment_options_name',
             'assignment_options_description',
         ];
+
+    public function assignment()
+    {
+        return $this->hasOne(Assignment::class);
+    }
+
+
+
 }
