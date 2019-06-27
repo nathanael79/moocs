@@ -39,18 +39,21 @@ class FrontPageController extends Controller
 
     public function singleCourse($id)
     {
+        $join = Course::where('id',$id)->with('subCourse.subCourseDetail')->with('courseCategory')->first();
+        /*dd($join);*/
+
         $course = Course::find($id);
         $all_course = Course::all()->take('3');
         $latest_course = Course::latest()->limit('3')->get();
         $params =
             [
-                'course'=>$course,
+                'courses'=>$join,
                 'all'=>$all_course,
                 'latest'=>$latest_course,
                 'lecturer'=>Lecturer::where('id',$course->lecturer_id)->first()
             ];
 
-/*        dd($params);*/
+        /*dd($params);*/
 
         return view('single-courses',$params);
     }

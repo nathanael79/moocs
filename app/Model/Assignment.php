@@ -18,13 +18,18 @@ class Assignment extends Model
             'updated_at'
         ];
 
-    public function assignment_history()
+    public function subCourse()
     {
-        return $this->hasMany('AssignmentHistory');
+        return $this->hasOne('App\Model\SubCourse','id','sub_course_id');
     }
 
-    public function assignment_options()
+    public function assignmentHistory()
     {
-        return $this->hasMany('AssignmentOptions');
+        return $this->hasMany('App\Model\AssignmentHistory');
+    }
+
+    public function assignmentOptions()
+    {
+        return $this->hasMany('App\Model\AssignmentOptions');
     }
 }

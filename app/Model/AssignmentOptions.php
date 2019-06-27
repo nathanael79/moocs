@@ -16,7 +16,7 @@ class AssignmentOptions extends Model
 
     public function assignment()
     {
-        return $this->hasOne(Assignment::class);
+        return $this->hasOne('App\Model\Assignment','assignment_id','id');
     }
 
 

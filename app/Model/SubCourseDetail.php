@@ -20,6 +20,6 @@ class SubCourseDetail extends Model
 
     public function subCourse()
     {
-        return $this->hasOne(SubCourse::class);
+        return $this->hasOne('App\Model\SubCourse','id','sub_course_id');
     }
 }

@@ -13,8 +13,19 @@ class SubCourse extends Model
             'order_id'
         ];
 
+
+    public function course()
+    {
+        return $this->hasOne('App\Model\Course','id','course_id');
+    }
+
     public function subCourseDetail()
     {
-        return $this->hasMany('\App\Model\SubCourseDetail','sub_course_id','id');
+        return $this->hasMany('App\Model\SubCourseDetail');
+    }
+
+    public function assignment()
+    {
+        return $this->hasMany('App\Model\Assignment');
     }
 }

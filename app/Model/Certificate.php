@@ -18,4 +18,14 @@ class Certificate extends Model
             'updated_at'
         ];
 
+    public function lecturer()
+    {
+        return $this->belongsTo('App\Model\Lecturer');
+    }
+
+    public function course()
+    {
+        return $this->belongsTo('App\Model\Course');
+    }
+
 }

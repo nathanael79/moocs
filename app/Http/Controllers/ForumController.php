@@ -4,9 +4,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Model\Administrator;
 use App\Model\Course;
 use App\Model\Forum;
 use App\Model\ForumReply;
+use App\Model\Lecturer;
+use App\Model\Student;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Validator;
@@ -18,19 +21,61 @@ class ForumController extends Controller
     {
         $forum = Forum::latest()->first();
 
-        $user = User::where('id',$forum->user_id)->get();
-
-        $data = Forum::where('course_id',$id)
-            ->join('course','forum.course_id','=','course.id')
+        $join = Forum::where('course_id',$id)
             ->join('user','forum.user_id','=','user.id')
+            /*->join('forum_reply','forum_reply.forum_id','=','forum.id')*/
+            ->select(
+                'forum.id',
+                'forum_questions',
+                'forum_descriptions',
+                'forum_like',
+                'forum.user_id',
+                'forum.user_type',
+                'user.user_email',
+                'user.user_type'
+            )
             ->get();
+
+        foreach($join as $item)
+        {
+            if($item->user_type == 'lecturer')
+            {
+                $result [] = [
+                    'data'=>$item,
+                    'user'=>Lecturer::where('user_id',$item->user_id)->select('name','pictures')->first(),
+                    'reply'=>ForumReply::where('forum_id',$item->id)->get()
+                ];
+            }
+            else if($item->user_type == 'student')
+            {
+                $result [] = [
+                    'data'=>$item,
+                    'user'=>Student::where('user_id',$item->user_id)->select('name','pictures')->first(),
+                    'reply'=>ForumReply::where('forum_id',$item->id)->get()
+                ];
+            }
+            else
+            {
+                $result [] = [
+                    'data'=>$item,
+                    'user'=>Administrator::where('user_id',$item->user_id)->select('name','pictures')->first(),
+                    'reply'=>ForumReply::where('forum_id',$item->id)->get()
+                ];
+            }
+        }
+
+      /* dd($result);*/
+
+
         if(!is_null($forum))
         {
             $params =
                 [
-                    'data'=>$data
+                    'result'=>$result
                 ];
-            dd($user);
+
+            /*dd($result);*/
+
             return view('forum',$params);
         }
         else
@@ -68,7 +113,7 @@ class ForumController extends Controller
             $forum = Forum::create([
                 'forum_questions'=>$request->question,
                 'forum_descriptions'=>$request->question_desc,
-                'user_id'=>27,
+                'user_id'=>24,
                 'user_type'=>'lecturer',
                 'course_id'=>1
 
@@ -83,7 +128,7 @@ class ForumController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'forum_reply_desc'=>'required|min:6'
+                'comment'=>'required|min:6'
             ]);
 
         $user = User::find($request->user_id);
@@ -102,10 +147,10 @@ class ForumController extends Controller
                         ]);*/
 
             $reply = ForumReply::create([
-                'forum_reply_description'=>$request->forum_reply_desc,
-                'user_id'=>27,
-                'user_type'=>'lecturer',
-                'forum_id'=>1
+                'forum_reply_description'=>$request->comment,
+                'user_id'=>14,
+                'user_type'=>'administrator',
+                'forum_id'=>$request->forum_com_id
             ]);
         }
 
@@ -115,6 +160,7 @@ class ForumController extends Controller
     public function createForumLike($id)
     {
         $forum = Forum::find($id);
+        /*dd($forum);*/
         if(!is_null($forum->forum_like))
         {
             ++$forum->forum_like;

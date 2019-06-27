@@ -14,8 +14,9 @@ use App\Model\AssignmentOptions;
 use App\Model\Course;
 use App\Model\Forum;
 use App\Model\ForumReply;
-use App\Model\SubCourse;
+use App\Model\Student;
 use App\Model\User;
+use App\Model\SubCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Exception;
@@ -155,6 +156,17 @@ class CobaController extends Controller
             ->get();
 
         dd($data);
+    }
+
+    public function cobaku()
+    {
+        $data = Course::find('id')->with('subCourse')->with('subCourseDetail')->get();
+        dd($data);
+        $params=[
+            'course'=>$data
+        ];
+
+        return view('coba.coba',$params);
     }
 
 

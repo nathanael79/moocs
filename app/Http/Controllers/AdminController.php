@@ -139,7 +139,7 @@ class AdminController extends Controller
             $user->user_email = $request->user_email;
             $user->save();
 
-            return redirect()->back();
+            return redirect('/logout');
         }
         else
         {

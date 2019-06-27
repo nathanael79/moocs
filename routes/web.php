@@ -206,6 +206,18 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'coba_join_course'
             ]);
 
+        Route::get('/coba14',
+            [
+                'uses'=>'CobaController@cobaku',
+                'as'=>'asdasdasdasdsa'
+            ]);
+
+        Route::get('/matter/{id}',
+            [
+                'uses'=>'MatterController@index',
+                'as'=>'ajdiajisdasdj'
+            ]);
+
         //email
 
         Route::get('/confirm/{email}/{token}',

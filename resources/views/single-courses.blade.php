@@ -29,7 +29,7 @@
                             </li>
 
                             <li>
-                                Category: {{$course->category_id}}
+                                Category: {{$courses->category_id}}
                             </li>
                         </ul>
 
@@ -39,255 +39,58 @@
                     </div>
 
                     <div class="courses-details-img">
-                        <img src="{!! asset('images/courses').'/'.$course->pictures !!}" alt="courses-details">
+                        <img src="{!! asset('images/courses').'/'.$courses->pictures !!}" alt="courses-details">
                     </div>
 
-                    <h3>{{$course->course_name}}</h3>
+                    <h3>{{$courses->course_name}}</h3>
 
                     <div class="course-details-tabs">
                         <ul id="tabs">
                             <li class="active" id="tab_1">Description</li>
-                            <li class="inactive" id="tab_2">Curriculum</li>
+                            <li class="inactive" id="tab_2">Matter</li>
                             <li class="inactive" id="tab_3">Instructors</li>
-                            {{--<li class="inactive" id="tab_4">Review</li>--}}
                         </ul>
 
                         <div class="content show" id="tab_1_content">
                             <h4 class="title">Course Details</h4>
 
-                            <p>{{$course->keterangan}}</p>
+                            <p>{{$courses->keterangan}}</p>
 
                         </div>
 
                         <div class="content" id="tab_2_content">
                             <div class="accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
-                                <div class="card">
+                                @foreach($courses->subCourse as $subCourses)
+                                        <div class="card">
                                     <div class="card-header" role="tab" id="headingOne">
-                                        <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <a data-toggle="collapse" data-parent="#accordionEx" href="#{{$subCourses->sub_course_name}}" aria-expanded="true" aria-controls="collapseOne">
                                             <h5 class="mb-0">
-                                                1. Welcome to the Courses <span><i class="icofont-rounded-down"></i></span>
+                                                {{$subCourses->sub_course_name}} <span><i class="icofont-rounded-down"></i></span>
                                             </h5>
                                         </a>
                                     </div>
 
-                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionEx">
+                                    <div id="{{$subCourses->sub_course_name}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionEx">
                                         <div class="card-body">
                                             <ul>
+                                                @foreach($subCourses->subCoursedetail as $details)
                                                 <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
+                                                    <i class="icofont-ui-play"></i>
 
-                                                    <span><a href="#">What is Python?</a></span>
+                                                    <span><a href="#">{{$details->sub_course_detail_name}}</a></span>
 
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
 
                                                     <a href="#" class="preview">Preview</a>
                                                 </li>
+                                                @endforeach
 
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
 
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="card">
-                                    <div class="card-header" role="tab" id="headingTwo">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <h5 class="mb-0">
-                                                2. What is Python <span><i class="icofont-rounded-down"></i></span>
-                                            </h5>
-                                        </a>
-                                    </div>
-
-                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordionEx">
-                                        <div class="card-body">
-                                            <ul>
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card mb-0">
-                                    <div class="card-header" role="tab" id="headingThree">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <h5 class="mb-0">
-                                                3. Welcome to the Courses <span><i class="icofont-rounded-down"></i></span>
-                                            </h5>
-                                        </a>
-                                    </div>
-
-                                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordionEx">
-                                        <div class="card-body">
-                                            <ul>
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-
-                                                <li>
-                                                    <i class="icofont-ui-play"></i> Lecture 1.1
-
-                                                    <span><a href="#">What is Python?</a></span>
-
-                                                    <span class="duration"><i class="icofont-clock-time"></i> 50 min</span>
-
-                                                    <a href="#" class="preview">Preview</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
 
@@ -306,7 +109,7 @@
                                         <li><a href="#"><i class="icofont-twitter"></i></a></li>
                                         <li><a href="#"><i class="icofont-linkedin"></i></a></li>
                                     </ul>
-                                    <p>Aliquam pulvinar blandit eros, vel tempor tellus eleifend eget. Vestibulum ultricies egestas ante, eu consectetur leo pretium vel. Aliquam mollis dolor libero, ac sagittis velit dignissim at. Nulla a tellus eu enim porta posuere. Sed posuere at lectus ac fringilla.</p>
+                                   {{-- <p>Aliquam pulvinar blandit eros, vel tempor tellus eleifend eget. Vestibulum ultricies egestas ante, eu consectetur leo pretium vel. Aliquam mollis dolor libero, ac sagittis velit dignissim at. Nulla a tellus eu enim porta posuere. Sed posuere at lectus ac fringilla.</p>--}}
                                 </div>
                             </div>
                         </div>
@@ -412,16 +215,6 @@
                         </ul>
                     </div>
 
-                    <div class="single-widget share-boxes">
-                        <h3 class="title">Share Courses</h3>
-
-                        <ul>
-                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                            <li><a href="#"><i class="icofont-instagram"></i></a></li>
-                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-                        </ul>
-                    </div>
 
                     <div class="single-widget latest-courses">
                         <h3 class="title">All Courses</h3>

@@ -177,7 +177,7 @@
                                                 <div class="form-group {{$errors->has('course_category') ? 'has-error' : ''}}">
                                                     <label class="form-control-label" for="course_category">Course Category</label>
                                                     <input type="hidden" name="course_category_hid" id="course_category_hid">
-                                                    <select id="course_category" name="course_category" class="form-control"></select>
+                                                    <select id="course_category" name="course_category" class="form-control" required></select>
                                                     @if($errors->has('course_category'))
                                                         <span class="text-danger">{{ $errors->first('course_category') }}</span>
                                                     @endif

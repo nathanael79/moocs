@@ -19,6 +19,16 @@ class Forum extends Model
 
     public function forumReply()
     {
-        $this->hasMany('ForumReply');
+        $this->hasMany('App\Model\ForumReply');
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\Model\User','id','user_id');
+    }
+
+/*    public function user()
+    {
+        $this->
+    }*/
 }

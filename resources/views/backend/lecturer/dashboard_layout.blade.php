@@ -65,15 +65,21 @@
 @endsection
 @section('topnav')
     @if($message = session()->get('success'))
-    <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{$message}}
-    </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-text"><strong>Success!</strong> {{$message}}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif
 
     @if($message = session()->get('failed'))
-    <div class="alert alert-danger" role="alert">
-        <strong>Danger!</strong> {{$message}}
-    </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span class="alert-text"><strong>Danger!</strong> {{$message}}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif
 
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-orange border-bottom">

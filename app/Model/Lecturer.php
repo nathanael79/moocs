@@ -17,18 +17,19 @@ class Lecturer extends Model
             /*'token',*/
         ];
 
+    public function user()
+    {
+        return $this->hasOne('App\Model\User','id','user_id');
+    }
+
     public function course()
     {
-        return $this->hasMany('Course');
+        return $this->hasMany('App\Model\Course');
     }
 
     public function certificate()
     {
-        return $this->hasMany('Certificate');
+        return $this->hasMany('App\Model\Certificate');
     }
 
-    public function user()
-    {
-        return $this->hasOne(User::class);
-    }
 }

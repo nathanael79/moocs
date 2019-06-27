@@ -20,6 +20,6 @@ class Administrator extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+       return $this->hasOne('App\Model\User','id','user_id');
     }
 }

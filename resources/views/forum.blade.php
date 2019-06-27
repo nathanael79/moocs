@@ -48,6 +48,7 @@
         </div>
         <!-- Page content -->
         <div class="container-fluid mt--6">
+            <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="collapse" id="collapseExample">
                 <div class="card mb-4">
                     <!-- Card header -->
@@ -90,15 +91,15 @@
                     </div>
                 </div>
             </div>
-
-        </div>
         <div class="container-fluid">
+
             <div class="row col-12">
-            @foreach($data as $item)
+            @foreach($result as $key => $item)
                     <div class="col-sm-12 col-md-4 col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="h3 mb-0">{{$item->forum_questions}}</h5>
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h5 class="h3 mb-0">{{$item['data']->forum_questions}}</h5>
                             </div>
                             <div class="card-header d-flex align-items-center">
                                 <div class="d-flex align-items-center">
@@ -106,26 +107,27 @@
                                         <img src="../../assets/img/theme/team-1.jpg" class="avatar">
                                     </a>
                                     <div class="mx-3">
-                                        <a href="#" class="text-dark font-weight-600 text-sm">John Snow</a>
+                                        <a href="#" class="text-dark font-weight-600 text-sm">{{$item['user']->name}}</a>
                                         <small class="d-block text-muted">3 days ago</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <input type="hidden" name="forum_id" value="{{$item->id}}">
+                            <div  id="collapseOne" class="collapse show" >
+                                <div class="card-body">
+                                <input type="hidden" name="forum_id" id="forum_id" value="{{$item['data']->id}}">
                                 <p class="mb-4">
-                                  {!! $item->forum_descriptions !!}
+                                  {!! $item['data']->forum_descriptions !!}
                                 </p>
                             {{--    <img alt="Image placeholder" src="../../assets/img/theme/img-1-1000x600.jpg" class="img-fluid rounded">--}}
                                 <div class="row align-items-center my-3 pb-3 border-bottom">
                                     <div class="col-sm-6">
                                         <div class="icon-actions">
-                                            <a href="{{url('/create-forum-like/'.$item->id)}}" class="like active">
+                                            <a href="{{url('/create-forum-like/'.$item['data']->id)}}" class="like active">
                                                 <i class="ni ni-like-2"></i>
-                                                @if($item->forum_like == null)
+                                                @if($item['data']->forum_like == null)
                                                     <span class="text-muted">0</span>
                                                 @endif
-                                                <span class="text-muted">{{$item->forum_like}}</span>
+                                                <span class="text-muted">{{$item['data']->forum_like}}</span>
                                             </a>
                                             <a href="#">
                                                 <i class="ni ni-chat-round"></i>
@@ -156,55 +158,40 @@
                                 </div>
                                 <!-- Comments -->
                                 <div class="mb-1">
-                                    <div class="media media-comment">
-                                        <img alt="Image placeholder" class="avatar avatar-lg media-comment-avatar rounded-circle" src="../../assets/img/theme/team-1.jpg">
-                                        <div class="media-body">
-                                            <div class="media-comment-text">
-                                                <h6 class="h5 mt-0">Michael Lewis</h6>
-                                                <p class="text-sm lh-160">Cras sit amet nibh libero nulla vel metus scelerisque ante sollicitudin. Cras purus odio vestibulum in vulputate viverra turpis.</p>
-                                                <div class="icon-actions">
-                                                    <a href="{{url('/create-forum-like')}}" class="like active">
-                                                        <i class="ni ni-like-2"></i>
-                                                        <span class="text-muted">3 likes</span>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="ni ni-curved-next"></i>
-                                                        <span class="text-muted">2 shares</span>
-                                                    </a>
+                                    @if($item['reply']->count() > 0)
+                                        @foreach($item['reply'] as $hasil)
+                                        <div class="media media-comment">
+                                            <img alt="Image placeholder" class="avatar avatar-lg media-comment-avatar rounded-circle" src="../../assets/img/theme/team-1.jpg">
+                                            <div class="media-body">
+                                                <div class="media-comment-text">
+                                                    <h6 class="h5 mt-0"></h6>
+                                                    <p class="text-sm lh-160">{{$hasil->forum_reply_description}}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="media media-comment">
-                                        <img alt="Image placeholder" class="avatar avatar-lg media-comment-avatar rounded-circle" src="../../assets/img/theme/team-2.jpg">
-                                        <div class="media-body">
-                                            <div class="media-comment-text">
-                                                <h6 class="h5 mt-0">Jessica Stones</h6>
-                                                <p class="text-sm lh-160">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-                                                <div class="icon-actions">
-                                                    <a href="#" class="like active">
-                                                        <i class="ni ni-like-2"></i>
-                                                        <span class="text-muted">10 likes</span>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="ni ni-curved-next"></i>
-                                                        <span class="text-muted">1 share</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
+                                    @else
+                                        <p>Comment is not available</p>
+                                    @endif
+
                                     <hr />
                                     <div class="media align-items-center">
                                         <img alt="Image placeholder" class="avatar avatar-lg rounded-circle mr-4" src="../../assets/img/theme/team-3.jpg">
                                         <div class="media-body">
-                                            <form method="POST" action="{{url('#')}}">
-                                                <textarea class="form-control" placeholder="Write your comment" rows="1"></textarea>
+                                            <form method="POST" action="{{url('/create-reply')}}">
+                                                {{csrf_field()}}
+                                                <!-- wajib menambahkan value pada bagian user_id menggunakan session-->
+                                                <input type="hidden" id="forum_com_id" name="forum_com_id" value="{{$item['data']->id}}">
+                                                <input type="hidden" id="user_id" name="user_id">
+                                                <textarea class="form-control comment" name="comment" id="comment" placeholder="Write your comment" rows="2" required></textarea>
+                                                <button type="submit" class="btn btn-primary"><span class="ni ni-send">Send</span></button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
             @endforeach
@@ -216,8 +203,8 @@
 
 
 
-    {{--        <!-- Footer -->
-            <footer class="footer pt-0">
+    <!-- Footer -->
+           {{-- <footer class="footer pt-0">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center text-lg-left text-muted">
@@ -246,3 +233,6 @@
     </div>
 @endsection
 
+@section('js')
+
+@endsection

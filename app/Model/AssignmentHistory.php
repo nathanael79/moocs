@@ -21,6 +21,11 @@ class AssignmentHistory extends Model
 
     public function assignment()
     {
-        return $this->hasOne(Assignment::class);
+        return $this->hasOne('App\Model\Assignment','id','assignment_id');
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\Model\User','id','user_id');
     }
 }

@@ -17,24 +17,29 @@ class Course extends Model
             'status',
         ];
 
-    public function subCourse()
+    public function lecturer()
     {
-        return $this->hasMany('App\SubCourse','course_id','id');
+        return $this->hasOne('App\Model\Lecturer','id','lecturer_id');
     }
 
-    public function subCourseDetail()
+    public function subCourse()
     {
-        return $this->subCourse()->with('subCourseDetail');
+        return $this->hasMany('App\Model\SubCourse');
     }
 
     public function enrollment()
     {
-        return $this->hasMany('enrollment');
+        return $this->hasOne('App\Model\Enrollment','course_id','id');
     }
 
     public function certificate()
     {
-        $this->hasMany('Certificate');
+        return $this->hasMany('App\Model\Certificate');
+    }
+
+    public function courseCategory()
+    {
+        return $this->hasOne('App\Model\CourseCategory','id','course_category_id');
     }
 
 

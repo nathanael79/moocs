@@ -15,4 +15,14 @@ class ForumReply extends Model
             'user_status',
             'forum_id'
         ];
+
+    public function forum()
+    {
+        return $this->hasOne('App\Model\Forum','id','forum_id');
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\Model\User','id','user_id');
+    }
 }

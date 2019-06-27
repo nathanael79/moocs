@@ -15,7 +15,7 @@ class CourseCategory extends Model
 
     public function course()
     {
-        return $this->hasOne('Course');
+        return $this->hasMany('App\Model\Course');
     }
     public $timestamps = false;
 }
