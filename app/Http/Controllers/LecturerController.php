@@ -227,7 +227,7 @@ class LecturerController extends Controller
                 $video->move(public_path().'/videos/courses/',$video_name);
                 $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
-                    'sub_course_detail_description'=>'kosong',
+                    'sub_course_detail_description'=>'empty',
                     'sub_course_detail_type'=>'video',
                     'sub_course_detail_file'=>$video_name,
                     'view'=>0,
@@ -258,7 +258,7 @@ class LecturerController extends Controller
                 $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
                     'sub_course_detail_type'=>'text',
-                    'sub_course_detail_file'=>null,
+                    'sub_course_detail_file'=>'empty',
                     'sub_course_detail_description'=>$request->course_description,
                     'view'=>0,
                     'sub_course_id'=>$request->sub_course_id,
@@ -291,7 +291,7 @@ class LecturerController extends Controller
                 $video->move(public_path().'/videos/courses/',$video_name);
                 $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
-                    'sub_course_detail_description'=>'kosong',
+                    'sub_course_detail_description'=>'empty',
                     'sub_course_detail_type'=>'video',
                     'sub_course_detail_file'=>$video_name,
                     'view'=>0,
@@ -320,7 +320,7 @@ class LecturerController extends Controller
                 $subcoursedetail = SubCourseDetail::create([
                     'sub_course_detail_name'=>$request->content_name,
                     'sub_course_detail_type'=>'text',
-                    'sub_course_detail_file'=>null,
+                    'sub_course_detail_file'=>'empty',
                     'sub_course_detail_description'=>$request->course_description,
                     'view'=>0,
                     'sub_course_id'=>$request->sub_course_id,

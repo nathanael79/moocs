@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Model\Lecturer;
 use App\Model\Course;
 use App\Model\CourseCategory;
 use App\Model\SubCourse;
@@ -25,7 +26,9 @@ class CourseController extends Controller
 
     public function getCourses()
     {
-        $course = Course::all();
+        $value = session()->get('activeUser')->id;
+        $activeLecturer = Lecturer::where('user_id',$value)->first();
+        $course = Course::where('lecturer_id',$activeLecturer->id)->get();
         return response()->json(['data'=>$course]);
     }
 

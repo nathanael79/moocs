@@ -19,56 +19,53 @@ class ForumController extends Controller
 {
     public function forum($id)
     {
-        $forum = Forum::latest()->first();
-
-        $join = Forum::where('course_id',$id)
-            ->join('user','forum.user_id','=','user.id')
-            /*->join('forum_reply','forum_reply.forum_id','=','forum.id')*/
-            ->select(
-                'forum.id',
-                'forum_questions',
-                'forum_descriptions',
-                'forum_like',
-                'forum.user_id',
-                'forum.user_type',
-                'user.user_email',
-                'user.user_type'
-            )
-            ->get();
-
-        foreach($join as $item)
-        {
-            if($item->user_type == 'lecturer')
-            {
-                $result [] = [
-                    'data'=>$item,
-                    'user'=>Lecturer::where('user_id',$item->user_id)->select('name','pictures')->first(),
-                    'reply'=>ForumReply::where('forum_id',$item->id)->get()
-                ];
-            }
-            else if($item->user_type == 'student')
-            {
-                $result [] = [
-                    'data'=>$item,
-                    'user'=>Student::where('user_id',$item->user_id)->select('name','pictures')->first(),
-                    'reply'=>ForumReply::where('forum_id',$item->id)->get()
-                ];
-            }
-            else
-            {
-                $result [] = [
-                    'data'=>$item,
-                    'user'=>Administrator::where('user_id',$item->user_id)->select('name','pictures')->first(),
-                    'reply'=>ForumReply::where('forum_id',$item->id)->get()
-                ];
-            }
-        }
-
-      /* dd($result);*/
-
+        $forum = Forum::where('course_id',$id)->first();
 
         if(!is_null($forum))
         {
+            $join = Forum::where('course_id',$id)
+                ->join('user','forum.user_id','=','user.id')
+                /*->join('forum_reply','forum_reply.forum_id','=','forum.id')*/
+                ->select(
+                    'forum.id',
+                    'forum_questions',
+                    'forum_descriptions',
+                    'forum_like',
+                    'forum.user_id',
+                    'forum.user_type',
+                    'user.user_email',
+                    'user.user_type'
+                )
+                ->get();
+
+            foreach($join as $item)
+            {
+                if($item->user_type == 'lecturer')
+                {
+                    $result [] = [
+                        'data'=>$item,
+                        'user'=>Lecturer::where('user_id',$item->user_id)->select('name','pictures')->first(),
+                        'reply'=>ForumReply::where('forum_id',$item->id)->get()
+                    ];
+                }
+                else if($item->user_type == 'student')
+                {
+                    $result [] = [
+                        'data'=>$item,
+                        'user'=>Student::where('user_id',$item->user_id)->select('name','pictures')->first(),
+                        'reply'=>ForumReply::where('forum_id',$item->id)->get()
+                    ];
+                }
+                else
+                {
+                    $result [] = [
+                        'data'=>$item,
+                        'user'=>Administrator::where('user_id',$item->user_id)->select('name','pictures')->first(),
+                        'reply'=>ForumReply::where('forum_id',$item->id)->get()
+                    ];
+                }
+            }
+
             $params =
                 [
                     'result'=>$result
@@ -100,7 +97,7 @@ class ForumController extends Controller
         }
         else
         {
-            /*  $forum = Forum::create([
+             /*$forum = Forum::create([
                   'forum_questions'=>$request->question,
                   'forum_descriptions'=>$request->question_desc,
                   'user_id'=>$user->id,
@@ -139,7 +136,7 @@ class ForumController extends Controller
         }
         else
         {
-            /*            $reply = ForumReply::create([
+                  /*     $reply = ForumReply::create([
                             'forum_reply_description'=>$request->forum_reply_desc,
                             'user_id'=>$user->id,
                             'user_type'=>$user->user_type,

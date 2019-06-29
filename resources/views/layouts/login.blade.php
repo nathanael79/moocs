@@ -39,7 +39,7 @@
                     <div class="right">
                         <div class="connect">Register here</div>
                         <a href="{{url('/register')}}" class="facebook">As Student</a>
-                        <a href="{{url('/lecturer/register')}}" class="twitter">As Lecturer</a>
+                        {{--<a href="{{url('/lecturer/register')}}" class="twitter">As Lecturer</a>--}}
                     </div>
                 </form>
             </div>

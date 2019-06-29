@@ -49,41 +49,45 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"post_logout"
             ]);
 
-        Route::get('/dashboard',
-            [
-                "uses"=>"StudentController@dashboard",
-                "as"=>"dashboard_page_student"
-            ]);
+        Route::group(['middleware'=>['student']],function (){
+            Route::get('/dashboard',
+                [
+                    "uses"=>"StudentController@dashboard",
+                    "as"=>"dashboard_page_student"
+                ]);
 
-        Route::get('/completed',
-            [
-                "uses"=>"StudentController@completed",
-                "as"=>"completed_page_student"
-            ]);
+            Route::get('/completed',
+                [
+                    "uses"=>"StudentController@completed",
+                    "as"=>"completed_page_student"
+                ]);
 
-        Route::get('/accomplishment',
-            [
-                "uses"=>"StudentController@accomplishment",
-                "as"=>"accomplishment_page_student"
-            ]);
+            Route::get('/accomplishment',
+                [
+                    "uses"=>"StudentController@accomplishment",
+                    "as"=>"accomplishment_page_student"
+                ]);
 
-        Route::get('/profile',
-            [
-                "uses"=>"StudentController@profile",
-                "as"=>"profile_page_student"
-            ]);
+            Route::get('/profile',
+                [
+                    "uses"=>"StudentController@profile",
+                    "as"=>"profile_page_student"
+                ]);
 
-        Route::post('/store-profile',
-            [
-                'uses'=>'StudentController@storeProfile',
-                'as'=>'student_store_profile'
-            ]);
+            Route::post('/store-profile',
+                [
+                    'uses'=>'StudentController@storeProfile',
+                    'as'=>'student_store_profile'
+                ]);
 
-        Route::post('/store-password',
-            [
-                'uses'=>'StudentController@storePassword',
-                'as'=>'student_store_password'
-            ]);
+            Route::post('/store-password',
+                [
+                    'uses'=>'StudentController@storePassword',
+                    'as'=>'student_store_password'
+                ]);
+        });
+
+
 
         Route::get('/all-course',
             [
@@ -125,6 +129,18 @@ Route::group(['prefix'=>'/'],function (){
             [
                 'uses'=>'ForumController@createForumLike',
                 'as'=>'create_forum_like'
+            ]);
+
+        Route::get('/matter/{id}',
+            [
+                'uses'=>'MatterController@index',
+                'as'=>'matter_page'
+            ]);
+
+        Route::post('/getMatter/',
+            [
+                'uses'=>'MatterController@getData',
+                'as'=>'get_matter_data'
             ]);
 
         //testing
@@ -212,11 +228,12 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'asdasdasdasdsa'
             ]);
 
-        Route::get('/matter/{id}',
+        Route::get('/coba15',
             [
-                'uses'=>'MatterController@index',
-                'as'=>'ajdiajisdasdj'
+                'uses'=>'CobaController@testSession',
+                'as'=>'asdasdasdad'
             ]);
+
 
         //email
 
@@ -232,34 +249,36 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"get_course_category"
             ]);
 
-        //LECTURER ROUTE
-    Route::group(['prefix'=>'/lecturer'],function (){
 
-        Route::get('/',
+        Route::get('/lecturer/register',
+            [
+                "uses"=>"Auth\RegisterController@indexLecturer",
+                "as"=>"lecturer_register_page"
+
+            ]);
+
+        Route::post('/lecturer/register',
+            [
+                "uses"=>"Auth\RegisterController@registerLecturer",
+                "as"=>"lecturer_register_post"
+            ]);
+
+        Route::get('/lecturer/email_check',
+            [
+                "uses"=>"Auth\RegisterController@responseEmail",
+                "as"=>"lecturer_check_email"
+            ]);
+
+
+    //LECTURER ROUTE
+    Route::group(['prefix'=>'/lecturer','middleware'=>'lecturer'],function (){
+
+/*        Route::get('/',
             [
                 "uses"=>"LecturerController@dashboard",
                 "as"=>"dashboard_page_lecturer"
 
-            ]);
-
-        Route::get('/register',
-           [
-               "uses"=>"Auth\RegisterController@indexLecturer",
-               "as"=>"lecturer_register_page"
-
-           ]);
-
-        Route::post('/register',
-           [
-               "uses"=>"Auth\RegisterController@registerLecturer",
-               "as"=>"lecturer_register_post"
-           ]);
-
-        Route::get('/email_check',
-           [
-               "uses"=>"Auth\RegisterController@responseEmail",
-               "as"=>"lecturer_check_email"
-           ]);
+            ]);*/
 
         Route::get('/courses',
             [
@@ -397,7 +416,7 @@ Route::group(['prefix'=>'/'],function (){
 
     });
 
-    Route::group(['prefix'=>'/admin'],function (){
+    Route::group(['prefix'=>'/admin','middleware'=>'admin'],function (){
 
         Route::get('/',
             [

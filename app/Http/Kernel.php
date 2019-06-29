@@ -38,6 +38,23 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
+        'admin' =>[
+            \App\Http\Middleware\Login::class,
+            \App\Http\Middleware\Admin::class
+        ],
+
+        'student'=>[
+            \App\Http\Middleware\Login::class,
+            \App\Http\Middleware\Student::class
+
+        ],
+
+        'lecturer'=>[
+            \App\Http\Middleware\Login::class,
+            \App\Http\Middleware\Lecturer::class
+
+        ],
+
         'api' => [
             'throttle:60,1',
             'bindings',
@@ -62,6 +79,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'cek-role'=> \App\Http\Middleware\CheckRole::class,
+        'login'=>\App\Http\Middleware\Login::class,
     ];
 
     /**

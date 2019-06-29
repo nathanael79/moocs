@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Exception;
 use Validator;
+use Session;
 
 class CobaController extends Controller
 {
@@ -167,6 +168,14 @@ class CobaController extends Controller
         ];
 
         return view('coba.coba',$params);
+    }
+
+    public function testSession()
+    {
+        $value = session('activeUser')->user_type;
+
+        dd($value);
+
     }
 
 

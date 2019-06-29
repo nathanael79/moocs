@@ -92,8 +92,8 @@
                 </div>
             </div>
         <div class="container-fluid">
-
-            <div class="row col-12">
+            @if($result != null)
+                <div class="row col-12">
             @foreach($result as $key => $item)
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="accordion" id="accordionExample">
@@ -196,6 +196,7 @@
                     </div>
             @endforeach
             </div>
+            @endif
         </div>
 
 

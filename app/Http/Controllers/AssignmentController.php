@@ -54,7 +54,6 @@ class AssignmentController extends Controller
             ]);
             $answer_true = $request->opsi_huruf;
 
-            $options_desc = [];
             $options_desc=$request->options_desc;
             $options_name = 'a';
             foreach ($options_desc as $item => $data)
