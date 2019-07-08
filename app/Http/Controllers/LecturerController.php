@@ -140,7 +140,6 @@ class LecturerController extends Controller
     {
         if(SubCourse::where('order_id')->latest()->first);
     }
-    
 
     public function storeCourse(ErrorCourseRequest $request)
     {
@@ -424,7 +423,6 @@ class LecturerController extends Controller
         return response()->json(['data'=>$content]);
     }
 
-
     public function deleteSubCourseDetailContent($id)
     {
         $content = SubCourseDetail::find($id);
@@ -452,6 +450,13 @@ class LecturerController extends Controller
             }
         }
 
+    }
+
+    public function assignmentDetail($id)
+    {
+        $detail = Assignment::where('sub_course_id',$id)->with('assignmentOptions')->get();
+
+        return response()->json(['data'=>$detail]);
     }
 
 

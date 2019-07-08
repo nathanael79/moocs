@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="{!! asset('../../assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('../../assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('../../assets/vendor/quill/dist/quill.core.css') !!}" type="text/css">
+    <link rel="stylesheet" href="{!! asset('../../assets/corelib/ajax.css') !!}" type="text/css">
     <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
     <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 
@@ -1954,6 +1955,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="{!! asset('../../assets/vendor/quill/dist/quill.min.js') !!}"></script>
 <script src="{!! '../../assets/vendor/chart.js/dist/Chart.min.js' !!}"></script>
 <script src="{!! '../../assets/vendor/chart.js/dist/Chart.extension.js' !!}"></script>
+<script src="{!! '../../assets/corelib/core.js' !!}"></script>
 <script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 

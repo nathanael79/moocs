@@ -29,6 +29,7 @@ class CourseController extends Controller
         $value = session()->get('activeUser')->id;
         $activeLecturer = Lecturer::where('user_id',$value)->first();
         $course = Course::where('lecturer_id',$activeLecturer->id)->get();
+
         return response()->json(['data'=>$course]);
     }
 

@@ -49,6 +49,13 @@ Route::group(['prefix'=>'/'],function (){
                 "as"=>"post_logout"
             ]);
 
+        Route::get('/enroll/{id}',
+            [
+                'uses'=>'EnrollmentController@enroll',
+                'as'=>'enroll_user_to_course'
+            ])->middleware('login');
+
+
         Route::group(['middleware'=>['student']],function (){
             Route::get('/dashboard',
                 [
@@ -84,6 +91,18 @@ Route::group(['prefix'=>'/'],function (){
                 [
                     'uses'=>'StudentController@storePassword',
                     'as'=>'student_store_password'
+                ]);
+
+            Route::get('/get-enrollcourse',
+                [
+                    'uses'=>'StudentController@getEnrollCourse',
+                    'as'=>'student_get_enrollcourse'
+                ]);
+
+            Route::get('/delete-enroll/{id}',
+                [
+                    'uses'=>'StudentController@deleteEnroll',
+                    'as'=>'student_delete_enroll'
                 ]);
         });
 
@@ -141,6 +160,17 @@ Route::group(['prefix'=>'/'],function (){
             [
                 'uses'=>'MatterController@getData',
                 'as'=>'get_matter_data'
+            ]);
+        Route::post('/submit-assignment/',
+                [
+                    'uses'=>'MatterController@submitAssignment',
+                    'as'=>'submit_assgnment'
+                ]);
+
+        Route::post('/getQuestion',
+            [
+                'uses'=>'MatterController@getQuestion',
+                'as'=>'get_question_data'
             ]);
 
         //testing
@@ -232,6 +262,12 @@ Route::group(['prefix'=>'/'],function (){
             [
                 'uses'=>'CobaController@testSession',
                 'as'=>'asdasdasdad'
+            ]);
+
+        Route::get('/coba16',
+            [
+                'uses'=>'CobaController@index1',
+                'as'=>'asdasdasodadoas'
             ]);
 
 
@@ -407,14 +443,19 @@ Route::group(['prefix'=>'/'],function (){
                 'as'=>'delete_sub_course_detail_content'
             ]);
 
-        Route::post('/create-question',
+        Route::get('/assignment-details/{id}',
             [
-                'uses'=>'AssignmentController@createQuestion',
-                'as'=>'lecturer_create_question'
+                'uses'=>'LecturerController@assignmentDetail',
+                'as'=>'get_assignment_detail'
             ]);
 
-
     });
+
+    Route::post('/lecturer/create-question',
+        [
+            'uses'=>'AssignmentController@createQuestion',
+            'as'=>'lecturer_create_question'
+        ]);
 
     Route::group(['prefix'=>'/admin','middleware'=>'admin'],function (){
 

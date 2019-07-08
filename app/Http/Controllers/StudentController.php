@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use App\Model\Course;
+use App\Model\Enrollment;
 use App\Model\Student;
 use App\Model\User;
 use Illuminate\Http\Request;
@@ -17,18 +18,6 @@ use Validator;
 
 class StudentController extends Controller
 {
-    public function __construct()
-    {
-        if(!Session::get('login_email'))
-        {
-            return redirect('/login')->with('error_login',1);
-        }
-        else
-        {
-            //
-        }
-    }
-
     public function dashboard() //index
     {
         return view('backend.student.dashboard');
@@ -87,36 +76,33 @@ class StudentController extends Controller
         }
     }
 
-    public function storePassword()
+    public function getEnrollCourse()
     {
+        $student_id = session()->get('activeUser')->id;
+        $enrolled = Enrollment::where('user_id', $student_id)
+            ->join('course','enrollment.course_id','=','course.id')
+            ->select(
+                'enrollment.id',
+                'enrollment.created_at',
+                'course.course_name'
+            )
+            ->get();
 
+        return response()->json(['data'=>$enrolled]);
     }
 
-    public function store_content(Request $request)
+    public function deleteEnroll($id)
     {
-        $validator = Validator::make($request->all(),[
-            'course_name'=>'required|min:6',
-            'pictures'=>'file|max:10000',
-
-        ]);
-
-        if($validator->fails())
+        $enrollment = Enrollment::find($id);
+        if($enrollment->delete())
         {
-            return redirect()->back()->withErrors($validator->errors());
+            return redirect()->back()->with('success','enroll to the course deleted');
         }
         else
         {
-            $course_content = Course::create([
-                'course_name'=>$request->course_name,
-                'pictures'=>$request->file('pictures')->store('public/files')
-            ]);
-
-            if($course_content)
-            {
-
-            }
-
-
+            return redirect()->back()->with('failed','failed to delete enrollment!');
         }
+
     }
+
 }

@@ -84,55 +84,16 @@
                                         </div>
                                         <div class="table-responsive">
                                             <div>
-                                                <table class="table align-items-center">
+                                                <table class="table align-items-center" id="myQuestionTable">
                                                     <thead class="thead-light">
                                                     <tr>
-                                                        <th scope="col" class="sort" data-sort="status">No.</th>
-                                                        <th scope="col" class="sort" data-sort="budget">Question</th>
-                                                        <th scope="col" class="sort" data-sort="status">True Answer</th>
-                                                        <th scope="col" class="sort" data-sort="completion">Action</th>
+                                                        <th scope="col">No.</th>
+                                                        <th scope="col">Question</th>
+                                                        <th scope="col">True Answer</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                     </thead>
-                                                    <tbody class="list">
-
-                                                    <tr>
-                                                        <td class="number">1</td>
-                                                        <td class="budget">
-                                                            $2500 USD
-                                                        </td>
-                                                        <td>
-                                                            30 Matter
-                                                        </td>
-                                                        <td>
-
-
-                                                            <p>
-                                                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                                    Button with data-target
-                                                                </button>
-                                                            </p>
-                                                            <div class="collapse" id="collapseExample">
-                                                                <div class="card card-body">
-                                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                                                </div>
-                                                            </div>
-
-
-                                                        </td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="fas fa-ellipsis-v"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    </tbody>
+                                                    <tbody class="list"></tbody>
                                                 </table>
                                             </div>
 
@@ -475,5 +436,24 @@
             });
         })
     </script>
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "{{url('/lecturer/assignment-details/'.$sub_course_profile->id)}}",
+                cache:false,
+                success:function (res) {
+                    console.log(res.data.assignment_question);
+                },
+                error:function (e) {
+                    console.log(e);
+                }
+
+            })
+        })
+    </script>
+
+
 @endsection
 

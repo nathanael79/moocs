@@ -39,19 +39,38 @@
                                             <span class="nav-link-text">{{$subcourses->sub_course_name}}</span>
                                         </a>
                                         @foreach($subcourses->subCourseDetail as $detail)
-                                        <div class="collapse show" id="{{$subcourses->sub_course_name}}">
+                                       <div class="collapse show" id="{{$subcourses->sub_course_name}}"> <!--menampilkan nama subcourse-->
                                             <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="#" class="nav-link" onclick="myFunction('{{$detail->id}}')">{{$detail->sub_course_detail_name}}</a>
-                                                </li>
+                                              <li class="nav-item">
+                                                    <a href="#" class="nav-link" onclick="myFunction({{$detail->id}})">{{$detail->sub_course_detail_name}}</a>
+                                              </li>
                                             </ul>
-                                        </div>
                                         @endforeach
+                                        @foreach($subcourses->assignment as $assignments)
+                                                <ul class="nav nav-sm flex-column">
+                                                    <li class="nav-item">
+                                                        <input type="hidden" value="" class="value-{{$assignments->id}}">
+                                                        <a href="#" class="nav-link" onclick="myQuestion({{$assignments->id}})">{{$subcourses->sub_course_name}} - Question </a>
+                                                    </li>
+                                                </ul>
+                                        @endforeach
+                                       </div>
                                     </li>
                                 @endif
                         @endforeach
                     </ul>
                     <!-- Divider -->
+                    <hr class="my-3">
+                    <!-- Heading -->
+                    <ul class="navbar-nav mb-md-3">
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="submitData()">
+                                <i class="ni ni-send"></i>
+                                <span class="nav-link-text">Finish</span>
+                            </a>
+                        </li>
+
+                    </ul>
                     <hr class="my-3">
                     <!-- Heading -->
                     <ul class="navbar-nav mb-md-3">
@@ -136,32 +155,25 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12" id="mycontent">
-                                {{--<p class="card-text mb-4" align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis.</p>--}}
-                                {{--<video width="100%" controls controlsList="nodownload">
-                                    <source src="{{asset('videos/courses/Perang antar saudara - Pdt. Petrus Agung.mp4')}}" type="video/mp4">
-                                </video>--}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-left">
-                                <button class="btn btn-icon btn-default" type="button">
-                                    <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
-                                    <span class="btn-inner--text">Previous</span>
-                                </button>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <button class="btn btn-icon btn-default" type="button">
-                                    <span class="btn-inner--icon"><i class="ni ni-bold-right"></i></span>
-                                    <span class="btn-inner--text">Next</span>
-                                </button>
-                            </div>
+                                <div class="col-md-12" id="mycontent">
+                                    {{--<p class="card-text mb-4" align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis.</p>--}}
+                                    {{--<video width="100%" controls controlsList="nodownload">
+                                        <source src="{{asset('videos/courses/Perang antar saudara - Pdt. Petrus Agung.mp4')}}" type="video/mp4">
+                                    </video>--}}
+                                    <div class="container-fluid" id="radio_button">
+                                    </div>
+                                </div>
+                                <div class="col-md-12"><p id="question"></p></div>
+                                <div class="col-md-12"> <p class="answer"></p></div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <input type="hidden" name="course_id" value="{{$course->id}}">
 @endsection
 
 @section('js')
@@ -196,6 +208,9 @@
                         $('#mycontent').html("<video width='100%' controls controlsList='nodownload'><source src='/videos/courses/"+res.data.sub_course_detail_file+"' type='video/mp4'></video>")
 
                     }
+                    $("#mycontent").show()
+                    $("#question").hide()
+                    $(".answer").hide()
 
                 },
                 error:function (err) {
@@ -204,6 +219,93 @@
 
 
             });
+        }
+
+
+        function myQuestion(id)
+        {
+            /*console.log(id);*/
+            $.ajax({
+                url:'{{url('/getQuestion/')}}',
+                type:'post',
+                dataType:'json',
+                data:
+                    {
+                        id:id
+                    },
+                headers:
+                    {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                success:function (res) {
+                    $("#mycontent").hide();
+                    $("#question").show()
+                    $(".answer").show()
+                    console.log(res);
+                    /*$('#header_content').val(res.sub_course_detail_name);*/
+                    /*document.getElementById('question').innerHTML = res.data.assignment_question;*/
+                    //document.getElementById('question').innerText = res.data.assignment_question;
+                    $('#question').text(res.data.assignment_question);
+                    console.log(res.data.assignment_question)
+                    var answerData=""
+                    for(var i=0;i<res.data.assignment_options.length;i++)
+                    {
+                        var value=$(".value-"+res.data.id).val()
+
+                        if(value==res.data.assignment_options[i]['assignment_options_name']){
+                            answerData+="<div class=\"input-group\">\n" +
+                                "                                                                <div class=\"input-group-prepend\">\n" +
+                                "                                                                    <div class=\"input-group-text\">\n" +
+                                "                                                                        <input type=\"hidden\" name='opsi_huruf' value='"+res.data.assignment_options[i]['id']+"' id='opsi-huruf"+i+"'>\n" +
+                                "                                                                        <input type=\"radio\" aria-label=\"Radio button for following text input\" class='opsi-"+res.data.assignment_options[i]['id']+"' onclick='myAnswer("+res.data.assignment_options[i]['id']+','+res.data.id+")' name='opsi_huruf'  value='"+res.data.assignment_options[i]['assignment_options_name']+"' checked>\n" +
+                                "                                                                    </div>\n" +
+                                "                                                                </div>\n" +
+                                "                                                                <input type=\"text\" class=\"form-control opsi-1\" aria-label=\"Text input with radio button\" id=\"options_desc\" name=\"options_desc[]\" value='"+res.data.assignment_options[i]['assignment_options_description']+"'>\n" +
+                                "                                                            </div>"
+                        }else{
+                            answerData+="<div class=\"input-group\">\n" +
+                                "                                                                <div class=\"input-group-prepend\">\n" +
+                                "                                                                    <div class=\"input-group-text\">\n" +
+                                "                                                                        <input type=\"hidden\" name='opsi_huruf' value='"+res.data.assignment_options[i]['id']+"' id='opsi-huruf"+i+"'>\n" +
+                                "                                                                        <input type=\"radio\" aria-label=\"Radio button for following text input\" class='opsi-"+res.data.assignment_options[i]['id']+"' onclick='myAnswer("+res.data.assignment_options[i]['id']+','+res.data.id+")' name='opsi_huruf'  value='"+res.data.assignment_options[i]['assignment_options_name']+"'>\n" +
+                                "                                                                    </div>\n" +
+                                "                                                                </div>\n" +
+                                "                                                                <input type=\"text\" class=\"form-control opsi-1\" aria-label=\"Text input with radio button\" id=\"options_desc\" name=\"options_desc[]\" value='"+res.data.assignment_options[i]['assignment_options_description']+"'>\n" +
+                                "                                                            </div>"
+                        }
+
+                    }
+
+                    $(".answer").html(answerData)
+
+
+
+
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+
+            });
+        }
+    </script>
+    <script>
+        function myAnswer(i,x) {
+            var data = $(".opsi-"+i).val();
+            $(".value-"+x).val(data)
+            console.log(data);
+        }
+
+
+        function submitData() {
+            var data = new FormData();
+            @foreach($assign as $key =>$item)
+            data.append('value-{{$item['id']}}', $(".value-{{$item['id']}}").val());
+            @endforeach
+                data.append('course_id',{{$course->id}})
+            modalConfirm("Konfirmasi", "Apakah anda yakin akan menghapus data?", function () {
+                ajaxTransfer("{{url('/submit-assignment/')}}", data, "#modal-output");
+            })
         }
     </script>
 @endsection

@@ -25,6 +25,13 @@ use Session;
 
 class CobaController extends Controller
 {
+    public function index1()
+    {
+        return view('coba.coba');
+    }
+
+
+
     public function index()
     {
         //return view('layouts.front_end.index');
@@ -65,11 +72,6 @@ class CobaController extends Controller
         {
             echo 'message = '.$e->getMessage();
         }
-    }
-
-    public function testVideo()
-    {
-        return view('coba.coba');
     }
 
     public function subCourse()

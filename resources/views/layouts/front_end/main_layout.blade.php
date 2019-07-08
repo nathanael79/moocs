@@ -94,6 +94,7 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
+{{--
                             <li><a href="#" class="active">Home</a>
                                 <ul class="dropdown">
                                     <li><a href="index-default.html">Home Demo One</a></li>
@@ -102,9 +103,10 @@
                                     <li><a href="index-four.html">Home Demo Four</a></li>
                                 </ul>
                             </li>
+--}}
 
 
-                            <li><a href="#">Courses</a>
+{{--                            <li><a href="#">Courses</a>
                                 <ul class="dropdown">
                                     <li><a href="courses-style-one.html">Courses Style One</a></li>
                                     <li><a href="courses-style-two.html">Courses Style Two</a></li>
@@ -156,7 +158,7 @@
                                     <li><a href="teacher-style-two.html">Teacher Style Two</a></li>
                                     <li><a href="single-teacher.html">Teacher Details</a></li>
                                 </ul>
-                            </li>
+                            </li>--}}
                             <li><a href="#">Register/Sign In</a>
                                 <ul class="dropdown">
                                     <li><a href="{{url('/login')}}">Login</a></li>

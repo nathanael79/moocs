@@ -30,12 +30,8 @@
                 <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-white d-inline-block mb-0">Student Dashboard</h6>
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                    <li class="breadcrumb-item"><a href="{{url('/dashboard')}}"><i class="fas fa-home"></i></a></li>
-                                </ol>
-                            </nav>
+                            <h6 class="h2 text-white d-inline-block mb-0">Course Forum</h6>
+
                         </div>
                         <div class="col-lg-6 col-5 text-right">
                             <button class="btn btn-gradient-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -65,6 +61,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="example3cols1Input">Your Question Title</label>
+                                    <input type="hidden" value="{{$course->id}}" name="course_id">
                                     <input type="text" class="form-control" name="question" id="question" placeholder="Input Your Question Here">
                                 </div>
                             </div>
@@ -92,9 +89,9 @@
                 </div>
             </div>
         <div class="container-fluid">
-            @if($result != null)
+            @if(!empty($result))
                 <div class="row col-12">
-            @foreach($result as $key => $item)
+                     @foreach($result as $key => $item)
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
@@ -195,7 +192,11 @@
                         </div>
                     </div>
             @endforeach
-            </div>
+                </div>
+            @else
+                <div class="row col-12 text-center">
+                    <h1>There is no forum available yet.</h1>
+                </div>
             @endif
         </div>
 

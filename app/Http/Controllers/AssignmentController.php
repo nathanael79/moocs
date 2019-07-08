@@ -43,8 +43,9 @@ class AssignmentController extends Controller
                 }
                 ++$options_name;
             }
-            return redirect()->back('success','Question success!');
-        }else
+            return redirect()->back()->with('success','Question success!');
+        }
+        else
         {
             $order_id = 1;
             $assignment = Assignment::create([

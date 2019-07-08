@@ -19,6 +19,7 @@ class FrontPageController extends Controller
         /*$course = Course::latest()->limit('6')->get();
         $lecturer = Lecturer::latest()->limit('6')->get();*/
         $course = Course::whereIn('status',['approved','pending'])->latest()->paginate('10');
+        /*dd($course);*/
         $lecturer = Lecturer::latest()->paginate('6');
         $params =
             [

@@ -34,7 +34,7 @@
                         </ul>
 
                         <div class="apply-btn">
-                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                            <a href="{{url('/enroll/'.$courses->id)}}" class="btn btn-primary">Enroll Now</a>
                         </div>
                     </div>
 

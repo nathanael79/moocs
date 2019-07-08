@@ -20,6 +20,7 @@ class ForumController extends Controller
     public function forum($id)
     {
         $forum = Forum::where('course_id',$id)->first();
+        $course = Course::find($id);
 
         if(!is_null($forum))
         {
@@ -68,10 +69,10 @@ class ForumController extends Controller
 
             $params =
                 [
-                    'result'=>$result
+                    'result'=>$result,
+                    'course'=>$course
                 ];
 
-            /*dd($result);*/
 
             return view('forum',$params);
         }
@@ -112,7 +113,7 @@ class ForumController extends Controller
                 'forum_descriptions'=>$request->question_desc,
                 'user_id'=>24,
                 'user_type'=>'lecturer',
-                'course_id'=>1
+                'course_id'=>$request->course_id
 
             ]);
 
