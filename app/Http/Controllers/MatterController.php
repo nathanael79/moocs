@@ -101,7 +101,7 @@ class MatterController extends Controller
             DB::commit();
             return "
             <div class='alert alert-success'>Submission berhasil disimpan!</div>
-            <script></script>";
+            <script>redirect(200,'".url('/result?course_id='.$request->course_id.'&user_id='.Session::get('activeUser')->id.'')."')</script>";
         }catch (\Exception $e){
             DB::rollBack();
             return "<div class='alert alert-danger'>Terjadi kesalahan! Submission disimpan!</div>";
@@ -124,5 +124,23 @@ class MatterController extends Controller
 
         return $counter;
 
+    }
+
+    public function result(Request $request)
+    {
+        $courseId=$request->course_id;
+        $userId=$request->user_id;
+
+        $course=Course::find($courseId);
+        $assigmentScore=AssignmentScore::where(['course_id' =>$courseId,
+            'user_id'=>$userId])->first();
+
+        $params=[
+            'course'=>$course,
+            'score'=>$assigmentScore
+        ];
+
+
+        return view('result',$params);
     }
 }

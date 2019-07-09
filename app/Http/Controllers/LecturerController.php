@@ -456,7 +456,40 @@ class LecturerController extends Controller
     {
         $detail = Assignment::where('sub_course_id',$id)->with('assignmentOptions')->get();
 
-        return response()->json(['data'=>$detail]);
+        foreach($detail as $item)
+        {
+            foreach ($item->assignmentOptions as $answer)
+            {
+                $data [] = [
+                    'id'=>$item->id,
+                    'assignment_question'=>$item->assignment_question,
+                    'assignment_answer'=>$item->assignment_answer,
+                    'assignment_options'=>$answer->assignment_options_description
+                ];
+            }
+        }
+
+        if($detail->count() == 0)
+        {
+            return response()->json(['data'=>[]]);
+        }
+        else
+        {
+            return response()->json(['data'=>$data]);
+        }
+    }
+
+    public function assignmentDelete($id)
+    {
+        $assignment = Assignment::find($id);
+        if($assignment->delete())
+        {
+            return redirect()->back()->with('success','Question deleted');
+        }
+        else
+        {
+            return redirect()->back()->with('failed','Question not deleted');
+        }
     }
 
 

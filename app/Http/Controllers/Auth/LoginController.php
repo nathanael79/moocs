@@ -61,7 +61,7 @@ class LoginController extends Controller
                     case "administrator":
                         $activeProfile = Administrator::where('user_id',$id)->first();
                         $request->session()->put('activeProfile',$activeProfile->pictures);
-                        return redirect('/admin');
+                        return redirect('/admin/registeredCourse');
                         break;
                     default:
                         return redirect('/');

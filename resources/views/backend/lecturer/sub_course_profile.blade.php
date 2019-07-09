@@ -89,7 +89,8 @@
                                                     <tr>
                                                         <th scope="col">No.</th>
                                                         <th scope="col">Question</th>
-                                                        <th scope="col">True Answer</th>
+                                                        <th scope="col">True Options</th>
+                                                        <th scope="col">Answer Descriptions</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                     </thead>
@@ -269,7 +270,7 @@
                                                         <div class="form-group float-right">
                                                             <button class="btn btn-icon btn-primary" type="submit">
                                                                 <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
-                                                                <span class="btn-inner--text">Save Course</span>
+                                                                <span class="btn-inner--text">Save Question</span>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -285,7 +286,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="footer pt-0">
+        {{--<footer class="footer pt-0">
             <div class="row align-items-center justify-content-lg-between">
                 <div class="col-lg-6">
                     <div class="copyright text-center text-lg-left text-muted">
@@ -309,7 +310,7 @@
                     </ul>
                 </div>
             </div>
-        </footer>
+        </footer>--}}
     </div>
 @endsection
 
@@ -439,6 +440,55 @@
 
     <script type="application/javascript">
         $(document).ready(function () {
+            $('#myQuestionTable ').dataTable({
+                "ajax":"{{url('/lecturer/assignment-details/'.$sub_course_profile->id)}}",
+                "autoWidth": false,
+                "columnDefs": [
+                    {
+                        class: "text-center",
+                        width: 'auto',
+                        "targets": [0],
+                        "orderable": false,
+                        render: function(data, type, row, meta){
+                            return meta.row+meta.settings._iDisplayStart+1
+                        }
+                    },
+                    {
+                        "targets": [1],
+                        "data": "assignment_question",
+                        width: 90,
+                        "orderable": true,
+                    },
+                    {
+                        class: "text-center",
+                        "orderable": false,
+                        "targets": [2],
+                        "data": "assignment_answer"
+                    },
+                    {
+                        class: "text-center",
+                        "orderable": false,
+                        "targets": [3],
+                        "data": "assignment_options"
+                    },
+                    {
+                        targets: [4],
+                        "sortable": false,
+                        "searchable": false,
+                        render: function(data, type, row, meta){
+                            return "<div class='btn-group'>"+
+                                "<a href='{{url("/lecturer/assignment-delete")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
+                                "</div>";
+                        }
+                    },
+                ],
+
+            });
+        })
+    </script>
+
+    {{--<script type="application/javascript">
+        $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 url: "{{url('/lecturer/assignment-details/'.$sub_course_profile->id)}}",
@@ -452,7 +502,7 @@
 
             })
         })
-    </script>
+    </script>--}}
 
 
 @endsection

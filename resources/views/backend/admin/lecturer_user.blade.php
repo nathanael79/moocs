@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <!-- Card stats -->
-                    <div class="row">
+                    {{--<div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card card-stats">
                                 <!-- Card body -->
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
@@ -284,7 +284,7 @@
 
 
 
-            <!-- Footer -->
+            {{--<!-- Footer -->
             <footer class="footer pt-0">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
@@ -309,7 +309,7 @@
                         </ul>
                     </div>
                 </div>
-            </footer>
+            </footer>--}}
         </div>
     </div>
 

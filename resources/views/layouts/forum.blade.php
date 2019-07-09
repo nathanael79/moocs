@@ -196,17 +196,17 @@
                         <a class="nav-link pr-0" href="dashboard.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                      {{--@if((session()->get('activeUser')->user_type) == 'lecturer')
+                      @if((session()->get('activeUser')->user_type) == 'lecturer')
                           <img alt="Image placeholder" src="{{asset('images/users/lecturer').'/'.session()->get('activeProfile')}}">
                       @elseif((session()->get('activeUser')->user_type) == 'student')
                           <img alt="Image placeholder" src="{{asset('images/users/student').'/'.session()->get('activeProfile')}}">
                       @else
                           <img alt="Image placeholder" src="{{asset('images/users/admin').'/'.session()->get('activeProfile')}}">--}}
-                      {{--@endif--}}
+                      @endif
                   </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    {{--<span class="mb-0 text-sm  font-weight-bold">{{session()->get('activeUser')->user_email}}</span>--}}
-                                    <span class="mb-0 text-sm  font-weight-bold">Hai</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">{{session()->get('activeUser')->user_email}}</span>
+                                    {{--<span class="mb-0 text-sm  font-weight-bold">Hai</span>--}}
                                 </div>
                             </div>
                         </a>

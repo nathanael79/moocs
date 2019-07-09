@@ -4,7 +4,7 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="nav-brand" href="{{url('/student')}}">
+                <a class="nav-brand" href="{{url('/dashboard')}}">
                     <img src="{!! asset('../../images/logo.png') !!}" alt="logo" style="width: 175px;">
                 </a>
                 <div class="ml-auto">
@@ -31,17 +31,24 @@
                             <div class="collapse show" id="navbar-dashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
+                                        <a href="{{url('/dashboard')}}" class="nav-link">Your Courses</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse show" id="navbar-dashboards">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
                                         <a href="{{url('/completed')}}" class="nav-link">Completed Courses</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item">
+                      {{--  <li class="nav-item">
                             <a class="nav-link" href="{{url('/accomplishment')}}"  role="button" aria-expanded="false" aria-controls="navbar-examples">
                                 <i class="ni ni-ungroup text-orange"></i>
                                 <span class="nav-link-text">Accomplishment</span>
                             </a>
-                        </li>
+                        </li>--}}
                     </ul>
                     <!-- Divider -->
                     <hr class="my-3">

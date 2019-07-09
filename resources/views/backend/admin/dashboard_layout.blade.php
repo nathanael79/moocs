@@ -4,7 +4,7 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="nav-brand" href="{{url('/admin')}}">
+                <a class="nav-brand" href="{{url('/admin/registeredCourse')}}">
                     <img src="{!! asset('../../images/logo.png') !!}" alt="logo" style="width: 175px;">
                 </a>
                 <div class="ml-auto">

@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="teacher-img">
-                        {{--<img src="{!! asset('images/users').'/'.$lecturer->pictures !!}" alt="teacher">--}}
+                        <img src="{!! asset('images/users/lecturer').'/'.$lecturer->pictures !!}" alt="teacher">
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
                         <span>{{$lecturer->nrp_dosen}}</span>
                     </div>
 
-                    <div class="teacher-contact-info">
+                   {{-- <div class="teacher-contact-info">
                         <h4>Contact Info:</h4>
                         <ul>
                             <li><i class="icofont-envelope"></i> <a href="#">asdasdasdasdas</a></li>
@@ -44,7 +44,7 @@
                             <li><a href="#" class="icofont-instagram"></a></li>
                             <li><a href="#" class="icofont-linkedin"></a></li>
                         </ul>
-                    </div>
+                    </div>--}}
                 </div>
 
                 <div class="col-lg-4 col-md-6">
@@ -110,9 +110,8 @@
                             </div>
                         </div>
                         <div class="teacher-desc">
-                            <h2>About Jasika Perl</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam vero expedita fugiat illo quasi doloremque, in unde omnis sint assumenda! Quaerat in, reprehenderit corporis voluptatum natus sequi reiciendis ullam. Quam eaque dolorum voluptates cupiditate explicabo.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
+                            <h2>About {{$lecturer->name}}</h2>
+                            <p>Aktif mengajar sebagai dosen prodi Multimedia Broadcasting di Politeknik Elektronika Negeri Surabaya</p>
                         </div>
                     </div>
                 </div>

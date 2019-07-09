@@ -23,31 +23,36 @@
     <div class="container">
         <div class="section-title">
             <h3>Available Courses</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco . </p>
+            <p>There are so many courses that available special for you. Teach by PENS Lecturer, you will get high quality of higher education matter. </p>
         </div>
 
         <div class="row">
             @foreach($course as $data => $item)
             <div class="col-lg-4 col-md-6">
                 <div class="single-courses-item">
-                    <div class="courses-img">
-                        <img src="{!! asset('images/courses/').'/'.$item->pictures !!}" alt="course">
+                    <div class="courses-img text-center">
+                        <img src="{!! asset('images/courses/').'/'.$item->pictures !!}" alt="course" style="height: 240px !important;">
                     </div>
 
                     <div class="courses-content">
                         <h3><a href="{{url('/single-course'.'/'.$item->id)}}">{{$item->course_name}}</a></h3>
-                        <ul>
+                        {{--<ul>
                             <li><i class="icofont-star"></i></li>
                             <li><i class="icofont-star"></i></li>
                             <li><i class="icofont-star"></i></li>
                             <li><i class="icofont-star"></i></li>
                             <li><i class="icofont-star"></i></li>
-                        </ul>
+                        </ul>--}}
                     </div>
 
-                    <div class="courses-content-bottom">
-                        <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                        <h4 class="price">$120</h4>
+                    <div class="courses-content-bottom text-center">
+                        @if($item->status == 'approved')
+                            <button type="button" class="btn btn-outline-success">{{$item->status}}</button>
+                        @elseif($item->status == 'pending')
+                            <button type="button" class="btn btn-outline-warning">{{$item->status}}</button>
+                        @endif
+                       {{-- <h4><i class="icofont-ui-user"></i> 120 Students</h4>
+                        <h4 class="price">$120</h4>--}}
                     </div>
                 </div>
             </div>
@@ -81,8 +86,8 @@
                         </div>
 
                         <div class="content">
-                            <h4>Popular Courses</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            <h4>High Quality Courses</h4>
+                            <p>Best quality in their section, have a high accreditation for National Polytechnic Curicullum</p>
                         </div>
                     </div>
 
@@ -93,7 +98,7 @@
 
                         <div class="content">
                             <h4>Qualified Teachers</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            <p>Most of the lecturer is professor and skilled in their section.</p>
                         </div>
                     </div>
 
@@ -104,7 +109,7 @@
 
                         <div class="content">
                             <h4>24/7 Online Support</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            <p>Get your online support for teacher and student in here!</p>
                         </div>
                     </div>
                 </div>
@@ -126,13 +131,13 @@
             @foreach($lecturer as $data => $item)
             <div class="col-lg-4 col-md-6">
                 <div class="teacher-box">
-                    <div class="pic">
-                        <img src="{!! asset('../../edufield/assets/img/teacher-one.jpg') !!}" alt="teacher">
+                    <div class="pic text-center">
+                        <img src="{!! asset('../../images/users/lecturer/'.'/'.$item->pictures) !!}" alt="teacher" style="height: 228px !important">
                         <a href="{{url('/lecturer-profile').'/'.$item->id}}" class="view-profile">View Profile</a>
                     </div>
 
                     <div class="teacher-content">
-                        <h3 class="title"><a href="#">{{$item->name}}</a></h3>
+                        <h3 class="title"><a href="{{url('/lecturer-profile').'/'.$item->id}}">{{$item->name}}</a></h3>
                         <span class="post">{{$item->nrp_dosen}}</span>
 
                         <ul>

@@ -221,11 +221,11 @@
                         @foreach($all as $item)
                             <div class="single-latest-courses">
                             <div class="img">
-                                <a href="{{url('/single-course/'.'/'.$item->id)}}"><img src="{{asset('images/courses/'.'/'.$item->pictures)}}" alt="course"></a>
+                                <a href="{{url('/single-course'.'/'.$item->id)}}"><img src="{{asset('images/courses/'.'/'.$item->pictures)}}" alt="course"></a>
                             </div>
 
                             <div class="content">
-                                <h4><a href="{{url('/single-course/'.'/'.$item->id)}}">{{$item->course_name}}</a></h4>
+                                <h4><a href="{{url('/single-course'.'/'.$item->id)}}">{{$item->course_name}}</a></h4>
                             </div>
                         </div>
                         @endforeach
@@ -255,7 +255,7 @@
         </div>
     </div>
 
-    <div class="similar-courses">
+    {{--<div class="similar-courses">
         <div class="container">
             <h2>Similar Courses</h2>
 
@@ -333,7 +333,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
 </section>
 <!-- End Course Details Area -->
 @endsection

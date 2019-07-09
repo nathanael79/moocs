@@ -195,13 +195,15 @@
         <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="single-footer">
-                    <h3>About EduField</h3>
+                    <a class="nav-brand" href="{{url('/')}}"><img src="{!! asset('../../images/logo.png') !!}" alt="logo" style="width: 300px;"></a>
+                    <h3>About MOOC PENS</h3>
 
                     <ul class="footer-contact-info">
-                        <li>2750 Quadra Street , Park Area, Victoria, Canada.</li>
-                        <li><a href="#">+4 (05) 345 6789</a></li>
-                        <li><a href="#">+4 (15) 345 6789</a></li>
-                        <li><a href="#">contact@EduField.com</a></li>
+                        <li>Jl. Raya ITS - Kampus PENS Sukolilo.</li>
+                        <li><a href="#">Surabaya 60111, Indonesia</a></li>
+                        <li><a href="#">+62 (31) 594 7280</a></li>
+                        <li><a href="#">+62 (31) 594 6114</a></li>
+                        <li><a href="#">humas@pens.ac.id</a></li>
                     </ul>
 
                     <ul class="social">
@@ -214,7 +216,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6">
+         {{--   <div class="col-lg-3 col-md-6">
                 <div class="single-footer">
                     <h3>Courses</h3>
 
@@ -257,7 +259,7 @@
                         <li><a href="#">LearnPress</a></li>
                     </ul>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
 
@@ -266,13 +268,6 @@
             <div class="row">
                 <div class="col-lg-7 col-md-7">
                     <p>Copyright <i class="icofont-copyright"></i> 2018 EduField Template by EnvyTheme. All rights reserved</p>
-                </div>
-
-                <div class="col-lg-5 col-md-5">
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

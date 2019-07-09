@@ -21,7 +21,7 @@ class Lecturer
         }
         else
         {
-            return redirect('/logout')>with('failed','You dont have access!');
+            return redirect('/logout')->with('failed','You dont have access!');
         }
     }
 }

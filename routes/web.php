@@ -161,11 +161,18 @@ Route::group(['prefix'=>'/'],function (){
                 'uses'=>'MatterController@getData',
                 'as'=>'get_matter_data'
             ]);
+
         Route::post('/submit-assignment/',
                 [
                     'uses'=>'MatterController@submitAssignment',
                     'as'=>'submit_assgnment'
                 ]);
+
+        Route::get('/result',
+            [
+                'uses'=>'MatterController@result',
+                'as'=>'result_course'
+            ]);
 
         Route::post('/getQuestion',
             [
@@ -447,6 +454,12 @@ Route::group(['prefix'=>'/'],function (){
             [
                 'uses'=>'LecturerController@assignmentDetail',
                 'as'=>'get_assignment_detail'
+            ]);
+
+        Route::get('/assignment-delete/{id}',
+            [
+                'uses'=>'LecturerController@assignmentDelete',
+                'as'=>'delete_assignment'
             ]);
 
     });

@@ -100,9 +100,9 @@
                             </div>
                             <div class="card-header d-flex align-items-center">
                                 <div class="d-flex align-items-center">
-                                    <a href="#">
+                                   {{-- <a href="#">
                                         <img src="../../assets/img/theme/team-1.jpg" class="avatar">
-                                    </a>
+                                    </a>--}}
                                     <div class="mx-3">
                                         <a href="#" class="text-dark font-weight-600 text-sm">{{$item['user']->name}}</a>
                                         <small class="d-block text-muted">3 days ago</small>
@@ -136,7 +136,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 d-none d-sm-block">
+                                    {{--<div class="col-sm-6 d-none d-sm-block">
                                         <div class="d-flex align-items-center justify-content-sm-end">
                                             <div class="avatar-group">
                                                 <a href="#" class="avatar avatar-xs rounded-circle" data-toggle="tooltip" data-original-title="Jessica Rowland">
@@ -151,7 +151,7 @@
                                             </div>
                                             <small class="pl-2 font-weight-bold">and 30+ more</small>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <!-- Comments -->
                                 <div class="mb-1">

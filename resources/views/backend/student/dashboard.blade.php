@@ -28,9 +28,6 @@
                         <div class="col-8">
                             <h3 class="mb-0">Enrollment Courses</h3>
                         </div>
-                        <div class="col-4 text-right">
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-form-edit"><i class="ni ni-ruler-pencil">Edit Informations</i></button>
-                        </div>
                     </div>
                 </div>
                 <div class="row">

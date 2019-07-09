@@ -19,8 +19,8 @@
             @foreach($course as $data =>$item)
             <div class="col-lg-4 col-md-6">
                 <div class="courses-item">
-                    <div class="courses-img">
-                        <img src="{!! asset('images/courses/').'/'.$item->pictures !!}" alt="course">
+                    <div class="courses-img text-center">
+                        <img src="{!! asset('images/courses/').'/'.$item->pictures !!}" alt="course" style="height: 240px !important;">
                     </div>
 
                     <div class="courses-content">

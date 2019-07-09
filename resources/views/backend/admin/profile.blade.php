@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="col-xl-8 order-xl-1">
-                <div class="row">
+                {{--<div class="row">
                     <div class="col-lg-6">
                         <div class="card bg-gradient-info border-0">
                             <!-- Card body -->
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
