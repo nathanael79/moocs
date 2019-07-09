@@ -17,24 +17,31 @@ class EnrollmentController extends Controller
         $course = Course::find($id);
         $user = User::find(Session::get('activeUser')->id);
         $activeLearner = Enrollment::where('user_id',$user)->first();
-        if($activeLearner)
+        if($course->status == 'pending')
         {
-            return redirect('/matter/'.$course->id);
+            return redirect()->back()->with('Failed to enroll','Course is pending, cannot be enroll');
         }
         else
         {
-            try {
-                $enroll = Enrollment::create([
-                    'user_id' => $user->id,
-                    'user_type' => $user->user_type,
-                    'course_id' => $course->id
-                ]);
-            }catch (Exception $e)
+            if($activeLearner)
             {
-                echo 'Message :'.$e->getMessage();
+                return redirect('/matter/'.$course->id);
             }
+            else
+            {
+                try {
+                    $enroll = Enrollment::create([
+                        'user_id' => $user->id,
+                        'user_type' => $user->user_type,
+                        'course_id' => $course->id
+                    ]);
+                }catch (Exception $e)
+                {
+                    echo 'Message :'.$e->getMessage();
+                }
 
-            return redirect('/matter/'.$course->id)->with('success','Success to enroll this course');
+                return redirect('/matter/'.$course->id)->with('success','Success to enroll this course');
+            }
         }
     }
 

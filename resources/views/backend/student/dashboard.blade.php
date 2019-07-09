@@ -87,6 +87,7 @@
                         "searchable": false,
                         render: function(data, type, row, meta){
                             return "<div class='btn-group'>"+
+                                "<a href='{{url("/matter")}}/"+row["id"]+"' class='btn btn-info'><span class=\"btn-inner--icon\"><i class=\"ni ni-books\" title='Details'></i></span></a>"+
                                 "<a href='{{url("/delete-enroll")}}/"+row["id"]+"' class='btn btn-danger'><span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\" title='Delete'></i></span></a>"+
                                 "</div>";
                         }
