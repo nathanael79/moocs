@@ -20,6 +20,8 @@ class CreateForumTable extends Migration
             $table->string('forum_like');
             $table->integer('user_id');
             $table->string('user_type');
+            $table->bigInteger('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
             $table->timestamps();
         });
     }

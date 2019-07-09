@@ -18,9 +18,9 @@ class CreateCertificateTable extends Migration
             $table->bigIncrements('id');
             $table->string('certificate_name');
             $table->bigInteger('lecturer_id')->unsigned();
-            $table->foreign('lecturer_id')->references('id')->on('lecturer');
+            $table->foreign('lecturer_id')->references('id')->on('lecturer')->onDelete('cascade');
             $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('course');
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
             $table->integer('user_id');
             $table->string('user_type');
             $table->timestamps();

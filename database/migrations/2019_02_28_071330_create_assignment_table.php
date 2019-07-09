@@ -15,11 +15,12 @@ class CreateAssignmentTable extends Migration
     {
         Schema::create('assignment', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
-            $table->string('assignment_category');
             $table->string('assignment_question');
             $table->string('assignment_answer');
             $table->float('assignment_score');
+            $table->bigInteger('sub_course_id')->unsigned();
+            $table->foreign('sub_course_id')->references('id')->on('sub_course')->onDelete('cascade');
+            $table->bigInteger('order_id')->nullable();
             $table->timestamps();
         });
     }

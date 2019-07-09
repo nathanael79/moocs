@@ -20,7 +20,7 @@ class CreateEnrollmentTable extends Migration
             $table->string('user_status');
             $table->string('user_type');
             $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('course');
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
             $table->timestamps();
         });
     }

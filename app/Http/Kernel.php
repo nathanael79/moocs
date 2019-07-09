@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+        //\App\Http\Middleware\CheckRole::class,
     ];
 
     /**
@@ -35,6 +36,23 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+
+        'admin' =>[
+            \App\Http\Middleware\Login::class,
+            \App\Http\Middleware\Admin::class
+        ],
+
+        'student'=>[
+            \App\Http\Middleware\Login::class,
+            \App\Http\Middleware\Student::class
+
+        ],
+
+        'lecturer'=>[
+            \App\Http\Middleware\Login::class,
+            \App\Http\Middleware\Lecturer::class
+
         ],
 
         'api' => [
@@ -60,6 +78,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'cek-role'=> \App\Http\Middleware\CheckRole::class,
+        'login'=>\App\Http\Middleware\Login::class,
     ];
 
     /**

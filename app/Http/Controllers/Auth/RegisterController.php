@@ -2,71 +2,127 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Mail\SendMail;
+use App\Model\Lecturer;
+use App\Model\Student;
+use Illuminate\Support\Facades\Mail;
+use Toast;
+use Validator;
+use App\Model\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function indexLecturer()
     {
-        $this->middleware('guest');
+        return view('auth.register_lecturer');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function indexStudent()
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        //echo "test";
+        return view('auth.register_student');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    public function registerLecturer(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $activeLecturer = User::where('user_email',$request->email)
+            ->where('user_type','lecturer')->first();
+        if($activeLecturer->user_password)
+        {
+            Toast::error('Silahkan login dengan akun lecturer anda', 'Akun anda sudah aktif !');
+            return redirect('/login');
+        }
+        else
+        {
+            $password = Hash::make($request->password);
+            $activeLecturer->user_password = $password;
+            $activeLecturer->save();
+            $name = str_slug(($request->email).'-'.'unknown');
+            copy(public_path().'/images/users/unknown.png', public_path().'/images/users/lecturer/'.$name);
+
+            $lecturer = new Lecturer();
+            $lecturer->user_id = $activeLecturer->id;
+            $lecturer->pictures = $name;
+            $lecturer->status = 0;
+            $lecturer->save();
+            Toast::info('Silahkan lengkapi data profil anda pada halaman profil','Akun anda telah dibuat !');
+            return redirect('/lecturer');
+        }
+    }
+
+    public function registerStudent(Request $request)
+    {
+        $validator = Validator::make($request->all(),
+            [
+                'email'=>'required|max:100|email',
+                'password'=>'required|min:6'
+            ]);
+
+        if ($validator->fails())
+        {
+            //return redirect()->back()->withErrors($validator);
+            return redirect()->back()->withErrors($validator->errors());
+        }
+        else
+        {
+            $user = User::where('user_email',$request->email)->first();
+            $token = str_random(100);
+            if($user)
+            {
+                Toast::info('Email yang anda gunakan untuk mendaftarkan akun baru telah terdaftar, gunakan email lainnya.','Email sudah terdaftar !');
+                return redirect()->back();
+            }
+            else
+            {
+                $user = User::create([
+                    //'name'=>$request->name,
+                    'user_email'=>$request->email,
+                    'user_password'=>Hash::make($request->password),
+                    'user_type'=>'student',
+                    'status'=>0,
+                    'token'=>$token
+                ]);
+                $name = str_slug(($request->email).'-'.'unknown');
+                copy(public_path().'/images/users/unknown.png', public_path().'/images/users/student/'.$name);
+
+                $student = new Student();
+                $student->user_id = $user->id;
+                $student->pictures = $name;
+                $student->status = 0;
+                $student->save();
+                Mail::to($request->email)->send(new SendMail($request->email, $token));
+                Toast::info('Segera periksa kotak masuk email yang kamu gunakan untuk mendaftar','Konfirmasikan email kamu !');
+                return redirect('/dashboard');
+            }
+        }
+    }
+
+    public function responseEmail(Request $request)
+    {
+        $activeLecturer = User::where('user_email',$request->email)->where('user_type','lecturer')->first();
+        if($activeLecturer)
+        {
+            return response()->json([
+                "status"=>true,
+                "code"=>200,
+                "message"=>"email ditemukan",
+                "data"=>$activeLecturer->user_email,
+                //"password"=>1,
+                "activated"=>$activeLecturer->status
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                "status"=>false,
+                "code"=>500,
+                "message"=>"email tidak ditemukan"
+            ]);
+        }
+
     }
 }

@@ -17,13 +17,14 @@ class CreateSubCourseDetailTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('sub_course_detail_name');
-            $table->string('sub_course_detail_type');
-            $table->string('sub_course_detail_path');
-            $table->string('sub_course_detail_description');
+            $table->string('sub_course_detail_type')->nullable();
+            $table->string('sub_course_detail_path')->nullable();
+            $table->string('sub_course_detail_description')->nullable();
             $table->bigInteger('view');
             $table->bigInteger('sub_course_id')->unsigned();
-            $table->foreign('sub_course_id')->references('id')->on('sub_course');
-            //$table->timestamps();
+            $table->foreign('sub_course_id')->references('id')->on('sub_course')->onDelete('cascade');
+            $table->bigInteger('subcourse_order_id')->nullable();
+            $table->timestamps();
         });
     }
 
